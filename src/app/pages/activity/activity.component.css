@@ -1,0 +1,42 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.box {
+    width: 100%;
+}
+
+.red {
+    width: 100%;
+}
+
+.green {
+    margin: 0 auto;
+    margin-left: 50px;
+}
+
+.folder {
+    border-radius: 10px;
+    text-align: center;
+    height: 200px;
+    width: 190px;
+}
+
+.lbl {
+    font-size: 14px;
+}
+
+.cdesc {
+    font-size: 12px;
+}
+
+.p {
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-bottom: 35px;
+    /*margin-top: 50px;*/
+}

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ChapterfacultyComponent implements OnInit {
 
   constructor() { }
+  list: any[] = [1, 2, 3, 4, 5, 6, 7];
 
   ngOnInit(): void {
   }

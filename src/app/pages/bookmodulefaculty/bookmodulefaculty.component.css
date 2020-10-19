@@ -1,0 +1,21 @@
+.module {
+    border-radius: 10px;
+}
+
+.img {
+    height: 100px;
+    width: 100%;
+}
+
+.isDisabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.input {
+    margin-bottom: 10px;
+}
+
+.view{
+    margin-left: 10px;
+}

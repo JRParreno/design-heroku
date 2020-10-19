@@ -1,0 +1,52 @@
+.content {
+    height: 700px;
+    width: 100%;
+}
+
+.vid{
+    height: 250px;
+    width: 100%;
+}
+
+.book-page {
+    float: left;
+    width: calc(65% - 60px);
+    margin-right: 10px;
+    margin-bottom: 40px;
+    margin-left: 60px;
+}
+
+.book-etc {
+    float: left;
+    width: calc(35%);
+    margin-left: 10px;
+    margin-bottom: 40px;
+    margin-right: -40px;
+}
+
+.t-content {
+    height: 288px;
+}
+
+.right {
+    margin-top: 20px;
+    float: right;
+}
+
+.thread {
+    height: 105px;
+    overflow-y: auto;
+}
+
+.tr-pnl{
+    margin-top: 26px;
+}
+
+
+.tst{
+  margin-left: 10px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 0.5; /* Firefox */
+  }

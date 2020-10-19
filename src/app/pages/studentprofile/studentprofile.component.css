@@ -1,0 +1,58 @@
+.display {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.input {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: underline;
+}
+
+.box {
+    width: 100%;
+    text-align: center;
+}
+
+.pnl {
+    width: 100%;
+}
+
+.pnl3 {
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+}
+
+.r {
+    float: left;
+    width: 50%;
+    padding-top: 76px;
+    padding-left: 30px;
+}
+
+.spc {
+    width: 5px;
+    height: 100%;
+}
+
+.b1 {
+    position: absolute;
+    top: 0;
+    padding-top: 200px;
+    left: calc(50% - 260px);
+}
+
+button {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.user {
+    font-size: 140px;
+    text-align: center;
+    width: 100%;
+}

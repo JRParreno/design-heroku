@@ -9,6 +9,10 @@ export class ChapterComponent implements OnInit {
 
   constructor() { }
 
+  list: any[] = [1, 2, 3, 4, 5, 6, 7];
+  vids: any[] = [1, 2, 3, 4];
+
+
   ngOnInit(): void {
   }
 

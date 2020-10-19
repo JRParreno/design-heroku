@@ -1,1 +1,17 @@
-<p>assessmentrecord works!</p>
+<div class="layout">
+    <div class="box">
+        <table class="table shadow-soft rounded">
+            <tr>
+
+                <th class="border-0 " scope="col" id="activityno">Activity</th>
+                <th class="border-0 score-col" scope="col" id="score">Score</th>
+                <th class="border-0 date-col" scope="col" id="datetaken">Date Taken</th>
+            </tr>
+            <tr *ngFor="let i of list">
+                <td headers="activityno">Activity {{i}}</td>
+                <td class="score-col" headers="score">50/50</td>
+                <td class="date-col" headers="datetaken">Oct. {{i}}, 2020</td>
+            </tr>
+        </table>
+    </div>
+</div>

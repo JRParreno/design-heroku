@@ -1,1 +1,75 @@
-<p>studentlogin works!</p>
+<div class="page">
+    <div class="card bg-primary border-light shadow-soft center" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title txt-center ">Login</h5>
+            <form>
+                <div class="form-group">
+                    <label></label>
+                    <input type="text" class="form-control" id="username" placeholder="Student Number">
+                    <label></label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <small id="forgotpassword" class="form-text text-muted"><a data-toggle="modal"
+                            data-target="#modal-default"> Forgot password?</a></small>
+                    <div class="center">
+                        <button type="submit" class=" right btn btn-primary text-success" (click)="login()">
+                            <span class="fas fa-sign-in-alt mr-2"></span> </button>
+                    </div>
+                </div>
+                <!--<button type="submit" class="login btn btn-pill btn-primary text-success">Login</button>-->
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-default">Forgot Password</h2>
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>-->
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Enter your email to reset password</label>
+                        <input class="input" type="text" class="form-control" id="email" placeholder="email">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal"
+                    data-target="#modal-confirm">Enter</button>
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-confirm"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-confirm"></h2>
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>-->
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">A link is sent to your email to reset your password, please follow the
+                            instructions</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" class="btn btn-primary text-success ml-auto">I Got It</button>-->
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Okay</button>
+            </div>
+        </div>
+    </div>
+</div>

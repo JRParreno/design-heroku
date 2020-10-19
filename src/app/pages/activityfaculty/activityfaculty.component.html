@@ -1,1 +1,226 @@
-<p>activityfaculty works!</p>
+<div class="layout">
+    <!--<a routerLink="/faculty/home/classlist"><b class="opt"> <span class="fas fa-angle-double-left"></span> BACK</b></a>
+
+    <div class="card bg-primary border-light shadow-soft questions">
+        <div class="card-body">
+            <span class="h6 icon-tertiary small"><span class="fas fa-pencil-alt mr-2"></span>Assembly Language</span>
+            <h3 class="h5 card-title mt-3">Activity 1</h3>
+            <p class="card-text">Questionnaire</p>
+            <div class="accordion shadow-soft rounded" id="accordionExample1">
+                <div class="card card-sm card-body bg-primary border-light mb-0">
+                    <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse"
+                        role="button" aria-expanded="false" aria-controls="panel-1">
+                        <span class="h6 mb-0 font-weight-bold">1) Question 1?</span>
+                        <span class="icon"><span class="fas fa-plus"></span></span>
+                    </a>
+                    <div class="collapse" id="panel-1">
+                        <div class="pt-3">
+                            <p class="mb-0">
+                                <input type="radio" name="choice" value="q1c1">Choice 1<br>
+                                <input type="radio" name="choice" value="q1c2">Choice 2<br>
+                                <input type="radio" name="choice" value="q1c3">Choice 3<br>
+                                <input type="radio" name="choice" value="q1c4">Choice 4
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-sm card-body bg-primary border-light mb-0">
+                    <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse"
+                        role="button" aria-expanded="false" aria-controls="panel-1">
+                        <span class="h6 mb-0 font-weight-bold">2)Next question, 2?</span>
+                        <span class="icon"><span class="fas fa-plus"></span></span>
+                    </a>
+                    <div class="collapse" id="panel-2">
+                        <div class="pt-3">
+                            <p class="mb-0">
+                                <input type="radio" name="choice" value="q2c1">Choice 1<br>
+                                <input type="radio" name="choice" value="q2c2">Choice 2<br>
+                                <input type="radio" name="choice" value="q2c3">Choice 3<br>
+                                <input type="radio" name="choice" value="q2c4">Choice 4
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-sm card-body bg-primary border-light">
+                    <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse"
+                        role="button" aria-expanded="false" aria-controls="panel-1">
+                        <span class="h6 mb-0 font-weight-bold">3)Last question, 3?</span>
+                        <span class="icon"><span class="fas fa-plus"></span></span>
+                    </a>
+                    <div class="collapse" id="panel-3">
+                        <div class="pt-3">
+                            <p class="mb-0">
+                                <input type="radio" name="choice" value="q3c1">Choice 1<br>
+                                <input type="radio" name="choice" value="q3c2">Choice 2<br>
+                                <input type="radio" name="choice" value="q3c3">Choice 3<br>
+                                <input type="radio" name="choice" value="q3c4">Choice 4
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+    <table class="table shadow-inset rounded">
+        <tr>
+            <th class="border-0" scope="col" id="question">QUESTION</th>
+            <th class="border-0" scope="col" id="choices">CHOICES</th>
+            <th class="border-0" scope="col" id="answer">ANSWER</th>
+            <th class="border-0" scope="col" id="answer"></th>
+        </tr>
+        <tr>
+            <th scope="row" id="q1" rowspan="5">Question 1</th>
+        </tr>
+        <tr>
+            <th scope="row" id="c1" headers="q1 c1">choice 1</th>
+            <td headers="q3 c3 a3"> <span class="fas fa-times"></span> </td>
+            <td scope="row" rowspan="5">
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal"
+                    data-target="#modal-default">
+                    <span aria-hidden="true" class="fas fa-pencil-alt"></span>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" id="c2" headers="q1 c2">choice 2</th>
+            <td headers="q3 c3 a3"> <span class="fas fa-check"></span> </td>
+            <!--<td>
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button">
+                    <span aria-hidden="true" class="fas fa-pencil-alt"></span>
+                </button>
+            </td>-->
+        </tr>
+        <tr>
+            <th scope="row" id="c3" headers="q1 c3">choice 3</th>
+            <td headers="q3 c3 a3"> <span class="fas fa-times"></span> </td>
+            <!--<td>
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button">
+                    <span aria-hidden="true" class="fas fa-pencil-alt"></span>
+                </button>
+            </td>-->
+        </tr>
+        <tr>
+            <th scope="row" id="c4" headers="q1 c4">choice 4</th>
+            <td headers="q3 c3 a3"> <span class="fas fa-times"></span> </td>
+            <!--<td>
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button">
+                    <span aria-hidden="true" class="fas fa-pencil-alt"></span>
+                </button>
+            </td>-->
+        </tr>
+        <tr>
+            <th scope="row" id="q2" rowspan="2">Question 2</th>
+        </tr>
+        <tr>
+            <th scope="row" id="c1" headers="q2 c1">NA</th>
+            <td headers="q3 c3 a3">
+                <!--<span class="fas fa-times"></span>--> <b>answer</b> </td>
+            <td>
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal"
+                    data-target="#modal-default">
+                    <span aria-hidden="true" class="fas fa-pencil-alt"></span>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" id="q3" rowspan="5">Question 3</th>
+        </tr>
+        <tr>
+            <th scope="row" id="c1" headers="q3 c1">choice 1</th>
+            <td headers="q3 c3 a3"> <span class="fas fa-times"></span> </td>
+            <td scope="row" rowspan="5">
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal"
+                    data-target="#modal-default">
+                    <span aria-hidden="true" class="fas fa-pencil-alt"></span>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" id="c2" headers="q3 c2">choice 2</th>
+            <td headers="q3 c3 a3"> <span class="fas fa-times"></span> </td>
+            <!--<td>
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button">
+                    <span aria-hidden="true" class="fas fa-pencil-alt"></span>
+                </button>
+            </td>-->
+        </tr>
+        <tr>
+            <th scope="row" id="c3" headers="q3 c3">choice 3</th>
+            <td headers="q3 c3 a3"> <span class="fas fa-check"></span> </td>
+            <!--<td>
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button">
+                    <span aria-hidden="true" class="fas fa-pencil-alt"></span>
+                </button>
+            </td>-->
+        </tr>
+        <tr>
+            <th scope="row" id="c4" headers="q3 c4">choice 4</th>
+            <td headers="q3 c3 a3"> <span class="fas fa-times"></span> </td>
+            <!--<td>
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button">
+                    <span aria-hidden="true" class="fas fa-pencil-alt"></span>
+                </button>
+            </td>-->
+        </tr>
+    </table>
+
+
+    <div>
+        <button type="button" (click)="goto('faculty/home/classlist')" class=" right btn btn-primary text-danger"
+            aria-haspopup="true" aria-expanded="false">
+            Close
+        </button>
+        <button type="button" class="right pbtn btn btn-primary text-success btn-spc">Save Changes</button>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-default">Question Details</h2>
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Question</label>
+                        <textarea class="form-control" id="questionarea" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Answer</label>
+                        <input type="text" class="form-control input" id="answerarea" placeholder="Answer">
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Choices</label>
+                        <table class="table shadow-inset rounded">
+                            <tr>
+                                <th class="border-0 " scope="col" id="choiceid">Choice ID</th>
+                                <th class="border-0" scope="col" id="choiceanswer">Choice Description</th>
+                            </tr>
+                            <tr *ngFor="let i of list">
+                                <td headers="choiceid">{{i}}</td>
+                                <td headers="choiceanswer">
+                                    <label contenteditable="true">Choice {{i}}</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-success" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

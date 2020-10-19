@@ -1,1 +1,61 @@
-<p>bookmodules works!</p>
+<div class="layout">
+    <div class="box row green">
+        <a *ngFor="let i of list" class="p" routerLink="/student/home/chapter">
+            <div class="folder card bg-primary border-light shadow-soft">
+                <div class="card-body">
+                    <p class="icon card-title mt-3"><span class="fas fa-book mr-2"></span></p>
+                    <p class="card-text lbl">CHAPTER {{i}}</p>
+                    <p class="cdesc">Guide to Assembly</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <!--<div class="col-12 col-md-3">
+        <div class="module card bg-primary border-light shadow-soft">
+            <div class="module card-body">
+                <div class="img">insert image</div>
+                <span class="h6 icon-tertiary small"><span class="fas fa-lock-open mr-2"></span></span>
+                <h3 class="h5 card-title mt-3">Chapter 1</h3>
+                <p class="card-text">Guide to Assembly Language</p>
+                <a class="btn btn-primary btn-sm" routerLink="/student/home/chapter">View Chapter</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-3">
+        <div class="card bg-primary border-light shadow-soft">
+            
+            <div class="card-body">
+                <div class="img">insert image</div>
+                <span class="h6 icon-tertiary small"><span class="fas fa-lock mr-2"></span></span>
+               
+                <h3 class="h5 card-title mt-3">Activity 1</h3>
+                <p class="card-text">Chapter 1 lesson assessment</p>
+                <a class="btn btn-primary btn-sm" routerLink="/student/home/activity">Take Activity</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-3">
+        <div class="isDisabled card bg-primary border-light shadow-soft">
+            <div class="card-body">
+                <div class="img">insert image</div>
+                <span class="h6 icon-tertiary small"><span class="fas fa-lock mr-2"></span></span>
+                <h3 class="h5 card-title mt-3">Chapter 2</h3>
+                <p class="card-text">Guide to Assembly Language</p>
+                <a class="isDisabled btn btn-primary btn-sm">View Chapter</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-3">
+        <div class="isDisabled card bg-primary border-light shadow-soft">
+          
+            <div class="card-body">
+                <div class="img">insert image</div>
+                <span class="h6 icon-tertiary small"><span class="fas fa-lock mr-2"></span></span>
+               
+                <h3 class="h5 card-title mt-3">Activity 2</h3>
+                <p class="card-text">Chapter 2 lesson assessment</p>
+                <a class="isDisabled btn btn-primary btn-sm" disabled>Take Activity</a>
+            </div>
+        </div>
+    </div>-->
+</div>

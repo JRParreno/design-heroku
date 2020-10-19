@@ -1,1 +1,128 @@
-<p>facultylogin works!</p>
+<div class="page">
+    <div class="card bg-primary border-light shadow-soft center" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title txt-center ">Login</h5>
+            <form>
+                <div class="form-group">
+                    <label></label>
+                    <input type="text" class="form-control" id="username" placeholder="Username">
+                    <label></label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <small id="forgotpassword" class="form-text text-muted"><a data-toggle="modal"
+                            data-target="#modal-default"> Forgot password?</a></small>
+                    <div class="login">
+                        <button type="submit" class="right btn btn-primary text-success" (click)="login()">
+                            <span class="fas fa-sign-in-alt mr-2"></span> </button>
+                    </div>
+                </div>
+                <!--<button type="submit" class="login btn btn-pill btn-primary text-success">Login</button>-->
+                <small id="signup" class="form-text text-muted" data-toggle="modal" data-target="#modal-signup">No
+                    account yet? <a>Sign up</a></small>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-default">Forgot Password</h2>
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Enter your email to reset password</label>
+                        <input class="input" type="text" class="form-control" id="email" placeholder="email">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal"
+                    data-target="#modal-confirm">Enter</button>
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-confirm"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-confirm"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">A link is sent to your email to reset your password, please follow the
+                            instructions</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Okay</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="modal-signup" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-default">Please fill up the following</h2>
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-4">
+                        Faculty Number:
+                    </div>
+                    <div class="p col-12 col-md-8">
+                        <input class="input" type="text" class="form-control" id="facultyno">
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-4">
+                        Name:
+                    </div>
+                    <div class="p col-12 col-md-8">
+                        <input class="input" type="text" class="form-control" id="name"
+                            placeholder="Surname, Given Name MI.">
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-4">
+                        Email:
+                    </div>
+                    <div class="p col-12 col-md-8">
+                        <input class="input" type="text" class="form-control" id="email">
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-4">
+                        Set Password:
+                    </div>
+                    <div class="p col-12 col-md-8">
+                        <input class="input" type="password" class="form-control" id="password">
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-4">
+                        Confirm Password:
+                    </div>
+                    <div class="p col-12 col-md-8">
+                        <input class="input" type="password" class="form-control" id="password2">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal"
+                    data-target="#modal-confirm">Enter</button>
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Back</button>
+            </div>
+        </div>
+    </div>
+</div>

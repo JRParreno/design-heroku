@@ -1,0 +1,21 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.questions {
+    margin-top: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.opt {
+    margin-left: 30px;
+}
+
+.btn-spc {
+    margin-right: 30px;
+}

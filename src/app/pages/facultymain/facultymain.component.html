@@ -1,1 +1,86 @@
-<p>facultymain works!</p>
+<nav id="header" class="navbar navbar-expand-lg navbar-light bg-light navbar-theme-primary sticky z">
+    <a class="navbar-brand">
+        <img class="btn" src="assets/l1.png" width="30" height="30" class="d-inline-block align-top" alt=""
+            loading="lazy">
+        Assembly Language
+    </a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+
+        <!--<div class="dropdown">
+            <div class="btn-group mr-2 mb-2">
+                <button class="btn btn-icon-only btn-pill btn-github" type="button"
+                    (click)="navigate('faculty/home/classlist')">
+                    <span aria-hidden="true" class="fas fa-home"></span>
+                </button>
+            </div>
+            <div class="btn-group mr-2 mb-2">
+                <button type="button" class="account-btn btn btn-pill btn-primary dropdown-toggle dropdown-toggle-split"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-1"><span class="fas fa-user-circle"></span></span>
+                    Account
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" routerLink="profile">Account</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" routerLink="/faculty/login">Logout</a>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    <div class="d-flex align-items-center">
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+            <li class="nav-item">
+                <a aria-hidden="true" routerLink="/faculty/home/classlist">
+                    <span class="mr-1"><span class="fas fa-home"></span></span>
+                </a>
+            </li>
+            <li class="nav-item dropdown dropleft">
+                <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+                    <i class="fas fa-angle-left nav-link-arrow"></i>
+                    <span class="nav-link-inner-text">Account</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <a class="dropdown-item" routerLink="profile">
+                        <span class="fas fa-user-circle"></span>
+                        Profile</a>
+                    <a class="dropdown-item" routerLink="/faculty/home/records">
+                        <span class="fas fa-list"></span>
+                        Records</a>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#modal-logout">
+                        <span class="fas fa-sign-out-alt"></span>
+                        Logout</a>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="spacer">.</div>
+
+
+<router-outlet></router-outlet>
+
+
+<div class="modal fade" id="modal-logout" tabindex="-1" role="dialog" aria-labelledby="modal-logout" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-default"> Confirm Logout</h2>
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Are you sure you want to logout?</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal"
+                    routerLink="/portal/faculty">Yes</a>
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>

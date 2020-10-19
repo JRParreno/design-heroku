@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-studentmain',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentmainComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
+
+  navigate(path: string) {
+    this.router.navigate([path]);
+  }
+
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event) {
+    // let header = document.getElementById("header");
+
+    // Get the offset position of the navbar
+    // var sticky = header.offsetTop;
+    // if (window.pageYOffset > sticky) {
+    //   header.classList.add("nav-shadow");
+    //  } else {
+    //   header.classList.remove("nav-shadow");
+    // }
+  }
+
 
 }

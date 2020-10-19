@@ -1,0 +1,14 @@
+.box {
+    width: 100%;
+    padding-left: 70px;
+}
+
+.date-col {
+    width: 25%;
+    text-align: center;
+}
+
+.score-col {
+    width: 25%;
+    text-align: center;
+}

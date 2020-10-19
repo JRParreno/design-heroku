@@ -1,1 +1,58 @@
-<p>bookmodulefaculty works!</p>
+<div class="layout row">
+    <div class="col-12 col-md-3">
+        <div class="module card bg-primary border-light shadow-soft">
+            <div class="module card-body">
+                <div class="img">insert image</div>
+                <span class="h6 icon-tertiary small"><span class="fas fa-award mr-2"></span></span>
+                <h3 class="h5 card-title mt-3">Chapter 1</h3>
+                <p class="card-text">Guide to Assembly Language</p>
+                <a class="btn btn-primary btn-sm view" routerLink="/faculty/home/chapter">View Chapter</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-3">
+        <div class="card bg-primary border-light shadow-soft">
+            <div class="card-body">
+                <div class="img">insert image</div>
+                <span class="h6 icon-tertiary small"><span class="fas fa-award mr-2"></span></span>
+                <h3 class="h5 card-title mt-3">Chapter 2</h3>
+                <p class="card-text">Guide to Assembly Language</p>
+                <a class="btn btn-primary btn-sm view" routerLink="/faculty/home/chapter">View Chapter</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-default">Chapter 1 Note</h2>
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label> Guide to Assembly Language</label>
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <textarea class="form-control input" id="notearea" rows="3" placeholder="Note"></textarea>
+                    </div>
+                </div>
+
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <input type="text" class="form-control input" id="urlarea" placeholder="URL/Link">
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-success" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

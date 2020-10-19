@@ -1,1 +1,176 @@
-<p>classlist works!</p>
+<div class="layout">
+    <div id="carousel" class="carousel slide box red">
+        <b id="opclass" class="opt" (click)="classlistact($event)">CLASSLIST</b>
+        <b id="opactivity" class="opt" (click)="activityact($event)">ACTIVITIES</b>
+        <b id="opchapter" class="opt" (click)="chapteract($event)">CHAPTERS</b>
+
+        <div class="carousel-inner rounded">
+            <div id="classlist" class="carousel-item active">
+                <div class="box row green">
+                    <a *ngFor="let i of list" class="p col-12 col-md-2" (click)="gotoclass('faculty/home/class')">
+                        <div class="folder card bg-primary border-light shadow-soft">
+                            <div class="card-body">
+                                <p class="icon card-title mt-3"><span class="fas fa-folder mr-2"></span></p>
+                                <p class="card-text lbl">CEIT-03-1002E</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="p col-12 col-md-2" data-toggle="modal" data-target="#modal-default">
+                        <div class="folder card bg-primary border-light shadow-soft">
+                            <div class="card-body">
+                                <p class="icon card-title mt-3"><span class="fas fa-plus-circle mr-2"></span></p>
+                                <p class="card-text lbl">Add Section</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div id="activity" class="carousel-item">
+                <div class="box row green">
+                    <!--<a *ngFor="let i of list" class="p col-12 col-md-2" (click)="gotoclass('faculty/home/activity')">-->
+                    <a *ngFor="let i of list" class="p col-12 col-md-2" data-toggle="modal"
+                        data-target="#act-modal-default" (click)="selectactivity(i)">
+                        <div class="folder card bg-primary border-light shadow-soft">
+                            <div class="card-body">
+                                <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>
+                                <p class="card-text lbl">ACTIVITY {{i}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div id="chapter" class="carousel-item">
+                <div class="box row green">
+                    <a *ngFor="let i of list" class="p col-12 col-md-2" routerLink="/faculty/home/chapter">
+                        <div class="folder card bg-primary border-light shadow-soft">
+                            <div class="card-body">
+                                <p class="icon card-title mt-3"><span class="fas fa-book mr-2"></span></p>
+                                <p class="card-text lbl">CHAPTER {{i}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    <!--<div *ngFor="let i of list" class="module card bg-primary border-light shadow-soft">
+                        <div class="module card-body">
+                            <div class="img"></div>
+                            <span class="h6 icon-tertiary small"><span class="fas fa-award mr-2"></span></span>
+                            <h3 class="h5 card-title mt-3">Chapter {{i}}</h3>
+                            <p class="card-text">Guide to Assembly Language</p>
+                            <a class="btn btn-primary btn-sm view" routerLink="/faculty/home/chapter">View Chapter</a>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--<div class="box red"> 
+        <div class="box row green">
+            <a *ngFor="let i of list" class="p col-12 col-md-2" (click)="gotoclass('faculty/home/class')">
+                <div class="folder card bg-primary border-light shadow-soft">
+                    <div class="folder card-body">
+                        <p class="icon card-title mt-3"><span class="fas fa-folder mr-2"></span></p>
+                        <p class="card-text">CEIT-03-1002E</p>
+                    </div>
+                </div>
+            </a>
+            <a class="p col-12 col-md-2" data-toggle="modal" data-target="#modal-default">
+                <div class="folder card bg-primary border-light shadow-soft">
+                    <div class="folder card-body">
+                        <p class="icon card-title mt-3"><span class="fas fa-plus-circle mr-2"></span></p>
+                        <p class="card-text">Add Section</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>-->
+</div>
+
+
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-default">New section</h2>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-12">
+                        <label>Section Code</label>
+                        <input class="input" type="text" class="form-control" id="code">
+                        <label>Section Schedule</label>
+                        <input class="input" type="text" class="form-control" id="schedule">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-success" (click)="savesection()">Save</button>
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="act-modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <form class="w-75">
+                    <div class="form-group">
+                        <h2 class="h6 modal-title mb-0" id="modal-title-default">ACTIVITY {{slc}}</h2>
+                    </div>
+                    <div>
+                        <div class="input-daterange row align-items-center">
+                            <div class="col">
+                                <div class="form-group">
+                                    <div class="input-group input-group-border">
+                                        <div class="input-group-prepend"><span class="input-group-text"><span
+                                                    class="far fa-calendar-alt"></span></span></div>
+                                        <input class="form-control datepicker" id="date1" placeholder="Start date"
+                                            type="text">
+                                        <input class="form-control" id="time1" placeholder="Start time" type="time">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <div class="input-group input-group-border">
+                                        <div class="input-group-prepend"><span class="input-group-text"><span
+                                                    class="far fa-calendar-alt"></span></span></div>
+                                        <input class="form-control datepicker" id="date2" placeholder="End date"
+                                            type="text">
+                                        <input class="form-control" id="time2" placeholder="End time" type="time">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-body act-tbl">
+                <table class="table shadow-soft rounded act-tbl">
+                    <tr>
+                        <th class="border-0" scope="col" id="block">Section</th>
+                        <th class="border-0" scope="col" id="studentno">Student No.</th>
+                        <th class="border-0" scope="col" id="score">Score</th>
+                    </tr>
+                    <tr *ngFor="let i of list">
+                        <td headers="block">CEIT-03-1002E</td>
+                        <td headers="studentno">2020-100001</td>
+                        <td headers="score">50/50</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-secondary"
+                    (click)="gotoclass('faculty/home/activity')" data-dismiss="modal">View
+                    Questions</button>
+
+                <button type="button" class="btn btn-primary text-danger ml-auto" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

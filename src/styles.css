@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";*/
+
+@import "neumorphism.css";
+@import "vendor/@fortawesome/fontawesome-free/css/all.min.css";
+.strap {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.account-btn {
+    width: 180px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.layout{
+    padding: 25px;
+    margin-bottom: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+html {
+    scroll-behavior: smooth;
+  }

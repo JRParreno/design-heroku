@@ -1,0 +1,41 @@
+.content {
+    height: 700px;
+    width: 100%;
+}
+
+.book-page {
+    float: left;
+    width: calc(65% - 10px);
+    margin-right: 10px;
+    margin-bottom: 40px;
+}
+
+.book-etc {
+    float: left;
+    width: calc(35% - 10px);
+    margin-left: 10px;
+    margin-bottom: 40px;
+}
+
+.t-content {
+    height: 288px;
+}
+
+.right {
+    margin-top: 20px;
+    float: right;
+}
+
+.thread {
+    height: 300px;
+    overflow-y: auto;
+}
+
+.tr-pnl{
+    margin-top: 26px;
+}
+
+
+.tst{
+  margin-left: 10px;
+}
