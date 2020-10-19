@@ -32,6 +32,7 @@ export class ApiService {
     /* backend link
        request body (data) -> username, password
        get data in the param*/
+    console.log(this.API);
     return this.http.post<any>(this.API + "/api/auth/professor/login", param);
   }
 
