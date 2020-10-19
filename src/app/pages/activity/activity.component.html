@@ -1,5 +1,25 @@
 <div class="layout">
-    <div class="box row green">
+
+    <div class=" ui-fluid p-grid red">
+        <div *ngFor="let i of list" class="p-col-12 p-md-3">
+            <div class="box">
+                <a routerLink="/student/home/chapter">
+                    <div class="card bg-primary border-light shadow-soft">
+                        <div class="center card-body">
+                            <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>
+                            <p class="card-text lbl">ACTIVITY NO. {{i}}</p>
+                            <p class="cdesc">Due: Dec. 1, 2020 <br>
+                                Score: 20/20</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--<div class="box row green">
         <a *ngFor="let i of list" class="p" routerLink="/student/home/assessment">
             <div class="folder card bg-primary border-light shadow-soft">
                 <div class="card-body">
@@ -10,7 +30,7 @@
                 </div>
             </div>
         </a>
-    </div>
+    </div>-->
     <!--<div class="card bg-primary border-light shadow-soft">
         <div class="card-body">
             <span class="h6 icon-tertiary small"><span class="fas fa-pencil-alt mr-2"></span>Assembly Language</span>

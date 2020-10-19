@@ -28,7 +28,7 @@ const routes: Routes = [
     path: "faculty", component: FacultyComponent, children: [
       {
         path: "home", component: FacultymainComponent, children: [
-          { path: "", component: ClasslistComponent },
+          { path: "", redirectTo: "classlist", pathMatch: 'full' },
           { path: "chapter", component: ChapterfacultyComponent },
           { path: "modules", component: BookmodulefacultyComponent },
           { path: "activity", component: ActivityfacultyComponent },
@@ -38,14 +38,15 @@ const routes: Routes = [
           { path: "records", component: RecordsComponent },
         ]
       },
+      { path: "", redirectTo: "home", pathMatch: 'full' },
     ], canActivate: [UserauthService]
   },
   {
     path: "student", component: StudentComponent, children: [
       {
         path: "home", component: StudentmainComponent, children: [
+          { path: "", redirectTo: "chapter", pathMatch: 'full' },
           { path: "modules", component: BookmodulesComponent },
-          { path: "", component: StudentmainComponent },
           { path: "activity", component: ActivityComponent },
           { path: "assessment", component: AssessmentComponent },
           { path: "chapter", component: ChapterComponent },
@@ -53,6 +54,7 @@ const routes: Routes = [
           { path: "record", component: AssessmentrecordComponent },
         ]
       },
+      { path: "", redirectTo: "home", pathMatch: 'full' },
     ]
   },
   { path: "", redirectTo: "portal/student", pathMatch: 'full' },

@@ -1,7 +1,20 @@
+.layout{
+    width: 90%;
+    margin: 0 auto;
+    padding-left: calc(4em + 1%);
+    padding-right: 1%;
+}
+
+.red{
+    background-color: rebeccapurple;
+}
+
+
 .display {
     width: 200px;
     height: 200px;
     position: relative;
+    margin:  0 auto;
 }
 
 .input {
@@ -10,11 +23,6 @@
 
 a {
     text-decoration: underline;
-}
-
-.box {
-    width: 100%;
-    text-align: center;
 }
 
 .pnl {
@@ -55,4 +63,22 @@ button {
     font-size: 140px;
     text-align: center;
     width: 100%;
+}
+
+.box,
+.sample-layout > div {
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 4px;
+}
+
+.box-stretched {
+    height: 100%;
+}
+
+
+
+label{
+    font-size: 18px;
 }

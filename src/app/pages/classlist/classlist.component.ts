@@ -20,7 +20,15 @@ export class ClasslistComponent implements OnInit {
   block: Block;
   slc: any;
 
+
+  ifclass: boolean;
+  ifactivity: boolean;
+  ifchapter: boolean;
+
   ngOnInit(): void {
+    this.ifactivity = false;
+    this.ifchapter = false;
+    this.ifclass = true;
     this.getsections();
   }
 
@@ -48,6 +56,9 @@ export class ClasslistComponent implements OnInit {
   }
 
   classlistact(event) {
+    this.ifactivity = false;
+    this.ifchapter = false;
+    this.ifclass = true;
     let c = document.getElementsByClassName("opt");
     for (let i = 0; i < c.length; i++) {
       if (c[i].id == "opclass") {
@@ -75,6 +86,9 @@ export class ClasslistComponent implements OnInit {
   }
 
   activityact(event) {
+    this.ifactivity = true;
+    this.ifchapter = false;
+    this.ifclass = false;
     let c = document.getElementsByClassName("opt");
     for (let i = 0; i < c.length; i++) {
       if (c[i].id == "opactivity") {
@@ -102,6 +116,9 @@ export class ClasslistComponent implements OnInit {
   }
 
   chapteract(event) {
+    this.ifactivity = false;
+    this.ifchapter = true;
+    this.ifclass = false;
     let c = document.getElementsByClassName("opt");
     for (let i = 0; i < c.length; i++) {
       if (c[i].id == "opchapter") {

@@ -15,7 +15,7 @@ export class UserauthService implements CanActivate {
     if (this.userLoggedin()) {
       return true;
     } else {
-      this.router.navigate(['login']);
+      this.router.navigate(['/portal/faculty']);
       return false;
     }
     //throw new Error('Method not implemented.');

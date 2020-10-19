@@ -1,3 +1,38 @@
+.layout{
+    width: 100%;
+    margin: 0 auto;;
+}
+
+
+.lst{
+    padding: 2%;
+}
+
+#classlist{
+    padding-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#activity{
+    padding-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#chapter{
+    padding-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.box{
+    height: 200px;
+}
+
 .folder {
     border-radius: 10px;
     text-align: center;
@@ -14,12 +49,6 @@
     opacity: 0.5;
 }
 
-.p {
-    margin-left: 18px;
-    margin-right: 18px;
-    margin-bottom: 20px;
-    margin-top: 50px;
-}
 
 .icon {
     font-size: 1em;
@@ -30,20 +59,8 @@
     width: 100%;
 }
 
-.box {
-    width: 100%;
-}
-
-.red {
-    width: 100%;
-}
-
-.green {
-    margin: 0 auto;
-}
-
 .opt {
-    margin-left: 30px;
+    margin-left: 3%;
     cursor: pointer;
 }
 

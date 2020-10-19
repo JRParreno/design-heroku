@@ -63,7 +63,7 @@
     </div>-->
 
 
-    <table class="table shadow-inset rounded">
+    <table class="table shadow-soft rounded">
         <tr>
             <th class="border-0" scope="col" id="question">QUESTION</th>
             <th class="border-0" scope="col" id="choices">CHOICES</th>
@@ -77,8 +77,7 @@
             <th scope="row" id="c1" headers="q1 c1">choice 1</th>
             <td headers="q3 c3 a3"> <span class="fas fa-times"></span> </td>
             <td scope="row" rowspan="5">
-                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal"
-                    data-target="#modal-default">
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal" data-target="#modal-default">
                     <span aria-hidden="true" class="fas fa-pencil-alt"></span>
                 </button>
             </td>
@@ -116,10 +115,9 @@
         <tr>
             <th scope="row" id="c1" headers="q2 c1">NA</th>
             <td headers="q3 c3 a3">
-                <!--<span class="fas fa-times"></span>--> <b>answer</b> </td>
+                <!--<span class="fas fa-times"></span>--><b>answer</b> </td>
             <td>
-                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal"
-                    data-target="#modal-default">
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal" data-target="#modal-default">
                     <span aria-hidden="true" class="fas fa-pencil-alt"></span>
                 </button>
             </td>
@@ -131,8 +129,7 @@
             <th scope="row" id="c1" headers="q3 c1">choice 1</th>
             <td headers="q3 c3 a3"> <span class="fas fa-times"></span> </td>
             <td scope="row" rowspan="5">
-                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal"
-                    data-target="#modal-default">
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal" data-target="#modal-default">
                     <span aria-hidden="true" class="fas fa-pencil-alt"></span>
                 </button>
             </td>
@@ -167,18 +164,16 @@
     </table>
 
 
-    <div>
-        <button type="button" (click)="goto('faculty/home/classlist')" class=" right btn btn-primary text-danger"
-            aria-haspopup="true" aria-expanded="false">
+    <div class="right">
+        <button type="button" (click)="goto('faculty/home/classlist')" class="btn btn-primary text-danger" aria-haspopup="true" aria-expanded="false">
             Close
         </button>
-        <button type="button" class="right pbtn btn btn-primary text-success btn-spc">Save Changes</button>
+        <button type="button" class="pbtn btn btn-primary text-success btn-spc">Save Changes</button>
     </div>
 </div>
 
 
-<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
-    aria-hidden="true">
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">

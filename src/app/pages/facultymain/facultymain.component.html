@@ -1,8 +1,6 @@
-<nav id="header" class="navbar navbar-expand-lg navbar-light bg-light navbar-theme-primary sticky z">
+<div id="header" class="navbar navbar-expand-lg navbar-light bg-light navbar-theme-primary sticky z">
     <a class="navbar-brand">
-        <img class="btn" src="assets/l1.png" width="30" height="30" class="d-inline-block align-top" alt=""
-            loading="lazy">
-        Assembly Language
+        <img class="btn" src="assets/l1.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> Assembly Language
     </a>
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
@@ -30,7 +28,7 @@
             </div>
         </div>-->
     </div>
-    <div class="d-flex align-items-center">
+    <div class="menu">
         <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
             <li class="nav-item">
                 <a aria-hidden="true" routerLink="/faculty/home/classlist">
@@ -38,27 +36,38 @@
                 </a>
             </li>
             <li class="nav-item dropdown dropleft">
-                <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+                <a class="nav-link" data-toggle="dropdown" role="button">
                     <i class="fas fa-angle-left nav-link-arrow"></i>
                     <span class="nav-link-inner-text">Account</span>
                 </a>
                 <ul class="dropdown-menu">
                     <a class="dropdown-item" routerLink="profile">
-                        <span class="fas fa-user-circle"></span>
-                        Profile</a>
+                        <span class="fas fa-user-circle"></span> Profile
+                    </a>
                     <a class="dropdown-item" routerLink="/faculty/home/records">
-                        <span class="fas fa-list"></span>
-                        Records</a>
+                        <span class="fas fa-list"></span> Records
+                    </a>
                     <a class="dropdown-item" data-toggle="modal" data-target="#modal-logout">
-                        <span class="fas fa-sign-out-alt"></span>
-                        Logout</a>
+                        <span class="fas fa-sign-out-alt"></span> Logout
+                    </a>
                 </ul>
             </li>
         </ul>
     </div>
-</nav>
-<div class="spacer">.</div>
+    <div class="menuicon">
+        <span class="fas fa-bars" (click)="viewsidenav()"></span>
+    </div>
+</div>
+<div class="spacer"></div>
 
+
+<div id="sidenavs" class="sidenav bg-light nav-shadow">
+    <a (click)="goto('/faculty/home/classlist')"><span class="fas fa-home side-spacer"></span>Home</a>
+    <a (click)="goto('/faculty/home/profile')"><span class="fas fa-user-circle side-spacer"></span>Profile</a>
+    <a (click)="goto('/faculty/home/records')"> <span class="fas fa-list side-spacer"></span>Records</a>
+    <a data-toggle="modal" data-target="#modal-logout"> <span class="fas fa-sign-out-alt side-spacer"></span>Logout</a>
+    <a (click)="closesidenav()"><span class="fas fa-window-close side-spacer"></span>Close</a>
+</div>
 
 <router-outlet></router-outlet>
 
@@ -77,8 +86,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal"
-                    (click)="logout">Yes</a>
+                <a class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" (click)="logout()">Yes</a>
                 <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">No</button>
             </div>
         </div>

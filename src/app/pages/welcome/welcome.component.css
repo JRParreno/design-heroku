@@ -2,6 +2,10 @@
     box-shadow: 0 8px 4px -4px rgba(0, 0, 0, .2);
 }
 
+#header {
+    width: 100vw;
+}
+
 .z {
     z-index: 999;
 }
@@ -82,7 +86,7 @@ b {
 .sl2 {
     background-image: url('/assets/s3.jpg');
     background-repeat: no-repeat;
-  background-size: contain;
+    background-size: contain;
 }
 
 .sl3 {
@@ -164,24 +168,34 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100%;
 }
 
-.opc{
+.opc {
     opacity: 0.3;
 }
 
-.pnl100{
+.pnl100 {
     width: 100%;
     margin-top: 200px;
 }
 
-.crdas{
+.crdas {
     margin: 0 auto;
 }
 
-
-.hide{
+.hide {
     visibility: hidden;
     width: 0%;
     float: left;
+}
+
+@media screen and (max-width: 1000px) {
+    div.menu {
+        display: none;
+    }
+}
+
+.menu {
+    padding: 0;
 }

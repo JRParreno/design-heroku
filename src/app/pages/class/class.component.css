@@ -7,30 +7,32 @@
     padding-bottom: 50px;
 }
 
-.center{
+.center {
     text-align: center;
 }
 
-.right{
+.right {
     float: right;
 }
 
-
-.btn-spcr{
+.btn-spcr {
     height: 2px;
     width: 20px;
 }
 
-.btn-spcr2{
+.btn-spcr2 {
     height: 2px;
     width: 20px;
 }
 
-.strtch{
+.strtch {
     width: 50%;
 }
 
-
-.cusfile{
+.cusfile {
     width: 200px;
+}
+
+.closebtn {
+    margin-bottom: 20px;
 }

@@ -1,5 +1,53 @@
 <div class="layout">
-    <div class="pnl">
+    <div class="ui-fluid p-grid">
+        <div class="p-col-12 p-md-12">
+            <div class="p-grid">
+                <div class="p-col-12 p-md-12">
+                    <label>Juan Dela Cruz</label>
+                </div>
+                <div class="p-col-12 p-md-12">
+                    <label>2020-10001</label>
+                </div>
+                <div class="p-col-12 p-md-12">
+                    <label>CEIT-03-1002E</label>
+                </div>
+                <div class="p-col-12">
+                    <input type="text" class="form-control input" id="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <a class="text-info" (click)="togglechangepass()">Change Password</a>
+                    <small *ngIf="!changepass" id="emailHelp" class="form-text text-muted">
+                        It's a good idea to use a strong password that you're not using elsewhere
+                    </small>
+                </div>
+            </div>
+            <div *ngIf="!changepass" class="p-grid">
+                <div class="p-col-12">
+                    <input type="password" class="form-control input" id="password" placeholder="Old Password">
+                </div>
+            </div>
+            <div *ngIf="!changepass" class="p-grid">
+                <div class="p-col-12">
+                    <input type="password" class="form-control input" id="password2" placeholder="New Password">
+                </div>
+            </div>
+            <div *ngIf="!changepass" class="p-grid">
+                <div class="p-col-12">
+                    <input type="password" class="form-control input" id="password3" placeholder="Re-type New Password">
+                </div>
+            </div>
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <button type="button" class="right btn btn-primary text-danger"
+                        (click)="goto('student/home')">Close</button>
+                    <button type="button" class="right pbtn btn btn-primary text-success"
+                        (click)="updatedetails()">Save</button> </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="pnl">
         <div class="pnl3">
             <div class="b1">
                 <div class="display card bg-primary border-light shadow-soft">
@@ -30,6 +78,6 @@
                     (click)="updatedetails()">Save</button>
             </div>
         </div>
-    </div>
+    </div>-->
 
 </div>

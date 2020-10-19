@@ -2,6 +2,20 @@
     box-shadow: 0 8px 4px -4px rgba(0, 0, 0, .2);
 }
 
+#header{
+    width: 100%;
+}
+
+.right{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.inblck{
+   display: inline;
+}
+
 .z {
     z-index: 998;
 }
@@ -26,7 +40,7 @@
 
 .sidenav {
     height: 100%;
-    width: 80px;
+    width: 4em;
     position: fixed;
     z-index: 999;
     top: 0;

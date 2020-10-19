@@ -1,20 +1,86 @@
 .nav-shadow {
-    box-shadow: 0 8px 4px -4px rgba(0,0,0,.2);
+    box-shadow: 0 8px 4px -4px rgba(0, 0, 0, .2);
 }
 
-.z{
+.z {
     z-index: 999;
 }
 
-.sticky{
+.sticky {
     position: fixed;
     top: 0;
     width: 100%;
 }
 
-.spacer{
+.spacer {
     height: 100px;
     width: 100%;
-    color:white;
+    color: white;
     opacity: 0;
+}
+
+@media screen and (max-width: 1000px) {
+    div.menu {
+        display: none;
+    }
+}
+
+.menu {
+    padding: 0;
+}
+
+@media screen and (min-width: 1000px) {
+    div.menuicon {
+        display: none;
+    }
+}
+
+.menuicon {
+    padding: 0;
+}
+
+.sidenav {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    text-align: left;
+    width: 100%;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.side-spacer {
+    padding-right: 1em;
 }

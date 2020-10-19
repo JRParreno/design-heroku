@@ -1,5 +1,21 @@
 <div class="layout">
-    <div class="box row green">
+
+    <div class="ui-fluid p-grid">
+        <div *ngFor="let i of list" class="p-col-12 p-md-3">
+            <div class="box">
+                <a routerLink="/student/home/chapter">
+                    <div class="card bg-primary border-light shadow-soft">
+                        <div class="center card-body">
+                            <p class="icon card-title mt-3"><span class="fas fa-book mr-2"></span></p>
+                            <p class="card-text lbl">CHAPTER {{i}}</p>
+                            <p class="cdesc">Guide to Assembly</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--<div class="box row green">
         <a *ngFor="let i of list" class="p" routerLink="/student/home/chapter">
             <div class="folder card bg-primary border-light shadow-soft">
                 <div class="card-body">
@@ -9,7 +25,7 @@
                 </div>
             </div>
         </a>
-    </div>
+    </div>-->
     <!--<div class="col-12 col-md-3">
         <div class="module card bg-primary border-light shadow-soft">
             <div class="module card-body">

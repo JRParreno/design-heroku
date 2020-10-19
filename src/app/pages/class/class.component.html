@@ -1,5 +1,29 @@
 <div class="layout">
-    <div class="left">
+    <div class="ui-fluid p-grid">
+        <div class="p-col-12 p-md-3">
+            <span class="fas fa-folder mr-2"></span> CEIT-03-1002E
+            <br>
+            <span class="fas fa-clock mr-2"></span> THS 6:00pm - 7:30pm
+        </div>
+        <div class="p-col-12 p-md-3">
+            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-student">
+                <span class="mr-1"><span class="fas fa-user-friends"></span></span>
+                <b>Add Student</b>
+            </button>
+        </div>
+        <div class="p-col-12 p-md-3">
+            <div class="custom-file cusfile">
+                <input type="file" class="custom-file-input" id="customfile">
+                <label class="custom-file-label" for="customfile">
+                    <span class="fas fa-upload"></span>
+                    <b>Import List</b>
+                </label>
+            </div>
+        </div>
+        <div class="p-col-12 p-md-3"></div>
+
+    </div>
+    <!--<div class="left">
         <span class="fas fa-folder mr-2"></span>
     </div>
     <div class="left w row">
@@ -23,15 +47,10 @@
                 <label class="custom-file-label" for="customfile">
                     <span class="fas fa-upload"></span>
                     <b>Import List</b>
-                    <!--<span class="mr-1"><span class="fas fa-file-import"></span></span>-->
                 </label>
             </div>
-            <!--<button class="btn btn-primary mr-3" type="button">
-                <span class="mr-1"><span class="fas fa-file-import"></span></span>
-                <b>Import List</b>
-            </button>-->
         </div>
-    </div>
+    </div>-->
 
     <table class="table shadow-soft rounded">
         <tr>
@@ -56,8 +75,7 @@
             <td headers="act4">NA</td>
             <td headers="ave">NA</td>-->
             <td headers="det">
-                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal"
-                    data-target="#modal-default">
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal" data-target="#modal-default">
                     <span aria-hidden="true" class="fas fa-ellipsis-v"></span>
                 </button>
             </td>
@@ -65,16 +83,14 @@
     </table>
 
     <div class="right">
-        <button type="button" (click)="goto('faculty/home/classlist')" class="btn btn-primary text-danger"
-            aria-haspopup="true" aria-expanded="false">
+        <button type="button" (click)="goto('faculty/home/classlist')" class="btn btn-primary text-danger closebtn" aria-haspopup="true" aria-expanded="false">
             Close
         </button>
     </div>
 </div>
 
 
-<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
-    aria-hidden="true">
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -85,16 +101,11 @@
             </div>
             <div class="modal-body">
                 Name: Juan Dela Cruz
-                <br>
-                Email: juandcruz@gmail.com
-                <br>
-                Course: BSIT
-                <br>
-                Block: CEIT-03-1002E
-                <br>
-                2020-10001's other details place here..
-                <br>
-                2020-10001's other details place here..
+                <br> Email: juandcruz@gmail.com
+                <br> Course: BSIT
+                <br> Block: CEIT-03-1002E
+                <br> 2020-10001's other details place here..
+                <br> 2020-10001's other details place here..
             </div>
             <div class="modal-footer">
                 <!--<button type="button" class="btn btn-primary text-success ml-auto">I Got It</button>-->
@@ -104,8 +115,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-student" tabindex="-1" role="dialog" aria-labelledby="modal-student"
-    aria-hidden="true">
+<div class="modal fade" id="modal-student" tabindex="-1" role="dialog" aria-labelledby="modal-student" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -131,8 +141,7 @@
                 <div class="row input">
                     <div class="p col-12 col-md-12">
                         <label class="my-1 mr-2">Name</label>
-                        <input class="input" type="text" class="form-control" id="studentname"
-                            placeholder="Student Name">
+                        <input class="input" type="text" class="form-control" id="studentname" placeholder="Student Name">
                     </div>
                 </div>
             </div>

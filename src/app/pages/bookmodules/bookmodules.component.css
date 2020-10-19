@@ -1,35 +1,24 @@
-.module {
-    border-radius: 10px;
+.layout{
+    width: 90%;
+    margin: 0 auto;
+    padding-left: calc(4em + 7%);
+    padding-right: 7%;
 }
+
 
 .img {
     height: 100px;
     width: 100%;
 }
 
-.isDisabled {
+.disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }
 
-.box {
-    width: 100%;
-}
 
-.red {
-    width: 100%;
-}
-
-.green {
-    margin: 0 auto;
-    margin-left: 50px;
-}
-
-.folder {
-    border-radius: 10px;
+.center {
     text-align: center;
-    height: 200px;
-    width: 190px;
 }
 
 .lbl {
@@ -38,11 +27,4 @@
 
 .cdesc {
     font-size: 12px;
-}
-
-.p {
-    margin-left: 18px;
-    margin-right: 18px;
-    margin-bottom: 35px;
-    /*margin-top: 50px;*/
 }

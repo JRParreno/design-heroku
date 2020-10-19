@@ -32,12 +32,36 @@ export class FacultymainComponent implements OnInit {
     } else {
       header.classList.remove("nav-shadow");
     }
+    this.closesidenav();
   }
 
 
   logout() {
+    console.log('logging out');
     sessionStorage.clear();
     this.router.navigate(['/portal/faculty']);
+  }
+
+
+  goto(path) {
+    this.closesidenav();
+    this.router.navigate([path]);
+  }
+
+
+  viewsidenav() {
+    let side = document.getElementById("sidenavs");
+    side.style.height = "300px";
+    let header = document.getElementById("header");
+    header.classList.remove("nav-shadow");
+    side.classList.add("nav-shadow");
+
+  }
+
+  closesidenav() {
+    let side = document.getElementById("sidenavs");
+    side.style.height = "0";
+    side.classList.remove("nav-shadow");
   }
 
 }

@@ -34,7 +34,8 @@
     border-collapse: separate;
 }
 
-td, th {
+td,
+th {
     white-space: nowrap;
 }
 
@@ -56,7 +57,7 @@ td, th {
     text-align: center;
 }
 
-.hc1{
+.hc1 {
     padding-bottom: 1px;
 }
 
@@ -67,13 +68,12 @@ td, th {
 .sub2 {
     height: 5px;
     width: 180px;
-
 }
 
 .headcol:before {
     content: ' ';
-
 }
+
 
 /* width */
 
@@ -84,6 +84,7 @@ td, th {
     border-bottom-right-radius: 16px;
 }
 
+
 /* Track */
 
 .tbl::-webkit-scrollbar-track {
@@ -91,12 +92,14 @@ td, th {
     border-bottom-right-radius: 16px;
 }
 
+
 /* Handle */
 
 .tbl::-webkit-scrollbar-thumb {
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
 }
+
 
 /* Handle on hover */
 
@@ -106,6 +109,10 @@ td, th {
     border-bottom-right-radius: 16px;
 }
 
-.txt-center{
+.txt-center {
     text-align: center;
+}
+
+.closebtn {
+    margin-bottom: 20px;
 }
