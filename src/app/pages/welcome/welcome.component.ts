@@ -80,8 +80,8 @@ export class WelcomeComponent implements OnInit {
   loginProfessor() {
     let param = { "username": this.facultyid, "password": this.facultypassword };
     this.service.loginprofessor(param).subscribe(res => {
-      if (res.username == this.facultyid) {
-        sessionStorage.setItem('username', res.username);
+      if (res.user.username == this.facultyid) {
+        sessionStorage.setItem('username', res.user.username);
         sessionStorage.setItem('access', res.token.access);
         sessionStorage.setItem('refresh', res.token.refresh);
         this.router.navigate(["/faculty/home"]);
