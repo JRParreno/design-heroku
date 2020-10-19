@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { UserauthService } from './api/userauth.service';
 import { ActivityComponent } from './pages/activity/activity.component';
 import { ActivityfacultyComponent } from './pages/activityfaculty/activityfaculty.component';
 import { AssessmentComponent } from './pages/assessment/assessment.component';
@@ -36,7 +38,7 @@ const routes: Routes = [
           { path: "records", component: RecordsComponent },
         ]
       },
-    ]
+    ], canActivate: [UserauthService]
   },
   {
     path: "student", component: StudentComponent, children: [

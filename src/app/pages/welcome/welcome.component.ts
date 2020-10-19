@@ -80,8 +80,13 @@ export class WelcomeComponent implements OnInit {
   loginProfessor() {
     let param = { "username": this.facultyid, "password": this.facultypassword };
     this.service.loginprofessor(param).subscribe(res => {
+      if (res.username == this.facultyid) {
+        sessionStorage.setItem('username', res.username);
+        sessionStorage.setItem('access', res.token.access);
+        sessionStorage.setItem('refresh', res.token.refresh);
+        this.router.navigate(["/faculty/home"]);
+      }
       //success login navigate main page (set session data)
-      //this.router.navigate(["/faculty/home"]);
       console.log(res);
     }, err => {
       //error toast message
