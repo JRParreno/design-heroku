@@ -9,7 +9,7 @@ export class ApiService {
   API: any;
 
   constructor(private http: HttpClient, private zone: NgZone) {
-    this.API = 'localhost:8000';
+    this.API = 'https://tebackendapi.herokuapp.com';
   }
 
 
@@ -119,6 +119,12 @@ export class ApiService {
   getquestionsperactivity(activityid: string) {
     //return (object/class)questions[] : list
     return this.http.get<any>("" + activityid);
+  }
+
+
+  forgotpassword(email: string) {
+    let url = "https://al-online.herokuapp.com/faculty/home/profile";
+    return this.http.post<any>("/api/auth/request-reset-email", { email: email, redirect_url: url });
   }
 
 }
