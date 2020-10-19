@@ -34,4 +34,10 @@ export class FacultymainComponent implements OnInit {
     }
   }
 
+
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate(['/portal/faculty']);
+  }
+
 }

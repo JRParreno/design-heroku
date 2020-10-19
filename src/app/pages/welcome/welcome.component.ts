@@ -87,12 +87,15 @@ export class WelcomeComponent implements OnInit {
         this.router.navigate(["/faculty/home"]);
       }
       //success login navigate main page (set session data)
-      console.log(res);
     }, err => {
       //error toast message
-      console.log(err);
+      this.message = '';
+      if (err.error.detail != undefined) {
+        this.message = this.message + err.error.detail + '.';
+        let c = document.getElementById('closereg');
+        c.click();
+      }
     });
-    //this.router.navigate(["/faculty/home"]);
   }
 
   registerProfessor() {
