@@ -1,20 +1,14 @@
-.layout{
+.layout {
     width: 90%;
     margin: 0 auto;
-    padding-left: calc(4em + 2%);
-    padding-right: 2%;
-}
-
-.box {
-   
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 .date-col {
-    width: 25%;
     text-align: center;
 }
 
 .score-col {
-    width: 25%;
     text-align: center;
 }

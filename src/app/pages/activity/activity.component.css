@@ -1,10 +1,9 @@
-.layout{
+.layout {
     width: 90%;
     margin: 0 auto;
-    padding-left: calc(4em + 7%);
+    padding-left: 7%;
     padding-right: 7%;
 }
-
 
 .center {
     text-align: center;

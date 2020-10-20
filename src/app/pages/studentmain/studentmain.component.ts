@@ -21,6 +21,12 @@ export class StudentmainComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event) {
+    if (window.innerWidth < 1000) {
+      let side = document.getElementById("sidenav");
+      let main = document.getElementById("routing");
+      side.style.width = '0';
+      main.style.paddingLeft = '0';
+    }
     // let header = document.getElementById("header");
 
     // Get the offset position of the navbar
@@ -30,6 +36,21 @@ export class StudentmainComponent implements OnInit {
     //  } else {
     //   header.classList.remove("nav-shadow");
     // }
+  }
+
+
+  toggleside() {
+    let side = document.getElementById("sidenav");
+    let main = document.getElementById("routing");
+    if (side.style.width == '' || side.style.width == '4em') {
+      side.style.width = '0';
+      main.style.paddingLeft = '0';
+    } else if (side.style.width == '0' || side.style.width == '0px' || side.style.width == '0em') {
+      side.style.width = '4em';
+      main.style.paddingLeft = '4em';
+    } else {
+
+    }
   }
 
 

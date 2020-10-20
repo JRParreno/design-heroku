@@ -2,22 +2,23 @@
     box-shadow: 0 8px 4px -4px rgba(0, 0, 0, .2);
 }
 
-#header{
+#header {
     width: 100%;
+    margin-bottom: 20px;
 }
 
-.right{
+.right {
     position: absolute;
     right: 10px;
     top: 10px;
 }
 
-.inblck{
-   display: inline;
+.inblck {
+    display: inline;
 }
 
 .z {
-    z-index: 998;
+    z-index: 999;
 }
 
 .sticky {
@@ -41,13 +42,22 @@
 .sidenav {
     height: 100%;
     width: 4em;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: calc(10vh + 20px);
     position: fixed;
-    z-index: 999;
+    z-index: 1;
     top: 0;
     left: 0;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 40px;
+}
+
+#routing {
+    transition: 0.2s;
+    width: 100vw;
+}
+
+.page-outlet {
+    display: inline-block;
 }
 
 .sidenav a {
@@ -60,4 +70,38 @@
 
 .sidenav a:hover {
     background-color: whitesmoke;
+}
+
+@media screen and (max-width: 1000px) {
+    div.menu {
+        display: none;
+    }
+}
+
+.menu {
+    padding: 0;
+}
+
+@media screen and (min-width: 1000px) {
+    div.topnav {
+        display: none;
+    }
+}
+
+.topnav {
+    padding: 0;
+}
+
+.topnav a {
+    font-size: 70%;
+}
+
+.blk {
+    display: flex;
+    justify-content: last baseline;
+}
+
+.hm-btn {
+    width: 2em;
+    text-align: center;
 }

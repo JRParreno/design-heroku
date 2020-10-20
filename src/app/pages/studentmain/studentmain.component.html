@@ -1,46 +1,20 @@
-<!--<nav id="header" class="nav-shadow navbar navbar-expand-lg navbar-light bg-light navbar-theme-primary z sticky">
-    <a class="navbar-brand">
-        <img class="btn" src="assets/l1.png" width="30" height="30" class="d-inline-block align-top" alt=""
-            loading="lazy">
-        Assembly Language
-    </a>
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-
-        </ul>
-    </div>
-    <div class="d-flex align-items-center">
-        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-            <li class="nav-item">
-                <a aria-hidden="true" routerLink="/student/home/modules">
-                    <span class="mr-1"><span class="fas fa-home"></span></span>
-                </a>
-            </li>
-            <li class="nav-item dropdown dropleft">
-                <a href="#" class="nav-link" data-toggle="dropdown" role="button">
-                    <i class="fas fa-angle-left nav-link-arrow"></i>
-                    <span class="nav-link-inner-text">Account</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <a class="dropdown-item" routerLink="profile">
-                        <span class="mr-1"><span class="fas fa-user-circle"></span></span>
-                        Profile</a>
-                    <a class="dropdown-item" routerLink="/portal/student">
-                        <span class="mr-1"><span class="fas fa-sign-out-alt"></span></span>
-                        Logout</a>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>-->
-
-<div id="header" class="navbar navbar-expand-lg navbar-light navbar-theme-primary">
-    <div class="right">
-        <div class="nav-link navbar-brand">
-            <div class="inblck">
-                <img src="assets/l1.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+<div class="topnav">
+    <nav id="topnavigation" class="nav-shadow navbar navbar-expand-lg navbar-light bg-light navbar-theme-primary z sticky blk">
+        <div class="hm-btn" (click)="toggleside()"><span class="fas fa-list"></span></div>
+        <a class="navbar-brand">
+            <img src="assets/l1.png" width="30" height="30" class="d-inline-block" alt="" loading="lazy"> Assembly Language
+        </a>
+    </nav>
+</div>
+<div class="menu">
+    <div id="header" class="navbar navbar-expand-lg navbar-light navbar-theme-primary">
+        <div class="right">
+            <div class="nav-link navbar-brand">
+                <div class="inblck">
+                    <img src="assets/l1.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                </div>
+                <div class="name inblck">Assembly Language</div>
             </div>
-            <div class="name inblck">Assembly Language</div>
         </div>
     </div>
 </div>
@@ -65,24 +39,26 @@
     </div>
 </div>-->
 
-<div id="sidenav" class="sidenav bg-light">
-    <a routerLink="/student/home"><span class="fas fa-home"></span></a>
-    <a routerLink="/student/home/profile"><span class="fas fa-user-circle"></span></a>
-    <a routerLink="/student/home/modules"><span class="fas fa-book-reader"></span></a>
-    <a routerLink="/student/home/activity"><span class="fas fa-clipboard"></span></a>
-    <a routerLink="/student/home/record"><span class="fas fa-chart-line"></span></a>
-    <a data-toggle="modal" data-target="#modal-default"><span class="fas fa-sign-out-alt"></span></a>
 
+<div class="topnav">
+    <div class="spacer">.</div>
 </div>
 
-<!--<div class="spacer">.</div>-->
+<div class="page-outlet">
+    <div id="sidenav" class="sidenav bg-light">
+        <a routerLink="/student/home"><span class="fas fa-home"></span></a>
+        <a routerLink="/student/home/profile"><span class="fas fa-user-circle"></span></a>
+        <a routerLink="/student/home/modules"><span class="fas fa-book-reader"></span></a>
+        <a routerLink="/student/home/activity"><span class="fas fa-clipboard"></span></a>
+        <a routerLink="/student/home/record"><span class="fas fa-chart-line"></span></a>
+        <a data-toggle="modal" data-target="#modal-default"><span class="fas fa-sign-out-alt"></span></a>
+    </div>
+    <div id="routing">
+        <router-outlet></router-outlet>
+    </div>
+</div>
 
-
-<router-outlet></router-outlet>
-
-
-<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
-    aria-hidden="true">
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -96,8 +72,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal"
-                    routerLink="/portal/student">Yes</a>
+                <a class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" routerLink="/portal/student">Yes</a>
                 <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">No</button>
             </div>
         </div>

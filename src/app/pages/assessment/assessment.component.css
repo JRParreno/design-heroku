@@ -1,7 +1,15 @@
-.left{
-    float: left;
+.right {
+    float: right;
 }
 
-.right{
-    float: right;
+.layout {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 7%;
+    padding-right: 7%;
+    margin-bottom: 40px;
+}
+
+.tbl {
+    width: 100%;
 }

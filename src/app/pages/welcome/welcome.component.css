@@ -16,13 +16,6 @@
     width: 100%;
 }
 
-.spacer {
-    height: 100px;
-    width: 100%;
-    color: white;
-    opacity: 0;
-}
-
 li {
     margin-left: 10px;
     margin-right: 10px;
@@ -31,27 +24,16 @@ li {
 .page {
     width: 100%;
     height: 100vh;
-    padding-top: 20px;
+    padding-top: 30vh;
+    position: relative;
 }
 
 .page2 {
     width: 100%;
     height: 100vh;
+    position: relative;
+    overflow-x: hidden;
     /*margin-top: 400px;*/
-    padding-top: 80px;
-}
-
-.page3 {
-    height: 100vh;
-    margin: 0 80px;
-    padding-top: 220px;
-}
-
-.pnl {
-    width: 50%;
-    height: 100%;
-    /*background-color: greenyellow;*/
-    display: inline-block;
 }
 
 .pnlpar {
@@ -59,10 +41,6 @@ li {
     /*background-color: greenyellow;*/
     /*display: inline-block;*/
     height: 100vh;
-}
-
-.type {
-    margin-bottom: 20px;
 }
 
 b {
@@ -73,56 +51,16 @@ b {
     float: right;
 }
 
-.content {
-    height: 460px;
-}
-
-.sl1 {
-    background-image: url('/assets/s1.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.sl2 {
-    background-image: url('/assets/s3.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.sl3 {
-    background-image: url('/assets/s4.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.crsl {
-    margin-top: 80px;
-    margin-right: 20px;
-    width: 360px;
-    height: 400px;
-}
-
 .desc {
     margin: 0 auto;
-    padding-top: 100px;
     width: 50%;
     float: center;
     text-align: center;
-    font-size: 45px;
 }
 
-p {
-    font-size: 45px;
-    width: 100%;
-    text-align: center;
-}
-
-.circle {
-    height: 180px;
-    width: 200px;
-    float: left;
-    border-radius: 40%;
-    background-color: lightcoral;
+.desc p {
+    font-size: 40px;
+    padding-top: 30vh;
 }
 
 .pnl2 {
@@ -137,17 +75,6 @@ p {
 
 .p {
     padding-bottom: 20px;
-}
-
-.pnl3 {
-    width: 33.33%;
-    height: 100%;
-    display: inline-block;
-    text-align: center;
-}
-
-.contact {
-    font-size: 24px;
 }
 
 .c1 {
@@ -171,15 +98,6 @@ p {
     width: 100%;
 }
 
-.opc {
-    opacity: 0.3;
-}
-
-.pnl100 {
-    width: 100%;
-    margin-top: 200px;
-}
-
 .crdas {
     margin: 0 auto;
 }
@@ -198,4 +116,18 @@ p {
 
 .menu {
     padding: 0;
+}
+
+@media screen and (max-width: 1000px) {
+    div.desc p {
+        font-size: 16px;
+    }
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.contact {
+    padding-top: 25vh;
 }

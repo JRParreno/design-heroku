@@ -17,6 +17,7 @@ import { FacultymainComponent } from './pages/facultymain/facultymain.component'
 import { FacultyprofileComponent } from './pages/facultyprofile/facultyprofile.component';
 import { RecordsComponent } from './pages/records/records.component';
 import { StudentComponent } from './pages/student/student.component';
+import { StudenthomeComponent } from './pages/studenthome/studenthome.component';
 import { StudentmainComponent } from './pages/studentmain/studentmain.component';
 import { StudentprofileComponent } from './pages/studentprofile/studentprofile.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
@@ -29,9 +30,10 @@ const routes: Routes = [
       {
         path: "home", component: FacultymainComponent, children: [
           { path: "", redirectTo: "classlist", pathMatch: 'full' },
-          { path: "chapter", component: ChapterfacultyComponent },
-          { path: "modules", component: BookmodulefacultyComponent },
+          { path: "chapter", component: ChapterComponent },
+          { path: "modules", component: ClasslistComponent },
           { path: "activity", component: ActivityfacultyComponent },
+          { path: "activities", component: ClasslistComponent },
           { path: "classlist", component: ClasslistComponent },
           { path: "class", component: ClassComponent },
           { path: "profile", component: FacultyprofileComponent },
@@ -45,7 +47,7 @@ const routes: Routes = [
     path: "student", component: StudentComponent, children: [
       {
         path: "home", component: StudentmainComponent, children: [
-          { path: "", redirectTo: "chapter", pathMatch: 'full' },
+          { path: "", component: StudenthomeComponent },
           { path: "modules", component: BookmodulesComponent },
           { path: "activity", component: ActivityComponent },
           { path: "assessment", component: AssessmentComponent },

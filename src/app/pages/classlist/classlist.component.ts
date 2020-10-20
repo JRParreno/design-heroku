@@ -26,10 +26,27 @@ export class ClasslistComponent implements OnInit {
   ifchapter: boolean;
 
   ngOnInit(): void {
-    this.ifactivity = false;
-    this.ifchapter = false;
-    this.ifclass = true;
     this.getsections();
+    this.setactive();
+  }
+
+
+  setactive() {
+    if (this.router.url == "/faculty/home/classlist") {
+      this.ifactivity = false;
+      this.ifchapter = false;
+      this.ifclass = true;
+    }
+    if (this.router.url == "/faculty/home/activities") {
+      this.ifactivity = true;
+      this.ifchapter = false;
+      this.ifclass = false;
+    }
+    if (this.router.url == "/faculty/home/modules") {
+      this.ifactivity = false;
+      this.ifchapter = true;
+      this.ifclass = false;
+    }
   }
 
 

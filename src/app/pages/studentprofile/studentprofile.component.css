@@ -1,20 +1,19 @@
-.layout{
+.layout {
     width: 90%;
     margin: 0 auto;
-    padding-left: calc(4em + 1%);
-    padding-right: 1%;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
-.red{
+.red {
     background-color: rebeccapurple;
 }
-
 
 .display {
     width: 200px;
     height: 200px;
     position: relative;
-    margin:  0 auto;
+    margin: 0 auto;
 }
 
 .input {
@@ -66,7 +65,7 @@ button {
 }
 
 .box,
-.sample-layout > div {
+.sample-layout>div {
     text-align: center;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -77,8 +76,6 @@ button {
     height: 100%;
 }
 
-
-
-label{
+label {
     font-size: 18px;
 }

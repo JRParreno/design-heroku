@@ -33,6 +33,124 @@
 </nav>
 
 <div id="login" class="page">
+    <div *ngIf="student" class="card bg-primary border-light shadow-soft crdas" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title txt-center">Login</h5>
+            <form>
+                <div class="form-group">
+                    <label></label>
+                    <input type="text" class="form-control" id="stusername" placeholder="Student Number" [(ngModel)]="studentid" name="studentid">
+                    <label></label>
+                    <input type="password" class="form-control" id="stpassword" placeholder="Password" [(ngModel)]="studentpassword" name="studentpassword">
+                    <small id="forgotpassword" class="form-text text-muted"><a data-toggle="modal"
+                            data-target="#student-modal-default"> Forgot password?</a></small>
+                    <div class="center">
+                        <button (click)="loginStudent()" type="submit" class=" right btn btn-primary text-success">
+                            <span class="fas fa-sign-in-alt mr-2"></span> </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="faculty" class="r card bg-primary border-light shadow-soft crdas" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title txt-center">Login</h5>
+            <form>
+                <div class="form-group">
+                    <label></label>
+                    <input type="text" class="form-control" id="username" placeholder="Username" [(ngModel)]="facultyid" name="facultyid">
+                    <label></label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="facultypassword" name="facultypassword">
+                    <small id="forgotpassword" class="form-text text-muted"><a data-toggle="modal"
+                            data-target="#modal-default"> Forgot password?</a></small>
+                    <div class="login">
+                        <button (click)="loginProfessor()" type="submit" class="right btn btn-primary text-success">
+                            <span class="fas fa-sign-in-alt mr-2"></span> </button>
+                    </div>
+                </div>
+                <small id="signup" class="form-text text-muted" data-toggle="modal" data-target="#modal-signup">No
+                    account yet? <a>Sign up</a></small>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="about" class="page2">
+    <div class="pnlpar parallax">
+        <div class="desc">
+            <p>An exclusive website for students of Association of Computer Students enrolled in Assembly Language Progamming.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="contact" class="page2">
+    <div class="ui-fluid p-grid contact">
+        <div class="p-col-12 p-md-4 txt-center">
+            <span class="contact">
+                <div class="btn btn-icon-only btn-primary btn-pill"><i class="fas fa-map-marker-alt"></i></div>
+                <br>
+                <b class="c1">Visit us</b>
+                <br>
+                <div class="c2">Room 102 Dr. Josefina V. Estolas Bldg.</div>
+            </span>
+        </div>
+        <div class="p-col-12 p-md-4 txt-center">
+            <span class="contact">
+                <div class="btn btn-icon-only btn-primary btn-pill"><i class="fab fa-facebook"></i></div>
+                <br>
+                <b class="c1">Facebook</b>
+                <br>
+                <div class="c2">groups/ACS.Online</div>
+            </span>
+        </div>
+        <div class="p-col-12 p-md-4 txt-center">
+            <span class="contact">
+                <div class="btn btn-icon-only btn-primary btn-pill"><i class="fas fa-envelope"></i></div>
+                <br>
+                <b class="c1">Email</b>
+                <br>
+                <div class="c2">computerdept@rtu.edu.ph</div>
+            </span>
+        </div>
+    </div>
+</div>
+
+<!--<nav id="header" class="navbar navbar-expand-lg navbar-light bg-light navbar-theme-primary sticky z">
+    <a class="navbar-brand">
+        <img class="btn" src="assets/l1.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> Assembly Language
+    </a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+    </div>
+    <div class="menu">
+        <div class="d-flex align-items-center">
+            <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                <li class="nav-item">
+                    <a (click)="scrollto('about')" class="navbar-brand" aria-hidden="true">
+                        ABOUT
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="scrollto('contact')" class="navbar-brand" aria-hidden="true">
+                        CONTACT US
+                    </a>
+                </li>
+                <li class="nav-item dropdown dropleft">
+                    <a (click)="scrollto('login')" class="nav-link navbar-brand">
+                        <span class="nav-link-inner-text">
+                            <i class="fas fa-list"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="login" class="page">
     <div class="pnl100">
         <div *ngIf="student" class="card bg-primary border-light shadow-soft crdas" style="width: 18rem;">
             <div class="card-body">
@@ -75,83 +193,6 @@
             </div>
         </div>
     </div>
-    <!--<div class="pnl">-->
-    <!--<div id="carousel" class="carousel slide rounded crsl right" data-ride="carousel">
-            <div class="carousel-inner rounded">
-                <div class="carousel-item active">
-                    <div class="content opc">
-                        <img src="/assets/d1.png" alt="" width="100%" height="100%">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="content opc">
-                        <img src="/assets/d3.png" alt="" width="100%" height="100%">
-
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="content opc">
-                        <img src="/assets/d4.png" alt="" width="100%" height="100%">
-
-                    </div>
-                </div>
-            </div>-->
-    <!--<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>-->
-    <!--  </div>
-    </div>-->
-    <!--<div class="pnl">
-        <div class="r type">
-            <b *ngIf="student">Student</b>
-            <b *ngIf="faculty">Faculty</b>
-        </div>
-        <div *ngIf="faculty" class="r card bg-primary border-light shadow-soft" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title txt-center">Login</h5>
-                <form>
-                    <div class="form-group">
-                        <label></label>
-                        <input type="text" class="form-control" id="username" placeholder="Username">
-                        <label></label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
-                        <small id="forgotpassword" class="form-text text-muted"><a data-toggle="modal"
-                                data-target="#modal-default"> Forgot password?</a></small>
-                        <div class="login">
-                            <button type="submit" class="right btn btn-primary text-success">
-                                <span class="fas fa-sign-in-alt mr-2"></span> </button>
-                        </div>
-                    </div>
-                    <small id="signup" class="form-text text-muted" data-toggle="modal" data-target="#modal-signup">No
-                        account yet? <a>Sign up</a></small>
-                </form>
-            </div>
-        </div>
-        <div *ngIf="student" class="r card bg-primary border-light shadow-soft" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title txt-center">Login</h5>
-                <form>
-                    <div class="form-group">
-                        <label></label>
-                        <input type="text" class="form-control" id="stusername" placeholder="Student Number">
-                        <label></label>
-                        <input type="password" class="form-control" id="stpassword" placeholder="Password">
-                        <small id="forgotpassword" class="form-text text-muted"><a data-toggle="modal"
-                                data-target="#student-modal-default"> Forgot password?</a></small>
-                        <div class="center">
-                            <button type="submit" class=" right btn btn-primary text-success">
-                                <span class="fas fa-sign-in-alt mr-2"></span> </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>-->
 </div>
 <div id="about" class="page2">
     <div class="pnlpar parallax">
@@ -160,12 +201,6 @@
             </p>
         </div>
     </div>
-    <!--<div class="pnlpar parallax">
-        <div class="pnl2">
-            <div class="circle">
-            </div>
-        </div>
-    </div>-->
 </div>
 
 <div id="contact" class="page3">
@@ -208,7 +243,7 @@
             </div>
         </span>
     </div>
-</div>
+</div>-->
 
 <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -311,15 +346,11 @@
 </div>
 
 
-<!--STUDENT-->
 <div class="modal fade" id="student-modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="h6 modal-title mb-0" id="student-modal-title-default">Forgot Password</h2>
-                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>-->
             </div>
             <div class="modal-body">
                 <div class="row input">
@@ -342,9 +373,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="h6 modal-title mb-0" id="student-modal-title-confirm"></h2>
-                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>-->
+
             </div>
             <div class="modal-body">
                 <div class="row input">
@@ -354,7 +383,6 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <!--<button type="button" class="btn btn-primary text-success ml-auto">I Got It</button>-->
                 <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Okay</button>
             </div>
         </div>
