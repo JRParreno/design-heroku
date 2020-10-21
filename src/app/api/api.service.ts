@@ -22,25 +22,14 @@ export class ApiService {
   }*/
 
   loginstudent(param: any) {
-    /* backend link
-       request body (data) -> username, password
-       get data in the param*/
     return this.http.post<any>("", param);
   }
 
   loginprofessor(param: any) {
-    /* backend link
-       request body (data) -> username, password
-       get data in the param*/
-    console.log(this.API);
     return this.http.post<any>(this.API + "/api/auth/professor/login", param);
   }
 
   createprofessor(param: any) {
-    /* create/save professor/user */
-    /* backend link
-       request body (data) -> username, password, name, etc.(professor credentials)
-       get data in the param*/
     return this.http.post<any>(this.API + "/api/auth/professor/register", param);
   }
 

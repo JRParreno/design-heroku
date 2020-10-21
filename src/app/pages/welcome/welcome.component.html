@@ -22,15 +22,31 @@
                 </li>
                 <li class="nav-item dropdown dropleft">
                     <a (click)="scrollto('login')" class="nav-link navbar-brand">
-                        <span class="nav-link-inner-text">
+                        LOG IN
+                        <!--<span class="nav-link-inner-text">
                             <i class="fas fa-list"></i>
-                        </span>
+                        </span>-->
                     </a>
                 </li>
             </ul>
         </div>
     </div>
+    <div class="mob-menu">
+        <a>
+            <span class="nav-link-inner-text">
+                <span class="fas fa-bars" (click)="viewsidenav()"></span>
+            </span>
+        </a>
+    </div>
 </nav>
+
+<div id="topnav" class="sidenav bg-light nav-shadow">
+    <div class="top-margin"></div>
+    <a (click)="scrollto('about')"><span class="fas fa-question-circle side-spacer"></span>About</a>
+    <a (click)="scrollto('contact')"><span class="fas fa-phone-alt side-spacer"></span>Contact Us</a>
+    <a (click)="scrollto('login')"><span class="fas fa-sign-in-alt side-spacer"></span>Log in</a>
+    <a (click)="closesidenav()"><span class="fas fa-window-close side-spacer"></span>Close</a>
+</div>
 
 <div id="login" class="page">
     <div *ngIf="student" class="card bg-primary border-light shadow-soft crdas" style="width: 18rem;">
@@ -86,7 +102,7 @@
 
 <div id="contact" class="page2">
     <div class="ui-fluid p-grid contact">
-        <div class="p-col-12 p-md-4 txt-center">
+        <div class="p-col-12 p-md-4 txt-center al">
             <span class="contact">
                 <div class="btn btn-icon-only btn-primary btn-pill"><i class="fas fa-map-marker-alt"></i></div>
                 <br>
@@ -95,7 +111,7 @@
                 <div class="c2">Room 102 Dr. Josefina V. Estolas Bldg.</div>
             </span>
         </div>
-        <div class="p-col-12 p-md-4 txt-center">
+        <div class="p-col-12 p-md-4 txt-center al">
             <span class="contact">
                 <div class="btn btn-icon-only btn-primary btn-pill"><i class="fab fa-facebook"></i></div>
                 <br>
@@ -104,7 +120,7 @@
                 <div class="c2">groups/ACS.Online</div>
             </span>
         </div>
-        <div class="p-col-12 p-md-4 txt-center">
+        <div class="p-col-12 p-md-4 txt-center al">
             <span class="contact">
                 <div class="btn btn-icon-only btn-primary btn-pill"><i class="fas fa-envelope"></i></div>
                 <br>

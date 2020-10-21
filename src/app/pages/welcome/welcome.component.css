@@ -114,6 +114,16 @@ b {
     }
 }
 
+@media screen and (min-width: 1000px) {
+    div.mob-menu {
+        display: none;
+    }
+}
+
+.mob-menu {
+    padding: 0;
+}
+
 .menu {
     padding: 0;
 }
@@ -130,4 +140,47 @@ b {
 
 .contact {
     padding-top: 25vh;
+}
+
+.al {
+    margin-bottom: 5vh;
+}
+
+@media screen and (min-width: 1000px) {
+    div.al {
+        margin-top: 15vh;
+    }
+}
+
+.sidenav {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    text-align: left;
+    width: 100%;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.side-spacer {
+    padding-right: 1em;
+}
+
+.top-margin {
+    height: 25%;
+    width: 100%;
 }

@@ -23,57 +23,16 @@
         <div class="p-col-12 p-md-3"></div>
 
     </div>
-    <!--<div class="left">
-        <span class="fas fa-folder mr-2"></span>
-    </div>
-    <div class="left w row">
-        <div class="col-12 col-md-12">CEIT-03-1002E</div>
-        <div class="col-12 col-md-12">THS 6:00pm - 7:30pm</div>
-    </div>
-    <div class="left strtch">
-
-        <div class="btn-group dropleft mb-2 mr-2">
-            <button class="btn btn-primary mr-3" type="button" data-toggle="modal" data-target="#modal-student">
-                <span class="mr-1"><span class="fas fa-user-friends"></span></span>
-                <b>Add Student</b>
-            </button>
-        </div>
-
-        <div class="btn-group  dropleft mb-2 mr-2 b btn-spcr2"></div>
-
-        <div class="btn-group dropleft mb-2 mr-2">
-            <div class="custom-file cusfile">
-                <input type="file" class="custom-file-input" id="customfile">
-                <label class="custom-file-label" for="customfile">
-                    <span class="fas fa-upload"></span>
-                    <b>Import List</b>
-                </label>
-            </div>
-        </div>
-    </div>-->
 
     <table class="table shadow-soft rounded">
         <tr>
-            <!--<th class="border-0" scope="col" id="status">Status</th>-->
             <th class="border-0 " scope="col" id="studentno">Student No.</th>
             <th class="border-0" scope="col" id="name">Name</th>
-            <!--<th class="border-0" scope="col" id="act1">Activity 1</th>
-            <th class="border-0" scope="col" id="act2">Activity 2</th>
-            <th class="border-0" scope="col" id="act3">Activity 3</th>
-            <th class="border-0" scope="col" id="act4">Activity 4</th>
-            <th class="border-0" scope="col" id="ave">Average</th>-->
             <th class="border-0" scope="col" id="det">Details</th>
         </tr>
         <tr *ngFor="let i of list">
-            <!--<td class="center" headers="status"><span class="fas fa-check-square mr-2"></span>
-            </td>-->
             <td headers="studentno">2020-100001</td>
             <td headers="name">Juan Dela Cruz</td>
-            <!--<td headers="act1">NA</td>
-            <td headers="act2">NA</td>
-            <td headers="act3">NA</td>
-            <td headers="act4">NA</td>
-            <td headers="ave">NA</td>-->
             <td headers="det">
                 <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal" data-target="#modal-default">
                     <span aria-hidden="true" class="fas fa-ellipsis-v"></span>
@@ -95,9 +54,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="h6 modal-title mb-0" id="modal-title-default">2020-10001</h2>
-                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>-->
             </div>
             <div class="modal-body">
                 Name: Juan Dela Cruz
@@ -108,7 +64,6 @@
                 <br> 2020-10001's other details place here..
             </div>
             <div class="modal-footer">
-                <!--<button type="button" class="btn btn-primary text-success ml-auto">I Got It</button>-->
                 <button type="button" class="btn btn-primary text-danger ml-auto" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -120,9 +75,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="h6 modal-title mb-0" id="modal-title-student">Add new student</h2>
-                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>-->
             </div>
             <div class="modal-body">
                 <div class="row input">

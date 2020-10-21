@@ -84,3 +84,8 @@
 .side-spacer {
     padding-right: 1em;
 }
+
+#routing {
+    transition: 0.2s;
+    width: 100vw;
+}

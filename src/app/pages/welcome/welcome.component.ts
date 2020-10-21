@@ -47,6 +47,22 @@ export class WelcomeComponent implements OnInit {
     });
   }
 
+
+  viewsidenav() {
+    let side = document.getElementById("topnav");
+    side.style.height = "250px";
+    let header = document.getElementById("header");
+    header.classList.remove("nav-shadow");
+    side.classList.add("nav-shadow");
+  }
+
+  closesidenav() {
+    let side = document.getElementById("topnav");
+    side.style.height = "0";
+    side.classList.remove("nav-shadow");
+  }
+
+
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event) {
     let header = document.getElementById("header");
@@ -58,6 +74,7 @@ export class WelcomeComponent implements OnInit {
     } else {
       header.classList.remove("nav-shadow");
     }
+    this.closesidenav();
   }
 
 
@@ -68,6 +85,7 @@ export class WelcomeComponent implements OnInit {
 
   loginStudent() {
     let param = { username: this.studentid, password: this.studentpassword };
+    this.router.navigate(["/student/home"]);
     /*this.service.loginstudent(null).subscribe(res => {
       //success login navigate main page (set session data)
       this.router.navigate(["/student/home"]);
@@ -79,8 +97,9 @@ export class WelcomeComponent implements OnInit {
 
   loginProfessor() {
     let param = { "username": this.facultyid, "password": this.facultypassword };
-    this.service.loginprofessor(param).subscribe(res => {
-      console.log(res);
+    this.router.navigate(["/faculty/home"]);
+    /*this.service.loginprofessor(param).subscribe(res => {
+      //console.log(res);
       if (res.user.username == this.facultyid) {
         sessionStorage.setItem('username', res.user.username);
         sessionStorage.setItem('access', res.token.access);
@@ -96,7 +115,7 @@ export class WelcomeComponent implements OnInit {
         let c = document.getElementById('closereg');
         c.click();
       }
-    });
+    });*/
   }
 
   registerProfessor() {

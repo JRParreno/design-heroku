@@ -1,20 +1,39 @@
+.layout {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.l-pnl {
+    height: 100%;
+}
+
 .content {
-    height: 700px;
+    width: 100%;
+    overflow: scroll;
+    height: 95%;
+}
+
+.vid {
+    height: 100%;
     width: 100%;
 }
 
 .book-page {
     float: left;
-    width: calc(65% - 10px);
+    width: calc(65% - 60px);
     margin-right: 10px;
     margin-bottom: 40px;
+    margin-left: 60px;
 }
 
 .book-etc {
     float: left;
-    width: calc(35% - 10px);
+    width: calc(35%);
     margin-left: 10px;
     margin-bottom: 40px;
+    margin-right: -40px;
 }
 
 .t-content {
@@ -26,16 +45,141 @@
     float: right;
 }
 
-.thread {
-    height: 300px;
-    overflow-y: auto;
+.btn-right {
+    float: right;
 }
 
-.tr-pnl{
+.thread {
+    height: 105px;
+    overflow-y: scroll;
+}
+
+.thread2 {
+    height: 105px;
+    overflow-y: scroll;
+    margin: 0;
+    padding-right: 0;
+}
+
+.tr-pnl {
     margin-top: 26px;
 }
 
+.tst {
+    margin-left: 10px;
+}
 
-.tst{
-  margin-left: 10px;
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 0.5;
+    /* Firefox */
+}
+
+.box,
+.sample-layout>div {
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 4px;
+}
+
+.box-stretched {
+    height: 100%;
+}
+
+.sample-layout {
+    margin: 0;
+}
+
+.sample-layout>div {
+    border: 1px solid #ffffff;
+}
+
+.pnl1 {
+    width: 48%;
+    height: 100vh;
+    float: left;
+    position: relative;
+}
+
+.pnl2 {
+    width: 48%;
+    height: 100vh;
+    float: left;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.pnl-spacer {
+    width: 4%;
+    height: 100vh;
+    float: left;
+    position: relative;
+}
+
+.mpnl {
+    width: 100%;
+    position: relative;
+}
+
+.box1 {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.box2 {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    height: 30%;
+}
+
+.box-spacer {
+    width: 100%;
+    height: 5%;
+}
+
+.box3 {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    height: 30%;
+}
+
+.box4 {
+    background-color: orange;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    height: 30%;
+}
+
+@media screen and (max-width: 800px) {
+    div.pnl1 {
+        width: 100%;
+    }
+    div.pnl2 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    div.pnl-spacer {
+        height: 1em;
+    }
+}
+
+.txtarea {
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
+.btnarea {
+    width: 30%;
+    height: 100%;
+    float: left;
 }

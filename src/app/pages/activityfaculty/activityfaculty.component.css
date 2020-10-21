@@ -1,3 +1,10 @@
+.layout {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
 .left {
     float: left;
 }
@@ -12,10 +19,58 @@
     margin-right: 30px;
 }
 
-.opt {
-    margin-left: 30px;
+.closebtn {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.savebtn {
+    margin-bottom: 20px;
 }
 
 .btn-spc {
     margin-right: 30px;
+}
+
+.tbl {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: visible;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+
+/* width */
+
+.tbl::-webkit-scrollbar {
+    background: #d1d9e6;
+    height: 5px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+
+/* Track */
+
+.tbl::-webkit-scrollbar-track {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+
+/* Handle */
+
+.tbl::-webkit-scrollbar-thumb {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+
+/* Handle on hover */
+
+.tbl::-webkit-scrollbar-thumb:hover {
+    background: #31344b;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
 }

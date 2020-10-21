@@ -30,7 +30,7 @@ const routes: Routes = [
       {
         path: "home", component: FacultymainComponent, children: [
           { path: "", redirectTo: "classlist", pathMatch: 'full' },
-          { path: "chapter", component: ChapterComponent },
+          { path: "chapter", component: ChapterfacultyComponent },
           { path: "modules", component: ClasslistComponent },
           { path: "activity", component: ActivityfacultyComponent },
           { path: "activities", component: ClasslistComponent },
@@ -41,7 +41,7 @@ const routes: Routes = [
         ]
       },
       { path: "", redirectTo: "home", pathMatch: 'full' },
-    ], canActivate: [UserauthService]
+    ], //canActivate: [UserauthService]
   },
   {
     path: "student", component: StudentComponent, children: [
