@@ -12,3 +12,7 @@
 .score-col {
     text-align: center;
 }
+
+.right {
+    float: right;
+}

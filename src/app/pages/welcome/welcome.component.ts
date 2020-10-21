@@ -83,6 +83,14 @@ export class WelcomeComponent implements OnInit {
     element.scrollIntoView();
   }
 
+  @HostListener('document:click', ['$event'])
+  documentClick(event: MouseEvent) {
+    let target: any = event.target || event.srcElement || event.currentTarget;
+    if (target.id != 'viewsidemenu') {
+      this.closesidenav();
+    }
+  }
+
   loginStudent() {
     let param = { username: this.studentid, password: this.studentpassword };
     this.router.navigate(["/student/home"]);
@@ -99,14 +107,12 @@ export class WelcomeComponent implements OnInit {
     let param = { "username": this.facultyid, "password": this.facultypassword };
     //this.router.navigate(["/faculty/home"]);
     this.service.loginprofessor(param).subscribe(res => {
-      console.log(res);
-      if (res.user.username == this.facultyid) {
-        sessionStorage.setItem('username', res.user.username);
-        sessionStorage.setItem('access', res.token.access);
-        sessionStorage.setItem('refresh', res.token.refresh);
+      if (res.username == this.facultyid) {
+        sessionStorage.setItem('username', res.username);
+        sessionStorage.setItem('access', res.tokens.access);
+        sessionStorage.setItem('refresh', res.tokens.refresh);
         this.router.navigate(["/faculty/home"]);
       }
-      //success login navigate main page (set session data)
     }, err => {
       //error toast message
       this.message = '';
@@ -120,7 +126,6 @@ export class WelcomeComponent implements OnInit {
 
   registerProfessor() {
     this.profdetails.professor = this.profdetails.username;
-    this.profdetails.last_name = this.profdetails.first_name;
     this.service.createprofessor(this.profdetails).subscribe(res => {
       if (res.professor != undefined && res.professor != null && res.professor == this.profdetails.professor) {
         this.message = 'New User Registration Success!';
@@ -160,6 +165,7 @@ export class userprof {
   email;
   first_name;
   last_name;
+  middle_name;
   username;
 }
 

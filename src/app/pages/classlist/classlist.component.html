@@ -5,12 +5,13 @@
 
     <div *ngIf="ifclass" id="classlist">
         <div class="ui-fluid p-grid lst">
-            <div *ngFor="let i of list" class="p-col-12 p-md-3">
+            <div *ngFor="let i of blocks" class="p-col-12 p-md-3">
                 <a routerLink="/faculty/home/class">
                     <div class="box card bg-primary border-light shadow-soft">
                         <div class="card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-folder mr-2"></span></p>
-                            <p class="card-text lbl">CEIT-03-1002E</p>
+                            <p class="card-text lbl">{{i.code}}</p>
+                            <p class="card-text lbl">{{i.schedule}}</p>
                         </div>
                     </div>
                 </a>
@@ -62,7 +63,7 @@
                     <div class="box card bg-primary border-light shadow-soft">
                         <div class="card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>
-                            <p class="card-text lbl">ACTIVITY {{i}}</p>
+                            <p class="card-text lbl">ACTIVITY</p>
                         </div>
                     </div>
                 </a>
@@ -76,7 +77,7 @@
                     <div class="box card bg-primary border-light shadow-soft">
                         <div class="card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-book mr-2"></span></p>
-                            <p class="card-text lbl">CHAPTER {{i}}</p>
+                            <p class="card-text lbl">CHAPTER </p>
                         </div>
                     </div>
                 </a>
@@ -126,8 +127,7 @@
 </div>
 
 
-<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
-    aria-hidden="true">
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -152,8 +152,7 @@
 </div>
 
 
-<div class="modal fade" id="act-modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
-    aria-hidden="true">
+<div class="modal fade" id="act-modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -167,9 +166,9 @@
                                 <div class="form-group">
                                     <div class="input-group input-group-border">
                                         <div class="input-group-prepend"><span class="input-group-text"><span
-                                                    class="far fa-calendar-alt"></span></span></div>
-                                        <input class="form-control datepicker" id="date1" placeholder="Start date"
-                                            type="text">
+                                                    class="far fa-calendar-alt"></span></span>
+                                        </div>
+                                        <input class="form-control datepicker" id="date1" placeholder="Start date" type="text">
                                         <input class="form-control" id="time1" placeholder="Start time" type="time">
                                     </div>
                                 </div>
@@ -178,9 +177,9 @@
                                 <div class="form-group">
                                     <div class="input-group input-group-border">
                                         <div class="input-group-prepend"><span class="input-group-text"><span
-                                                    class="far fa-calendar-alt"></span></span></div>
-                                        <input class="form-control datepicker" id="date2" placeholder="End date"
-                                            type="text">
+                                                    class="far fa-calendar-alt"></span></span>
+                                        </div>
+                                        <input class="form-control datepicker" id="date2" placeholder="End date" type="text">
                                         <input class="form-control" id="time2" placeholder="End time" type="time">
                                     </div>
                                 </div>
@@ -205,8 +204,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary text-secondary"
-                    (click)="gotoclass('faculty/home/activity')" data-dismiss="modal">View
+                <button type="button" class="btn btn-primary text-secondary" (click)="gotoclass('faculty/home/activity')" data-dismiss="modal">View
                     Questions</button>
 
                 <button type="button" class="btn btn-primary text-danger ml-auto" data-dismiss="modal">Close</button>

@@ -26,41 +26,32 @@ export class ApiService {
   }
 
   loginprofessor(param: any) {
-    console.log(param);
-    return this.http.post<any>(this.API + "/api/auth/professor/login", param);
+    return this.http.post<any>(this.API + "/api/auth/professor/login/", param);
+  }
+
+  getprofessor(username: string) {
+    return this.http.get<any>(this.API + "/api/user/profile/professor/" + username + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+
   }
 
   createprofessor(param: any) {
-    return this.http.post<any>(this.API + "/api/auth/professor/register", param);
+    return this.http.post<any>(this.API + "/api/auth/professor/register/", param);
   }
 
   getsectionlistperprof(profid: any) {
-    /* get list of section of professor */
-    /* backend link
-       link parameter -> profid (string)*/
-    return this.http.get<any>("" + profid);
+    return this.http.get<any>(this.API + "/api/section/viewset/list/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
   savesection(param: any) {
-    /* create/save section/block */
-    /* backend link
-       request body (data) -> sectioncode, sched,etc.(section credentials)
-       get data in the param*/
-    return this.http.post<any>("", param);
+    return this.http.post<any>(this.API + "/api/section/viewset/list/", param);
   }
 
 
-  getsection(sectionid: any) {
-    /* get section details */
-    /* backend link
-       link parameter -> sectionid (string)*/
-    return this.http.get<any>("" + sectionid);
+  getsection(id: any) {
+    return this.http.get<any>(this.API + "/api/section/viewset/list/" + id, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
   getstudentspersection(sectionid: any) {
-    /* get students(list) per section via sectionid */
-    /* backend link
-       link parameter -> sectionid (string)*/
     return this.http.get<any>("" + sectionid);
   }
 
@@ -83,11 +74,9 @@ export class ApiService {
     return this.http.get<any>("" + studentid);
   }
 
-  getstudentdetails(studentid: string) {
-    /* get student details */
-    /* backend link
-       link parameter -> studentid (string)*/
-    return this.http.get<any>("" + studentid);
+  getstudentdetails(username: string) {
+    return this.http.get<any>(this.API + "/api/user/profile/student/" + username + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+
   }
 
   updatestudent(param: any) {

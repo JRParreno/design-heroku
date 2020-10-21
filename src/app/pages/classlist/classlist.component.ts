@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api/api.service';
 import { Block } from 'src/app/classes/block';
@@ -15,11 +15,10 @@ export class ClasslistComponent implements OnInit {
     private service: ApiService,
   ) { }
 
-  list: any[] = [1, 2, 3, 4, 5, 6, 7, 8];
+  list: Block[];
   blocks: Block[];
   block: Block;
   slc: any;
-
 
   ifclass: boolean;
   ifactivity: boolean;
@@ -29,7 +28,6 @@ export class ClasslistComponent implements OnInit {
     this.getsections();
     this.setactive();
   }
-
 
   setactive() {
     if (this.router.url == "/faculty/home/classlist") {
@@ -51,11 +49,12 @@ export class ClasslistComponent implements OnInit {
 
 
   getsections() {
-    /*this.service.getsectionlistperprof(sessionStorage.getItem('username')).subscribe(res => {
-      this.list = res;
+    this.service.getsectionlistperprof(sessionStorage.getItem('username')).subscribe(res => {
+      this.blocks = res;
     }, err => {
+      console.log(err);
       //toast error
-    });*/
+    });
   }
 
 

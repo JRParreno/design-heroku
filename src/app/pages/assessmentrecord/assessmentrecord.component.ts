@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api/api.service';
 import { Assessment } from 'src/app/classes/assessment';
 
@@ -10,7 +11,8 @@ import { Assessment } from 'src/app/classes/assessment';
 export class AssessmentrecordComponent implements OnInit {
 
   constructor(
-    private service: ApiService,
+    private router: Router,
+    private service: ApiService
   ) { }
 
   list: any[] = [1, 2, 3, 4, 5, 6, 7];
@@ -19,6 +21,10 @@ export class AssessmentrecordComponent implements OnInit {
 
   ngOnInit(): void {
     this.getrecords();
+  }
+
+  goto(path: string) {
+    this.router.navigate([path]);
   }
 
   getrecords() {

@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api/api.service';
 
 @Component({
   selector: 'app-facultymain',
@@ -10,9 +11,26 @@ export class FacultymainComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private service: ApiService,
   ) { }
 
   ngOnInit(): void {
+    //this.getuser();
+  }
+
+
+  @HostListener('document:click', ['$event'])
+  documentClick(event: MouseEvent) {
+    let target: any = event.target || event.srcElement || event.currentTarget;
+    if (target.id != 'viewmenu') {
+      this.closesidenav();
+    }
+  }
+
+  getuser() {
+    this.service.getprofessor(sessionStorage.getItem('username')).subscribe(res => {
+    }, err => {
+    });
   }
 
 
@@ -20,6 +38,7 @@ export class FacultymainComponent implements OnInit {
     this.router.navigate([path]);
     //this.router.navigate(["/login"]);
   }
+
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event) {
@@ -37,7 +56,6 @@ export class FacultymainComponent implements OnInit {
 
 
   logout() {
-    console.log('logging out');
     sessionStorage.clear();
     this.router.navigate(['/portal/faculty']);
   }

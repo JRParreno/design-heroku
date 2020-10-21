@@ -34,7 +34,7 @@
     <div class="mob-menu">
         <a>
             <span class="nav-link-inner-text">
-                <span class="fas fa-bars" (click)="viewsidenav()"></span>
+                <span class="fas fa-bars" (click)="viewsidenav()" id="viewsidemenu"></span>
             </span>
         </a>
     </div>
@@ -315,15 +315,31 @@
                         Faculty Number:
                     </div>
                     <div class="p col-12 col-md-8">
-                        <input class="input" type="text" class="form-control" [(ngModel)]="profdetails.username" name="profusername">
+                        <input class="input" type="text" class="form-control" placeholder="Required" [(ngModel)]="profdetails.username" name="profusername">
                     </div>
                 </div>
                 <div class="row input">
                     <div class="p col-12 col-md-4">
-                        Name:
+                        Firstname
                     </div>
                     <div class="p col-12 col-md-8">
-                        <input class="input" type="text" class="form-control" placeholder="Surname, Given Name MI." [(ngModel)]="profdetails.first_name" name="proffirstname">
+                        <input class="input" type="text" class="form-control" placeholder="Required(Min. 2 Characters)" [(ngModel)]="profdetails.first_name" name="proffirstname">
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-4">
+                        Middlename
+                    </div>
+                    <div class="p col-12 col-md-8">
+                        <input class="input" type="text" class="form-control" placeholder="Required(Min. 2 Characters)" [(ngModel)]="profdetails.middle_name" name="profmiddlename">
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-4">
+                        Lastname
+                    </div>
+                    <div class="p col-12 col-md-8">
+                        <input class="input" type="text" class="form-control" placeholder="Required(Min. 2 Characters)" [(ngModel)]="profdetails.last_name" name="proflastname">
                     </div>
                 </div>
                 <div class="row input">
@@ -331,7 +347,7 @@
                         Email:
                     </div>
                     <div class="p col-12 col-md-8">
-                        <input class="input" type="text" class="form-control" [(ngModel)]="profdetails.email" name="profemail">
+                        <input class="input" type="text" class="form-control" placeholder="Required" [(ngModel)]="profdetails.email" name="profemail">
                     </div>
                 </div>
                 <div class="row input">
@@ -339,7 +355,7 @@
                         Set Password:
                     </div>
                     <div class="p col-12 col-md-8">
-                        <input class="input" type="password" class="form-control" [(ngModel)]="profdetails.password" name="password">
+                        <input class="input" type="password" class="form-control" placeholder="Required(Min. 8 Characters)" [(ngModel)]="profdetails.password" name="password">
                     </div>
                 </div>
                 <div class="row input">
@@ -347,7 +363,7 @@
                         Confirm Password:
                     </div>
                     <div class="p col-12 col-md-8">
-                        <input class="input" type="password" class="form-control" [(ngModel)]="profpassword2" name="confprofpassword">
+                        <input class="input" type="password" class="form-control" placeholder="Required(Min. 8 Characters)" [(ngModel)]="profpassword2" name="confprofpassword">
                     </div>
                 </div>
             </div>

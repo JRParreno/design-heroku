@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api/api.service';
 import { Professor } from 'src/app/classes/professor';
 
 @Component({
@@ -11,6 +12,7 @@ export class FacultyprofileComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private service: ApiService,
   ) { }
 
   changepass: boolean;
@@ -18,10 +20,20 @@ export class FacultyprofileComponent implements OnInit {
 
   ngOnInit(): void {
     this.changepass = false;
+    this.getuser();
   }
 
   goto(path: string) {
     this.router.navigate([path]);
+  }
+
+  getuser() {
+    this.service.getprofessor(sessionStorage.getItem('username')).subscribe(res => {
+      //console.log(res);
+    }, err => {
+      // console.log(err);
+
+    });
   }
 
   togglechangepass() {

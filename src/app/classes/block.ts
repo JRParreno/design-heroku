@@ -1,6 +1,6 @@
 export class Block {
     id;
-    profid;
-    sectioncode;
+    user;
+    code;
     schedule;
 }
