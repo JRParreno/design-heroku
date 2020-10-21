@@ -41,7 +41,7 @@ const routes: Routes = [
         ]
       },
       { path: "", redirectTo: "home", pathMatch: 'full' },
-    ], //canActivate: [UserauthService]
+    ], canActivate: [UserauthService]
   },
   {
     path: "student", component: StudentComponent, children: [

@@ -97,9 +97,9 @@ export class WelcomeComponent implements OnInit {
 
   loginProfessor() {
     let param = { "username": this.facultyid, "password": this.facultypassword };
-    this.router.navigate(["/faculty/home"]);
-    /*this.service.loginprofessor(param).subscribe(res => {
-      //console.log(res);
+    //this.router.navigate(["/faculty/home"]);
+    this.service.loginprofessor(param).subscribe(res => {
+      console.log(res);
       if (res.user.username == this.facultyid) {
         sessionStorage.setItem('username', res.user.username);
         sessionStorage.setItem('access', res.token.access);
@@ -115,7 +115,7 @@ export class WelcomeComponent implements OnInit {
         let c = document.getElementById('closereg');
         c.click();
       }
-    });*/
+    });
   }
 
   registerProfessor() {

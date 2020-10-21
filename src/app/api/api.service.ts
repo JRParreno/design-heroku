@@ -26,6 +26,7 @@ export class ApiService {
   }
 
   loginprofessor(param: any) {
+    console.log(param);
     return this.http.post<any>(this.API + "/api/auth/professor/login", param);
   }
 
