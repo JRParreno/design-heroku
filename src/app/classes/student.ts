@@ -1,10 +1,10 @@
 export class Student {
     id;
-    studentnumber;
-    firstname;
-    lastname;
-    middlename;
-    email;
-    block;
+    username;
+    first_name;
+    last_name;
+    middle_name;
     password;
+    email;
+    university_id;
 }

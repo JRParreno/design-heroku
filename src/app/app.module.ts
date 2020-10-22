@@ -30,6 +30,7 @@ import { StudentloginComponent } from './pages/studentlogin/studentlogin.compone
 import { StudentmainComponent } from './pages/studentmain/studentmain.component';
 import { StudentprofileComponent } from './pages/studentprofile/studentprofile.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     StudentloginComponent,
     StudentmainComponent,
     StudentprofileComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ResetpasswordComponent
   ],
   imports: [
     ReactiveFormsModule,

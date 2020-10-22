@@ -6,7 +6,7 @@
             <span class="fas fa-clock mr-2"></span> THS 6:00pm - 7:30pm
         </div>
         <div class="p-col-12 p-md-3">
-            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-student">
+            <button class="btn btn-primary" type="button" (click)="newstudent()" data-toggle="modal" data-target="#modal-student">
                 <span class="mr-1"><span class="fas fa-user-friends"></span></span>
                 <b>Add Student</b>
             </button>
@@ -87,19 +87,60 @@
                 <div class="row input">
                     <div class="p col-12 col-md-12">
                         <label class="my-1 mr-2">Student No.</label>
-                        <input class="input" type="text" class="form-control" id="studentno" placeholder="Student No.">
+                        <input type="text" class="form-control" [(ngModel)]="student.username" name="stusername" placeholder="Required">
                     </div>
                 </div>
                 <div class="row input">
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Name</label>
-                        <input class="input" type="text" class="form-control" id="studentname" placeholder="Student Name">
+                        <label class="my-1 mr-2">Firstname</label>
+                        <input type="text" class="form-control" [(ngModel)]="student.first_name" name="stfirstname" placeholder="Required">
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Middlename</label>
+                        <input type="text" class="form-control" [(ngModel)]="student.middle_name" name="stmiddlename" placeholder="Required">
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Lastname</label>
+                        <input type="text" class="form-control" [(ngModel)]="student.last_name" name="stlastname" placeholder="Required">
+                    </div>
+                </div>
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Email</label>
+                        <input type="text" class="form-control" [(ngModel)]="student.email" name="stemail" placeholder="Required">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary text-success" (click)="addstudent()">Save</button>
+                <button type="button" id="closereg" class="hide" data-toggle="modal" data-dismiss="modal" data-target="#student-modal-confirm">Close</button>
+                <button type="button" class="btn btn-primary text-success" (click)="addstudent()" [disabled]="student.last_name == '' || student.last_name == null || student.middle_name == '' || student.middle_name== null || student.first_name == '' || student.first_name == null || student.username == '' || student.username == null || student.email == '' || student.email == null">Save</button>
                 <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="student-modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-confirm" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="student-modal-title-confirm"></h2>
+
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">{{message}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Okay</button>
             </div>
         </div>
     </div>

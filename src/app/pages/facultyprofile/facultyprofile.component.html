@@ -1,4 +1,4 @@
-<div class="layout">
+<!--<div class="layout">
     <div class="pnl">
         <div class="pnl3">
             <div class="b1">
@@ -29,50 +29,58 @@
                 <button type="button" class="right pbtn btn btn-primary text-success">Save</button>
             </div>
         </div>
-        <!--<div class="row input">
-                <div class="p col-12 col-md-3">
-                    <input class="input" type="text" class="form-control" id="empid" placeholder="Employee ID">
+      
+    </div>
+</div>-->
+<div class="layout">
+    <div class="ui-fluid p-grid grd">
+        <div class="p-col-12 p-md-12">
+            <div class="p-grid">
+                <div class="p-col-12 p-md-12">
+                    <label class="name">{{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</label>
+                    <br>
+                    <label class="studentid">{{profile.username}}</label>
+                    <br>
+                    <label>{{profile.email}}</label>
+                </div>
+                <!--<div class="p-col-12 p-md-12">
+                    <label>2020-10001</label>
+                </div>
+                <div class="p-col-12 p-md-12">
+                    <label>CEIT-03-1002E</label>
+                </div>
+                <div class="p-col-12">
+                    <input type="text" class="form-control input" id="email" placeholder="Email">
+                </div>-->
+            </div>
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <a class="text-info" (click)="togglechangepass()">Change Password</a>
+                    <small *ngIf="!changepass" id="emailHelp" class="form-text text-muted">
+                        It's a good idea to use a strong password that you're not using elsewhere
+                    </small>
                 </div>
             </div>
-            <div class="row input">
-                <div class="p col-12 col-md-5">
+            <div *ngIf="!changepass" class="p-grid">
+                <div class="p-col-12">
+                    <input type="password" class="form-control input" id="password" placeholder="Old Password">
                 </div>
             </div>
-            <div class="row input">
-                <div class="p col-12 col-md-5">
-                    <a class="underline" (click)="togglechangepass()">Change Password</a>
-                    <small *ngIf="!changepass" id="emailHelp" class="form-text text-muted">It's a good idea to use a
-                        strong
-                        password that you're not
-                        using elsewhere</small>
-                    <div *ngIf="changepass">
-                        <div class="row input">
-                            <div class="p col-12 col-md-5">
-                                <input class="input" type="password" class="form-control" id="password"
-                                    placeholder="Old Password">
-                            </div>
-                        </div>
-                        <div class="row input">
-                            <div class="p col-12 col-md-5">
-                                <input class="input" type="password" class="form-control" id="password2"
-                                    placeholder="New Password">
-                            </div>
-                        </div>
-                        <div class="row input">
-                            <div class="p col-12 col-md-5">
-                                <input class="input" type="password" class="form-control" id="password3"
-                                    placeholder="Re-type New Password">
-                            </div>
-                        </div>
-                    </div>
+            <div *ngIf="!changepass" class="p-grid">
+                <div class="p-col-12">
+                    <input type="password" class="form-control input" id="password2" placeholder="New Password">
                 </div>
             </div>
-            <div class="row input">
-                <div class="p col-12 col-md-5">
-                    <button type="button" class="right btn btn-primary text-danger"
-                        (click)="goto('faculty/home')">Close</button>
-                    <button type="button" class="right pbtn btn btn-primary text-success">Save</button>
+            <div *ngIf="!changepass" class="p-grid">
+                <div class="p-col-12">
+                    <input type="password" class="form-control input" id="password3" placeholder="Re-type New Password">
                 </div>
-            </div>-->
+            </div>
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <button type="button" class="right btn btn-primary text-danger" (click)="goto('faculty/home')">Close</button>
+                    <button type="button" class="right pbtn btn btn-primary text-success" (click)="updatedetails()">Save</button> </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { StudentauthService } from './api/studentauth.service';
 
 import { UserauthService } from './api/userauth.service';
 import { ActivityComponent } from './pages/activity/activity.component';
@@ -16,6 +17,7 @@ import { FacultyComponent } from './pages/faculty/faculty.component';
 import { FacultymainComponent } from './pages/facultymain/facultymain.component';
 import { FacultyprofileComponent } from './pages/facultyprofile/facultyprofile.component';
 import { RecordsComponent } from './pages/records/records.component';
+import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
 import { StudentComponent } from './pages/student/student.component';
 import { StudenthomeComponent } from './pages/studenthome/studenthome.component';
 import { StudentmainComponent } from './pages/studentmain/studentmain.component';
@@ -23,6 +25,7 @@ import { StudentprofileComponent } from './pages/studentprofile/studentprofile.c
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 const routes: Routes = [
+  { path: "resetpassword", component: ResetpasswordComponent },
   { path: "portal/:id", component: WelcomeComponent },
   { path: "portal/:id/**", component: WelcomeComponent },
   {
@@ -57,7 +60,7 @@ const routes: Routes = [
         ]
       },
       { path: "", redirectTo: "home", pathMatch: 'full' },
-    ]
+    ], canActivate: [StudentauthService]
   },
   { path: "", redirectTo: "portal/student", pathMatch: 'full' },
 ];

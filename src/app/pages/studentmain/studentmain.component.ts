@@ -39,6 +39,13 @@ export class StudentmainComponent implements OnInit {
   }
 
 
+
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate(['/portal/student']);
+  }
+
+
   toggleside() {
     let side = document.getElementById("sidenav");
     let main = document.getElementById("routing");

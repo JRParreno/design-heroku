@@ -36,3 +36,9 @@
 .closebtn {
     margin-bottom: 20px;
 }
+
+.hide {
+    visibility: hidden;
+    width: 0%;
+    float: left;
+}

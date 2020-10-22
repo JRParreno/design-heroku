@@ -19,6 +19,7 @@ export class FacultyprofileComponent implements OnInit {
   profile: Professor;
 
   ngOnInit(): void {
+    this.profile = new Professor;
     this.changepass = false;
     this.getuser();
   }
@@ -29,10 +30,10 @@ export class FacultyprofileComponent implements OnInit {
 
   getuser() {
     this.service.getprofessor(sessionStorage.getItem('username')).subscribe(res => {
-      //console.log(res);
+      this.profile = res;
+      console.log(res);
     }, err => {
-      // console.log(err);
-
+      console.log(err);
     });
   }
 
@@ -42,6 +43,16 @@ export class FacultyprofileComponent implements OnInit {
     } else {
       this.changepass = true;
     }
+  }
+
+  updatedetails() {
+    console.log(this.profile);
+    /*this.service.updatestudent(this.profile).subscribe(res => {
+      //if success toast success message then get updates details
+      this.getuser();
+    }, err => {
+      //toast error message
+    });*/
   }
 
 }

@@ -93,14 +93,22 @@ export class WelcomeComponent implements OnInit {
 
   loginStudent() {
     let param = { username: this.studentid, password: this.studentpassword };
-    this.router.navigate(["/student/home"]);
-    /*this.service.loginstudent(null).subscribe(res => {
-      //success login navigate main page (set session data)
-      this.router.navigate(["/student/home"]);
+    this.service.loginstudent(param).subscribe(res => {
+      if (res.username == this.studentid) {
+        sessionStorage.setItem('username', res.username);
+        sessionStorage.setItem('access', res.tokens.access);
+        sessionStorage.setItem('refresh', res.tokens.refresh);
+        this.router.navigate(["/student/home"]);
+      }
     }, err => {
       //error toast message
-    });*/
-    //this.router.navigate(["/student/home"]);
+      this.message = '';
+      if (err.error.detail != undefined) {
+        this.message = this.message + err.error.detail + '.';
+        let c = document.getElementById('closereg');
+        c.click();
+      }
+    });
   }
 
   loginProfessor() {

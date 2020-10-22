@@ -19,16 +19,17 @@ export class StudentprofileComponent implements OnInit {
   profile: Student;
 
   ngOnInit(): void {
+    this.profile = new Student;
     this.changepass = false;
     this.getdetails();
   }
 
   getdetails() {
-    /*this.service.getstudentdetails(sessionStorage.getItem('studentid')).subscribe(res => {
+    this.service.getstudentdetails(sessionStorage.getItem('username')).subscribe(res => {
       this.profile = res;
-    }, err => { 
+    }, err => {
       //toast message here
-    });*/
+    });
   }
 
 
