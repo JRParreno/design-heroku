@@ -1,5 +1,7 @@
 # Assembly Language Online Learning Module
 
+From the repo https://github.com/danielfesalbon/TE-DESIGN. Deployment phase.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
 
 ## Development server
