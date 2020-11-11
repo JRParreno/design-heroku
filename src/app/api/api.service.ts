@@ -51,8 +51,10 @@ export class ApiService {
     return this.http.get<any>("" + sectionid);
   }
 
-  savestudent(param: any) {
-    return this.http.post<any>(this.API + "/api/auth/student/register/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  savestudent(param: any, sectionid) {
+    console.log(param);
+    return this.http.post<any>(this.API + "/api/section/students/" + sectionid, param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+    //return this.http.post<any>(this.API + "/api/auth/student/register/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
   getactivity(activityid) {
@@ -85,6 +87,11 @@ export class ApiService {
   forgotpassword(email: string) {
     let url = "https://al-online.herokuapp.com/faculty/home/profile";
     return this.http.post<any>("/api/auth/request-reset-email", { email: email, redirect_url: url });
+  }
+
+
+  changepassword(param) {
+    return this.http.post<any>(this.API + "/api/change-password/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
 }

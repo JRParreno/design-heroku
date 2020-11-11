@@ -37,8 +37,9 @@ const routes: Routes = [
           { path: "modules", component: ClasslistComponent },
           { path: "activity", component: ActivityfacultyComponent },
           { path: "activities", component: ClasslistComponent },
+          //{ path: "classlist", component: ClasslistComponent },
           { path: "classlist", component: ClasslistComponent },
-          { path: "class", component: ClassComponent },
+          { path: "class/:id", component: ClassComponent },
           { path: "profile", component: FacultyprofileComponent },
           { path: "records", component: RecordsComponent },
         ]

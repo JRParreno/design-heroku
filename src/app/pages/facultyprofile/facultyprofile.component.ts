@@ -18,7 +18,16 @@ export class FacultyprofileComponent implements OnInit {
   changepass: boolean;
   profile: Professor;
 
+
+  oldpassword: string;
+  newpassword: string;
+  newpassword2: string;
+
+
   ngOnInit(): void {
+    this.oldpassword = '';
+    this.newpassword = '';
+    this.newpassword2 = '';
     this.profile = new Professor;
     this.changepass = false;
     this.getuser();
@@ -43,6 +52,15 @@ export class FacultyprofileComponent implements OnInit {
     } else {
       this.changepass = true;
     }
+  }
+
+  changepassword() {
+    let param: any = { "oldpassword": this.oldpassword, "newpassword": this.newpassword };
+    this.service.changepassword(param).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
   updatedetails() {

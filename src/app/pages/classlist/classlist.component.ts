@@ -15,7 +15,7 @@ export class ClasslistComponent implements OnInit {
     private service: ApiService,
   ) { }
 
-  list: Block[];
+  list: any[] = [1, 2, 3, 4, 5, 6];
   blocks: Block[];
   block: Block;
   slc: any;
@@ -24,7 +24,9 @@ export class ClasslistComponent implements OnInit {
   ifactivity: boolean;
   ifchapter: boolean;
 
+
   ngOnInit(): void {
+    this.block = new Block;
     this.getsections();
     this.setactive();
   }
@@ -59,12 +61,22 @@ export class ClasslistComponent implements OnInit {
 
 
   savesection() {
-    /*this.service.savesection(this.slc).subscribe(res => {
+    //need userid on session
+    //fetch userid on success login
+    this.block.user = 1;
+    let b: any = this.block;
+    this.service.savesection(this.block).subscribe(res => {
+      if (res != undefined && res != null) {
+        this.getsections();
+        let cls = document.getElementById('secmodalcls');
+        cls.click();
+        this.block = new Block;
+      }
       //toast success, close modal
-      this.getsections();
+      //this.getsections();
     }, err => {
       //toast error
-    });*/
+    });
   }
 
   gotoclass(path: string) {

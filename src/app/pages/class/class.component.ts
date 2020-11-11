@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { stderr } from 'process';
 import { ApiService } from 'src/app/api/api.service';
 import { Student } from 'src/app/classes/student';
@@ -13,25 +13,31 @@ export class ClassComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: ApiService
+    private service: ApiService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   list: any[] = [1, 2, 3, 4, 5, 6, 7];
   studentlist: Student[];
   student: Student;
-  sectionid: string;
   message: string;
+
+  sectionid: any;
 
   ngOnInit(): void {
     this.message = '';
     this.student = new Student;
-    this.getstudents();
+    this.activatedRoute.paramMap.subscribe(param => {
+      this.sectionid = param.get('id');
+    });
+    //this.getstudents();
   }
 
   getstudents() {
     this.service.getstudentspersection(this.sectionid).subscribe(res => {
       console.log(res);
     }, err => {
+      console.log(err);
       //toast error message
     });
   }
@@ -44,7 +50,7 @@ export class ClassComponent implements OnInit {
     const chars = this.student.username.split('-');
     let pass = chars[0].substring(2, 4) + chars[1];
     this.student.password = pass;
-    this.service.savestudent(this.student).subscribe(res => {
+    this.service.savestudent(this.student, this.sectionid).subscribe(res => {
       if (res.username == this.student.username) {
         //success
         this.getstudents();
@@ -55,19 +61,20 @@ export class ClassComponent implements OnInit {
       this.message = '';
       if (err.error.username != undefined) {
         this.message = this.message + err.error.username[0] + ' ';
-      }
-      if (err.error.password != undefined) {
+      } else if (err.error.password != undefined) {
         this.message = this.message + err.error.password[0] + ' ';
-      }
-      if (err.error.email != undefined) {
+      } else if (err.error.email != undefined) {
         this.message = this.message + err.error.email[0] + ' ';
-      }
-      if (err.error.first_name != undefined) {
+      } else if (err.error.first_name != undefined) {
         this.message = this.message + err.error.first_name[0] + ' ';
-      }
-      if (err.error.last_name != undefined) {
+      } else if (err.error.last_name != undefined) {
         this.message = this.message + err.error.username[0] + ' ';
       }
+
+      if (this.message == '') {
+        this.message = "Invalid routine";
+      }
+
       let c = document.getElementById('closereg');
       c.click();
       //error toast message
