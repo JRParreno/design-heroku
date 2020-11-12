@@ -33,7 +33,7 @@ const routes: Routes = [
       {
         path: "home", component: FacultymainComponent, children: [
           { path: "", redirectTo: "classlist", pathMatch: 'full' },
-          { path: "chapter", component: ChapterfacultyComponent },
+          { path: "chapter/:id", component: ChapterfacultyComponent },
           { path: "modules", component: ClasslistComponent },
           { path: "activity", component: ActivityfacultyComponent },
           { path: "activities", component: ClasslistComponent },
