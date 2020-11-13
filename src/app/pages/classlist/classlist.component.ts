@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api/api.service';
+import { Activity } from 'src/app/classes/activity';
 import { Block } from 'src/app/classes/block';
 
 @Component({
@@ -24,11 +25,14 @@ export class ClasslistComponent implements OnInit {
   ifactivity: boolean;
   ifchapter: boolean;
 
+  acts: Activity[];
+
 
   ngOnInit(): void {
     this.block = new Block;
     this.getsections();
     this.setactive();
+    this.getactivity();
   }
 
   setactive() {
@@ -63,18 +67,21 @@ export class ClasslistComponent implements OnInit {
   savesection() {
     //need userid on session
     //fetch userid on success login
-    this.block.user = 1;
-    let b: any = this.block;
+    this.block.user = 3;
     this.service.savesection(this.block).subscribe(res => {
       if (res != undefined && res != null) {
         this.getsections();
         let cls = document.getElementById('secmodalcls');
         cls.click();
         this.block = new Block;
+        window.alert("Success!");
+      } else {
+        window.alert("Failed!");
       }
       //toast success, close modal
       //this.getsections();
     }, err => {
+      window.alert("Failed!");
       //toast error
     });
   }
@@ -177,6 +184,16 @@ export class ClasslistComponent implements OnInit {
 
   selectactivity(activity) {
     this.slc = activity;
+  }
+
+
+  getactivity() {
+    this.acts = [];
+    this.service.listactivity().subscribe(res => {
+      this.acts = res;
+    }, err => {
+      console.log(err);
+    });
   }
 
 }

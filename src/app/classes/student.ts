@@ -6,5 +6,5 @@ export class Student {
     middle_name;
     password;
     email;
-    university_id;
+    student_number;
 }

@@ -1,6 +1,7 @@
 export class Question {
     id;
-    activityid;
-    questnum;
-    description;
+    number;
+    q_type;
+    question_name;
+    choices: any[];
 }

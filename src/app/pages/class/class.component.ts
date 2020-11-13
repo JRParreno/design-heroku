@@ -2,6 +2,7 @@ import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/
 import { ActivatedRoute, Router } from '@angular/router';
 import { stderr } from 'process';
 import { ApiService } from 'src/app/api/api.service';
+import { Block } from 'src/app/classes/block';
 import { Student } from 'src/app/classes/student';
 
 @Component({
@@ -17,29 +18,50 @@ export class ClassComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) { }
 
-  list: any[] = [1, 2, 3, 4, 5, 6, 7];
+  list: Student[];
   studentlist: Student[];
   student: Student;
   message: string;
-
+  block: Block;
   sectionid: any;
+  studentslc: Student;
 
   ngOnInit(): void {
+    this.block = new Block;
     this.message = '';
     this.student = new Student;
+    this.studentslc = new Student;
     this.activatedRoute.paramMap.subscribe(param => {
       this.sectionid = param.get('id');
+      this.getsection();
     });
     //this.getstudents();
+  }
+
+
+  getsection() {
+    this.service.getsection(this.sectionid).subscribe(res => {
+      if (res != undefined && res != null) {
+        this.block = res;
+        this.getstudents();
+      }
+    }, err => {
+      console.log(err);
+    });
   }
 
   getstudents() {
     this.service.getstudentspersection(this.sectionid).subscribe(res => {
       console.log(res);
+      this.list = res;
     }, err => {
       console.log(err);
       //toast error message
     });
+  }
+
+  viewstudent(student) {
+    this.studentslc = student;
   }
 
   newstudent() {
@@ -49,8 +71,9 @@ export class ClassComponent implements OnInit {
   addstudent() {
     const chars = this.student.username.split('-');
     let pass = chars[0].substring(2, 4) + chars[1];
-    this.student.password = pass;
+    //this.student.password = pass;
     this.service.savestudent(this.student, this.sectionid).subscribe(res => {
+      console.log(res);
       if (res.username == this.student.username) {
         //success
         this.getstudents();

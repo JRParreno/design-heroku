@@ -1,7 +1,5 @@
 export class Activity {
     id;
-    profchapterid;
-    name;
-    activitystart;
-    activityend;
+    chapter;
+    activity_name;
 }

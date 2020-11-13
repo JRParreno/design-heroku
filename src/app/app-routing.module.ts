@@ -35,7 +35,7 @@ const routes: Routes = [
           { path: "", redirectTo: "classlist", pathMatch: 'full' },
           { path: "chapter/:id", component: ChapterfacultyComponent },
           { path: "modules", component: ClasslistComponent },
-          { path: "activity", component: ActivityfacultyComponent },
+          { path: "activity/:id", component: ActivityfacultyComponent },
           { path: "activities", component: ClasslistComponent },
           //{ path: "classlist", component: ClasslistComponent },
           { path: "classlist", component: ClasslistComponent },

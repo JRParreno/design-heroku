@@ -1,0 +1,229 @@
+﻿<p style='margin:0cm;font-size:15px;text-align:center;'><strong>COMPUTER SYSTEMS ORGANIZATION WITH ASSEMBLY LANGUAGE</strong></p>
+<p style='margin:0cm;font-size:15px;text-align:center;'><strong><span style="font-size:21px;">FUNDAMENTALS OF ASSEMBLY LANGUAGE</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;'>OBJECTIVES:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;'>At The end of the chapter the learners are expected to:</p>
+<ul style="list-style-type: disc;">
+    <li>Explain how assembly language evolved and classified.</li>
+    <li>Compare and contrast assembly language to other computer programming languages</li>
+    <li>Appreciate the advantages of using assembly language in solving machine problems.</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;'><strong><span style="font-size:19px;line-height:107%;">PROGRAMMING LANGUAGE</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;'>A programming language is a notation for expressing instructions to be carried out by the computer. It is a medium of communication between the human and the machine, and often between one human being and another.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;'><strong><span style="font-size:19px;line-height:107%;">CLASSIFICATION OF PRORAMMING LANGUAGES</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;'>The proliferation of computer programming languages continues to this very day. There have probably been more than 3,000 programming languages designed and implemented, although many of these have been used exclusively for &quot;in house&quot; production
+    rather than marketed for commercial use. Programming languages can be classified as:</p>
+<p style='margin:0cm;font-size:15px;'>1. High-Level Language</p>
+<p style='margin:0cm;font-size:15px;'>A high-level programming language is an English-like language that provides for more natural expression of algorithms. It is usually designed to handle a particular application area efficiently. It can express the same program as low-level language, but
+    with less detail and fewer lines of code. Languages like BASIC, Pascal, COBOL and PROLOG are some of the examples of high-level languages.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>2. Mid-Level Language</p>
+<p style='margin:0cm;font-size:15px;'>It is a computer language which combines low-level efficiency with high-level language structure abstraction and portability. Examples of mid-level language include C and MODULA-2.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>3. Low-Level Language</p>
+<p style='margin:0cm;font-size:15px;'>A low-level language is considered to be machine-oriented since it closely follows the built in instruction set of the underlying computer. Assembly and machine languages are common examples of low-level language.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong><span style="font-size:19px;">LANGUAGE TRANSLATOR</span></strong></p>
+<p style='margin:0cm;font-size:15px;'>It is also known as language processor. Language translator is software that accepts source program coded in high/mid-level language as input and produces the equivalent machine language instruction.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong><span style="font-size:16px;">TYPES OF LANGUAGE TRANSLATOR</span></strong></p>
+<p style='margin:0cm;font-size:15px;'>Basically, there are three types of language processor:&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>I. Compiler</p>
+<p style='margin:0cm;font-size:15px;'>A compiler is a translator program that transforms an entire source program composed of high/mid-level language statements into an object program consisting of machine language executable code.</p>
+<p style='margin:0cm;font-size:15px;'><br></p>
+<p style='margin:0cm;font-size:15px;'>High/Mid Level Language</p>
+<p style='margin:0cm;font-size:15px;'>Machine Language</p>
+<p style='margin:0cm;font-size:15px;'>Source Program &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family:Wingdings;">&agrave;</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style="font-size:16px;">COMPILER &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></strong>
+    <span style="font-family:Wingdings;">&agrave;</span>
+</p>
+<p style='margin:0cm;font-size:15px;'>Instruction</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>II. Interpreter</p>
+<p style='margin:0cm;font-size:15px;'>An interpreter processes the source program on a statement by-statement basis. It translates high/mid-level language statements and then executes it one statement at a time.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>High/Mid Level Language</p>
+<p style='margin:0cm;font-size:15px;'>Machine Language</p>
+<p style='margin:0cm;font-size:15px;'>Source Program &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family:Wingdings;">&agrave;</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong><span style="font-size:16px;">INTERPRETER &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></strong>
+    <span style="font-family:Wingdings;">&agrave;</span>
+</p>
+<p style='margin:0cm;font-size:15px;'>Instruction</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>III. Assembler</p>
+<p style='margin:0cm;font-size:15px;'>An assembler is a language translator that transforms assembly language to machine language instruction.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>High/Mid Level Language</p>
+<p style='margin:0cm;font-size:15px;'>Machine Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-family:Wingdings;">&agrave;</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>ASSEMBLER</strong>&nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family:Wingdings;">&agrave;</span></p>
+<p style='margin:0cm;font-size:15px;'>Source Program</p>
+<p style='margin:0cm;font-size:15px;'>Instruction</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong><span style="font-size:16px;">LINKER</span></strong></p>
+<p style='margin:0cm;font-size:15px;'><strong><span style="font-size:16px;">&nbsp;</span></strong></p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'>Linker is a computer program for high, mid, and low levels of programming language that completes the process by converting the object code into executable machine code.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong><span style="font-size:16px;">ASSEMBLY LANGUAGE</span></strong></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'>It is a low-level language that provides a kind of shorthand notation called mnemonic (memory aid) for the actual machine language instruction. It is much easier to remember SUB AX, BX than 0010101111000011 which is the actual instruction code that the
+    machine uses.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong>ADVANTAGES OF ASSEMBLY LANGUAGE</strong></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'>Despite the fact that coding in high-level language is more productive, some advantages of using assembly language are as follows:</p>
+<ul style="list-style-type: disc;margin-left:26px;">
+    <li>It provides more control over handling particular hardware requirements.</li>
+    <li>It generates smaller, more compact executable modules.</li>
+    <li>It results in faster execution.</li>
+</ul>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong>WHEN DO YOU USE ASSEMBLY LANGUAGE?</strong></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'>You might ask, &quot;When should I use assembly language? The chief reason you might use assembly language is if you want to do something that is impossible with high-level language. Since this language gives you direct control over the processor, you
+    can do anything that the machine is capable of doing. High-level languages can&apos;t provide you this sort of control.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'>Likewise, you might use assembly language to speed up a slow program. Programs coded in high-level language often execute slower than their assembly language counterparts. Furthermore, to use assembly means to design a program to be small as possible.
+    When you are faced with compressing a program into a tiny space, using it is often the best way.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'>One last important point, when you read technical magazines and journals, you&apos;ll often see examples expressed in assembly language because that is the only way to show what the processor is actually doing. Even if you don&apos;t write many assembly
+    language programs yourself, you will be able to read them like a top-notch programmer.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong>IV. BIT MANIPULATION</strong></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong>SHIFTING</strong></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'><strong>Shift Left Logical</strong></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>A <strong>shift left logical</strong> of one position moves each bit to the left by one. The low-order bit (the right-most bit) is replaced by a zero and the high-order bit (the left-most bit) is discarded.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>Shifting by two positions is the same as performing a one-position shift two times. Shifting by zero positions leaves the pattern unchanged. Shifting an N-bit pattern left by N or more positions changes all of the bits to zero.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>The picture shows the operation performed on eight bits. The original pattern is 1010 0111. The resulting pattern is 0100 1110.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:144.0pt;'>Shift Left Logical</p>
+<p style='margin:0cm;font-size:15px;margin-left:144.0pt;'><span style="font-size:21px;">1010011 0 before</span></p>
+<p style='margin:0cm;font-size:15px;margin-left:144.0pt;'><span style="font-size:21px;">0100110 &nbsp; &nbsp;after</span></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>A left shift moves the bits in the designated register to the left.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:108.0pt;text-indent:36.0pt;'>&lt;SHL; Shift Left&gt;</p>
+<p style='margin:0cm;font-size:15px;margin-left:72.0pt;'>Example:</p>
+<p style='margin:0cm;font-size:15px;margin-left:72.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:72.0pt;'>MOV CL, 03 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CL = 03</p>
+<p style='margin:0cm;font-size:15px;margin-left:72.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:72.0pt;'>MOV AL, 10110111 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AL = 10110111 = B7</p>
+<p style='margin:0cm;font-size:15px;margin-left:72.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:72.0pt;'>SHL AL, 01 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AL = 01101110 = 6E (1 time to left)</p>
+<p style='margin:0cm;font-size:15px;margin-left:72.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:72.0pt;'>SHL AL, CL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AL = 01110000 = 70 (3 times to the left)</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'><strong>Shift Right Logical</strong></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>A <strong>shift right logical</strong> instruction. It moves bits to the right by a number of positions less than 32. The high-order bit gets zeros and the low-order bits are discarded.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>If the bit pattern is regarded as an unsigned integer or a positive two&apos;s comp. integer, then a right shift of one bit position performs an integer divide by two. A right shift by N positions performs an integer divide by 2N.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>The &quot;trick&quot; of dividing an integer by shifting should not be used in place of the MIPS arithmetic divide instruction (which will be covered in a few chapters). If you mean &quot;divide&quot; that is what you should write. But the trick is often
+    used in hardware, and sometimes pops up in odd software uses, so you should know about it.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:144.0pt;'>Shift Right Logical</p>
+<p style='margin:0cm;font-size:15px;margin-left:144.0pt;'><span style="font-size:21px;">0 10100111 before</span></p>
+<p style='margin:0cm;font-size:15px;margin-left:144.0pt;'><span style="font-size:21px;">01010011 after</span></p>
+<p style='margin:0cm;font-size:15px;'><span style="font-size:21px;">&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;'>A right shift moves the bits in the designated register to the right.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:72.0pt;text-indent:36.0pt;'>&lt;SHR; Shift Right&gt;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>Example:</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV CL, 03 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CL = 03</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV AL, 10110111 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AL = 10110111 = B7</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>SHR AL, 01 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AL = 01011011 = 5B (1 time to the right)</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>SHR AL, CL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AL = 00001011 = 0B (3 times to the right)</p>
+<p style='margin:0cm;font-size:15px;'><br></p>
+<p style='margin:0cm;font-size:15px;'><strong>ROTATING</strong></p>
+<ul style="list-style-type: disc;margin-left:26px;">
+    <li>Right Rotate</li>
+    <li>Left Rotate</li>
+</ul>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong>Right Rotate</strong></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>A right rotate rotates the bits in the designated register to the right.</p>
+<p style='margin:0cm;font-size:15px;margin-left:108.0pt;text-indent:36.0pt;'>&lt;ROR: Rotate right&gt;</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>Example: (Rotating Right)</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV CL, 03 &nbsp; &nbsp; &nbsp; &nbsp; CL = 03</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV BL, B7 &nbsp; &nbsp; &nbsp; &nbsp; BL = 10110111 = B7</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>ROR BL, 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BLE 11011011 = DB</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>ROR BL, CL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BL = 01111011 = 7B</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong>Left Rotate</strong></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'>A left rotate rotates the bits in the designated register to the left.</p>
+<p style='margin:0cm;font-size:15px;margin-left:108.0pt;text-indent:36.0pt;'>&lt;ROL: Rotate left&gt;</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>Example: (Rotating Left)</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV CL, 03 &nbsp; &nbsp; &nbsp; &nbsp; CL = 03</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV BH, B7 &nbsp; &nbsp; &nbsp; &nbsp;BH = 10110111 &nbsp; = B7</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>ROL BH, 01 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;BH = 01101111 &nbsp; = F6</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>ROL BH, CL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;BH = 01111011 &nbsp; = 7B</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><br></p>
+<p style='margin:0cm;font-size:15px;'><strong>BASIC LOGIC OPERATIONS</strong></p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<ul style="list-style-type: disc;margin-left:26px;">
+    <li>AND</li>
+    <li>OR</li>
+    <li>EXCLUSIVE-OR</li>
+    <li>NOT and NEG</li>
+</ul>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong>AND</strong></p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'>The AND operation performs logical multiplication, is often used to replace discreet logic AND gates if the speed required not too great.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>Instruction &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Comments</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>AND AL, BL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AL is the logical product of AL AND BL</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>AND CX, DX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CX is the logical product of CX AND DX</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>AND CL, 33 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CL is the logical product of CL AND 33</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>AND CX, 3030 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CX is the logical product of CX AND 3030</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>Example:</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV BX, 3155 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;BX=3155</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV AX, BX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AX=3155</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>AND AX, OFOF &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AX=3155 AND OFOF = 0105</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV CX, AX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CX=0105</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><strong>OR</strong></p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'>The OR operation performs logical addition, which is slightly different form arithmetic addition. In logical addition, the sum is only a O when both numbers are 0; otherwise the sum is a 1.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>Instruction &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Comments</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>OR AH, BL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AH is the logical sum of AH AND BL</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>OR CX, DX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CX is the logical sum of CX AND DX</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>OR CL, 33 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CL is the logical sum of CL AND 33</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>OR CX, 3030 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CX is the logical sum of CX AND 3030</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>Example: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV AL, 5 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AL=5</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MOV BL, 7 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BL=7</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>MUL BL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AX=23</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>OR AX, 3030 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AX=3033</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;'><br></p>
+<p style='margin:0cm;font-size:15px;'><strong>THE EXCLUSIVE-OR</strong></p>
+<p style='margin:0cm;font-size:15px;text-indent:36.0pt;'>The Exclusive-OR operation (XOR) differs from the Inclusive-OR (OR) mainly in that the 1, 1 condition of the OR function produce a 1 while the 1, 1 condition of the Exclusive-OR operation produces a 0. In other words, the Exclusive-OR excludes the latter
+    condition while the Inclusive-OR includes it.</p>
+<p style='margin:0cm;font-size:15px;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>Instruction &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Comments</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>XOR CH, DL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CH is the Exclusive-OR of CH and DL</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>XOR AH, EE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AH is the Exclusive-OR&apos;of AH and EE</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'><strong>NOT and NEG</strong></p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;text-indent:36.0pt;'>Logical inversion or one&apos;s complement (NOT) and arithmetic sign inversion or two&apos;s compliment (NEG) are the last two logical functions available except for shift and rotates.</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>&nbsp;</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>Instruction &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Comments</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>NOT CH &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CH is one&apos;s complimented</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>NEG CH &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CH is two&apos;s complimented</p>
+<p style='margin:0cm;font-size:15px;margin-left:36.0pt;'>NEG AX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AX is two&apos;s complemented</p>

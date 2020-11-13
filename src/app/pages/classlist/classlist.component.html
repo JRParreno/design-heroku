@@ -1,4 +1,5 @@
 <div class="layout">
+
     <b id="opclass" class="opt" (click)="classlistact($event)">CLASSLIST</b>
     <b id="opactivity" class="opt" (click)="activityact($event)">ACTIVITIES</b>
     <b id="opchapter" class="opt" (click)="chapteract($event)">CHAPTERS</b>
@@ -27,43 +28,15 @@
                 </a>
             </div>
         </div>
-        <!--<div class="box row green">
-                    <a *ngFor="let i of list" class="p col-12 col-md-2" (click)="gotoclass('faculty/home/class')">
-                        <div class="folder card bg-primary border-light shadow-soft">
-                            <div class="card-body">
-                                <p class="icon card-title mt-3"><span class="fas fa-folder mr-2"></span></p>
-                                <p class="card-text lbl">CEIT-03-1002E</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="p col-12 col-md-2" data-toggle="modal" data-target="#modal-default">
-                        <div class="folder card bg-primary border-light shadow-soft">
-                            <div class="card-body">
-                                <p class="icon card-title mt-3"><span class="fas fa-plus-circle mr-2"></span></p>
-                                <p class="card-text lbl">Add Section</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>-->
     </div>
     <div *ngIf="ifactivity" id="activity">
-        <!--<a *ngFor="let i of list" class="p col-12 col-md-2" (click)="gotoclass('faculty/home/activity')">-->
-        <!--<a *ngFor="let i of list" class="p col-12 col-md-2" data-toggle="modal" data-target="#act-modal-default"
-                (click)="selectactivity(i)">
-                <div class="folder card bg-primary border-light shadow-soft">
-                    <div class="card-body">
-                        <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>
-                        <p class="card-text lbl">ACTIVITY {{i}}</p>
-                    </div>
-                </div>
-            </a>-->
         <div class="ui-fluid p-grid lst">
-            <div *ngFor="let i of list" class="p-col-12 p-md-3">
-                <a routerLink="/faculty/home/activity">
+            <div *ngFor="let i of acts" class="p-col-12 p-md-3">
+                <a routerLink="/faculty/home/activity/{{i.id}}">
                     <div class="box card bg-primary border-light shadow-soft">
                         <div class="card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>
-                            <p class="card-text lbl">ACTIVITY</p>
+                            <p class="card-text lbl">{{i.activity_name}}</p>
                         </div>
                     </div>
                 </a>
@@ -83,46 +56,10 @@
                 </a>
             </div>
         </div>
-        <!--<div class="box row green">
-            <a *ngFor="let i of list" class="p col-12 col-md-2" routerLink="/faculty/home/chapter">
-                <div class="folder card bg-primary border-light shadow-soft">
-                    <div class="card-body">
-                        <p class="icon card-title mt-3"><span class="fas fa-book mr-2"></span></p>
-                        <p class="card-text lbl">CHAPTER {{i}}</p>
-                    </div>
-                </div>
-            </a>-->
-        <!--<div *ngFor="let i of list" class="module card bg-primary border-light shadow-soft">
-                        <div class="module card-body">
-                            <div class="img"></div>
-                            <span class="h6 icon-tertiary small"><span class="fas fa-award mr-2"></span></span>
-                            <h3 class="h5 card-title mt-3">Chapter {{i}}</h3>
-                            <p class="card-text">Guide to Assembly Language</p>
-                            <a class="btn btn-primary btn-sm view" routerLink="/faculty/home/chapter">View Chapter</a>
-                        </div>
-                    </div>-->
-        <!--</div>-->
     </div>
-
-    <!--<div class="box red"> 
-        <div class="box row green">
-            <a *ngFor="let i of list" class="p col-12 col-md-2" (click)="gotoclass('faculty/home/class')">
-                <div class="folder card bg-primary border-light shadow-soft">
-                    <div class="folder card-body">
-                        <p class="icon card-title mt-3"><span class="fas fa-folder mr-2"></span></p>
-                        <p class="card-text">CEIT-03-1002E</p>
-                    </div>
-                </div>
-            </a>
-            <a class="p col-12 col-md-2" data-toggle="modal" data-target="#modal-default">
-                <div class="folder card bg-primary border-light shadow-soft">
-                    <div class="folder card-body">
-                        <p class="icon card-title mt-3"><span class="fas fa-plus-circle mr-2"></span></p>
-                        <p class="card-text">Add Section</p>
-                    </div>
-                </div>
-            </a>
-        </div>
+    <!--<div class="alert alert-success shadow-soft close" role="alert" id="success-alert">
+        <span class="alert-inner--text">This is a success alert with <a href="#" class="alert-link">an
+                example link</a>. Give it a click if you like.</span>
     </div>-->
 </div>
 

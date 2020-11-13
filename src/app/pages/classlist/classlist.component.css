@@ -1,35 +1,35 @@
-.layout{
+.layout {
     width: 100%;
-    margin: 0 auto;;
+    margin: 0 auto;
+    ;
 }
 
-
-.lst{
+.lst {
     padding: 2%;
 }
 
-#classlist{
+#classlist {
     padding-top: 20px;
     border-radius: 10px;
     text-align: center;
     width: 100%;
 }
 
-#activity{
+#activity {
     padding-top: 20px;
     border-radius: 10px;
     text-align: center;
     width: 100%;
 }
 
-#chapter{
+#chapter {
     padding-top: 20px;
     border-radius: 10px;
     text-align: center;
     width: 100%;
 }
 
-.box{
+.box {
     height: 200px;
 }
 
@@ -48,7 +48,6 @@
     cursor: not-allowed;
     opacity: 0.5;
 }
-
 
 .icon {
     font-size: 1em;
@@ -79,12 +78,14 @@
     padding: 20px
 }
 
-
-.fleft{
+.fleft {
     float: left;
 }
 
-
-.lbl{
+.lbl {
     font-size: 14px;
+}
+
+.close {
+    display: none;
 }

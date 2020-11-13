@@ -1,12 +1,12 @@
 <div class="layout">
     <div class="ui-fluid p-grid">
         <div class="p-col-12 p-md-3">
-            <span class="fas fa-folder mr-2"></span> CEIT-03-1002E
+            <span class="fas fa-folder mr-2"></span> {{block.code}}
             <br>
-            <span class="fas fa-clock mr-2"></span> THS 6:00pm - 7:30pm
+            <span class="fas fa-clock mr-2"></span> {{block.schedule}}
         </div>
         <div class="p-col-12 p-md-3">
-            <button class="btn btn-primary" type="button" (click)="newstudent()" data-toggle="modal" data-target="#modal-student">
+            <button [disabled]="block == null || block.code == null || block.code == ''" class="btn btn-primary" type="button" (click)="newstudent()" data-toggle="modal" data-target="#modal-student">
                 <span class="mr-1"><span class="fas fa-user-friends"></span></span>
                 <b>Add Student</b>
             </button>
@@ -28,16 +28,16 @@
         <tr>
             <th class="border-0 " scope="col" id="studentno">Student No.</th>
             <th class="border-0" scope="col" id="name">Name</th>
-            <th class="border-0" scope="col" id="det">Details</th>
+            <!--<th class="border-0" scope="col" id="det">Details</th>-->
         </tr>
         <tr *ngFor="let i of list">
-            <td headers="studentno">2020-100001</td>
-            <td headers="name">Juan Dela Cruz</td>
-            <td headers="det">
-                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal" data-target="#modal-default">
+            <td headers="studentno">{{i.student_number}}</td>
+            <td headers="name">{{i.first_name}} {{i.middle_name}} {{i.last_name}}</td>
+            <!--<td headers="det">
+                <button class="btn btn-icon-only btn-sm btn-pill" type="button" data-toggle="modal" data-target="#modal-default" (click)="viewstudent(i)">
                     <span aria-hidden="true" class="fas fa-ellipsis-v"></span>
                 </button>
-            </td>
+            </td>-->
         </tr>
     </table>
 
@@ -53,10 +53,10 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="h6 modal-title mb-0" id="modal-title-default">2020-10001</h2>
+                <h2 class="h6 modal-title mb-0" id="modal-title-default">{{studentslc.student_number}}</h2>
             </div>
             <div class="modal-body">
-                Name: Juan Dela Cruz
+                Name: {{studentslc.first_name}} {{studentslc.middle_name}} {{studentslc.last_name}}
                 <br> Email: juandcruz@gmail.com
                 <br> Course: BSIT
                 <br> Block: CEIT-03-1002E
