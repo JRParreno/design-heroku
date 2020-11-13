@@ -97,4 +97,14 @@ export class ApiService {
     return this.http.post<any>(this.API + "/api/change-password/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
+
+  getprofactivity() {
+    return this.http.get<any>(this.API + "/api/activity/viewset/prof_activity/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
+
+  setprofactivity(param) {
+    return this.http.post<any>(this.API + "/api/activity/viewset/prof_activity/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
 }

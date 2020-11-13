@@ -32,7 +32,8 @@
     <div *ngIf="ifactivity" id="activity">
         <div class="ui-fluid p-grid lst">
             <div *ngFor="let i of acts" class="p-col-12 p-md-3">
-                <a routerLink="/faculty/home/activity/{{i.id}}">
+                <a id="activityview" data-toggle="modal" data-target="#act-modal-default" (click)="selectactivity(i.id)">
+                    <!--<a routerLink="/faculty/home/activity/{{i.id}}">-->
                     <div class="box card bg-primary border-light shadow-soft">
                         <div class="card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>
@@ -93,20 +94,21 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <form class="w-75">
+                <form class="w-100">
                     <div class="form-group">
-                        <h2 class="h6 modal-title mb-0" id="modal-title-default">ACTIVITY {{slc}}</h2>
+                        <h2 class="h6 modal-title mb-0" id="modal-title-default">{{selectacts.activity_name}}</h2>
                     </div>
                     <div>
                         <div class="input-daterange row align-items-center">
                             <div class="col">
                                 <div class="form-group">
                                     <div class="input-group input-group-border">
-                                        <div class="input-group-prepend"><span class="input-group-text"><span
+                                        <!--<div class="input-group-prepend"><span class="input-group-text"><span
                                                     class="far fa-calendar-alt"></span></span>
-                                        </div>
-                                        <input class="form-control datepicker" id="date1" placeholder="Start date" type="text">
-                                        <input class="form-control" id="time1" placeholder="Start time" type="time">
+                                        </div>-->
+                                        <input class="form-control" [(ngModel)]="acstart" name="acstart" id="date1" placeholder="Start date" type="date">
+                                        <!--<input class="form-control datepicker" id="date1" placeholder="Start date" type="text">-->
+                                        <!--<input class="form-control" id="time1" placeholder="Start time" type="time">-->
                                     </div>
                                 </div>
                             </div>
@@ -116,32 +118,93 @@
                                         <div class="input-group-prepend"><span class="input-group-text"><span
                                                     class="far fa-calendar-alt"></span></span>
                                         </div>
-                                        <input class="form-control datepicker" id="date2" placeholder="End date" type="text">
-                                        <input class="form-control" id="time2" placeholder="End time" type="time">
+                                        <input class="form-control" [(ngModel)]="acend" name="acend" id="date2" placeholder="End date" type="date">
+                                        <!--<input class="form-control datepicker" [(ngModel)]="acend" name="acend" id="date2" placeholder="End date" type="text">-->
+                                        <!--<input class="form-control" id="time2" placeholder="End time" type="time">-->
                                     </div>
                                 </div>
                             </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <select class="custom-select my-1 mr-sm-2 actsect" (change)="profactivityselect($event)">
+                                        <option selected>Choose...</option>
+                                        <option *ngFor="let b of filter" value="{{b.id}}">{{b.section_code}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <button [disabled]="acstart == null || acend == null || acslc == null" type="button" class="btn btn-primary text-success" (click)="saveactivitysched()">Save</button>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </form>
             </div>
             <div class="modal-body act-tbl">
-                <table class="table shadow-soft rounded act-tbl">
+                <div class="accordion shadow-soft rounded" id="accordionExample1">
+                    <div *ngFor="let i of filter" class="card card-sm card-body bg-primary border-light mb-0">
+                        <a ref="#panel-1" data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+                            <span class="h6 mb-0 font-weight-bold">{{i.section_code}} | Date: {{i.start}} -
+                                {{i.end}}</span>
+                            <span class="icon"><span class="fas fa-plus"></span></span>
+                        </a>
+                        <div class="collapse" id="panel-1">
+                            <div class="pt-3">
+                                <p class="mb-0">
+                                    insert table here..
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="card card-sm card-body bg-primary border-light mb-0">
+                        <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+                            <span class="h6 mb-0 font-weight-bold">2)Next question, 2?</span>
+                            <span class="icon"><span class="fas fa-plus"></span></span>
+                        </a>
+                        <div class="collapse" id="panel-2">
+                            <div class="pt-3">
+                                <p class="mb-0">
+                                    <input type="radio" name="choice" value="q2c1">Choice 1<br>
+                                    <input type="radio" name="choice" value="q2c2">Choice 2<br>
+                                    <input type="radio" name="choice" value="q2c3">Choice 3<br>
+                                    <input type="radio" name="choice" value="q2c4">Choice 4
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body bg-primary border-light">
+                        <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+                            <span class="h6 mb-0 font-weight-bold">3)Last question, 3?</span>
+                            <span class="icon"><span class="fas fa-plus"></span></span>
+                        </a>
+                        <div class="collapse" id="panel-3">
+                            <div class="pt-3">
+                                <p class="mb-0">
+                                    <input type="radio" name="choice" value="q3c1">Choice 1<br>
+                                    <input type="radio" name="choice" value="q3c2">Choice 2<br>
+                                    <input type="radio" name="choice" value="q3c3">Choice 3<br>
+                                    <input type="radio" name="choice" value="q3c4">Choice 4
+                                </p>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+                <!--<table class="table shadow-soft rounded act-tbl">
                     <tr>
                         <th class="border-0" scope="col" id="block">Section</th>
-                        <th class="border-0" scope="col" id="studentno">Student No.</th>
-                        <th class="border-0" scope="col" id="score">Score</th>
+                        <th class="border-0" scope="col" id="start">Start</th>
+                        <th class="border-0" scope="col" id="end">End</th>
                     </tr>
-                    <tr *ngFor="let i of list">
-                        <td headers="block">CEIT-03-1002E</td>
-                        <td headers="studentno">2020-100001</td>
-                        <td headers="score">50/50</td>
+                    <tr *ngFor="let i of filter">
+                        <td headers="block">{{i.section_code}}</td>
+                        <td headers="start">{{i.start}}</td>
+                        <td headers="end">{{i.end}}</td>
                     </tr>
-                </table>
+                </table>-->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary text-secondary" (click)="gotoclass('faculty/home/activity')" data-dismiss="modal">View
+                <button type="button" class="btn btn-primary text-secondary" (click)="gotoactivity()" data-dismiss="modal">View
                     Questions</button>
 
                 <button type="button" class="btn btn-primary text-danger ml-auto" data-dismiss="modal">Close</button>

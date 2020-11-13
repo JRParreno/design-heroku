@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api/api.service';
 import { Activity } from 'src/app/classes/activity';
 import { Block } from 'src/app/classes/block';
+import { Profactivity } from 'src/app/classes/profactivity';
 
 @Component({
   selector: 'app-classlist',
@@ -26,9 +27,27 @@ export class ClasslistComponent implements OnInit {
   ifchapter: boolean;
 
   acts: Activity[];
+  profacts: Profactivity[];
+  filter: Profactivity[];
+
+  selectacts: Activity;
+
+  acstart: Date;
+  acend: Date;
+  acslc: any;
+
+  selectedactivity: any;
 
 
   ngOnInit(): void {
+    this.selectacts = new Activity;
+    this.selectedactivity = null;
+    this.acslc = null;
+    this.acstart = null;
+    this.acend = null;
+    this.filter = [];
+    this.profacts = [];
+    this.acts = [];
     this.block = new Block;
     this.getsections();
     this.setactive();
@@ -182,8 +201,33 @@ export class ClasslistComponent implements OnInit {
 
 
 
-  selectactivity(activity) {
-    this.slc = activity;
+  selectactivity(activity: any) {
+    //this.filter = this.profacts.filter(res => res.activity = activity);
+    this.filter = [];
+    this.selectedactivity = activity;
+    this.selectacts = this.acts.find(a => a.id = activity);
+    this.blocks.forEach(s => {
+      let b = new Profactivity;
+      b.section = s.id;
+      b.section_code = s.code;
+      this.filter.push(b);
+    });
+    /*console.log(this.filter);
+    console.log(this.profacts);*/
+    this.profacts.forEach(p => {
+      this.filter.forEach(f => {
+        if (p.section == f.section) {
+          f.activity = p.activity;
+          f.activity_name = p.activity_name;
+          f.id = p.id;
+          f.start = p.start;
+          f.end = p.end;
+        } else {
+          f.activity = activity;
+        }
+      });
+    });
+    //this.slc = activity;
   }
 
 
@@ -191,9 +235,76 @@ export class ClasslistComponent implements OnInit {
     this.acts = [];
     this.service.listactivity().subscribe(res => {
       this.acts = res;
+      this.getprofactivity();
     }, err => {
       console.log(err);
     });
+  }
+
+
+  getprofactivity() {
+    this.profacts = [];
+    this.service.getprofactivity().subscribe(res => {
+      this.profacts = res;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  profactivityselect(event) {
+    let index = event.target.options.selectedIndex;
+    let s = this.filter[index - 1];
+    if (s == undefined || s == null) {
+      this.acslc = null;
+    } else {
+      this.acslc = s.section;
+    }
+    /*if (s.start != null) {
+      let startdate: string = s.start;
+      startdate = startdate.replace(/-/g, "/");
+      this.acstart = new Date(startdate);
+    } else {
+      this.acstart = null;
+    }
+    if (s.end != null) {
+      let enddate: string = s.end;
+      enddate = enddate.replace(/-/g, "/");
+      this.acend = new Date(enddate);
+    } else {
+      this.acend = null;
+    }*/
+  }
+
+  saveactivitysched() {
+    let s = this.filter.find(i => i.section == this.acslc);
+    let sched = new Profactivity;
+    let startdate: any = this.acstart;
+    let startstr: string = startdate;
+    let enddate: any = this.acend;
+    let endstr: string = enddate;
+    sched.section = s.section;
+    sched.start = startstr;
+    sched.end = endstr;
+    sched.activity = s.activity;
+    sched.remarks = false;
+    if (s.id != undefined) {
+      sched.id = s.id;
+    }
+    this.service.setprofactivity(sched).subscribe(res => {
+      if (res != undefined && res != null) {
+        this.getactivity();
+        this.selectactivity(sched.activity);
+        let a = document.getElementById('activityview');
+        a.click();
+        //toast success
+      }
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  gotoactivity() {
+    this.router.navigate(['/faculty/home/activity/' + this.selectedactivity]);
   }
 
 }
