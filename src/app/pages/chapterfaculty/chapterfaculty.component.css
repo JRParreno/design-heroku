@@ -50,7 +50,7 @@
 }
 
 .thread {
-    height: 105px;
+    height: 165px;
     overflow-y: scroll;
 }
 
@@ -150,11 +150,10 @@
 }
 
 .box4 {
-    background-color: orange;
     display: inline-block;
     width: 100%;
     position: relative;
-    height: 30%;
+    height: 37%;
 }
 
 @media screen and (max-width: 800px) {

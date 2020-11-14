@@ -1,23 +1,28 @@
 <div class="layout">
     <div class="ui-fluid p-grid">
         <div class="p-col-12 p-md-3">
-            <div class="btn-group mb-2 mr-2 b">
-                <button type="button" class="btn btn-primary"><b>Section</b></button>
+            <div class="btn-group mb-2s mr-2 b">
+                <select class="custom-select my-1 mr-sm-2">
+                    <option selected>Section</option>
+                    <option *ngFor="let b of blocks" value="{{b.id}}">{{b.code}}</option>
+                </select>
+                <!-- <button type="button" class="btn btn-primary"><b>Section</b></button>
                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split mr-n1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-angle-down dropdown-arrow"></i>
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <!--<a class="dropdown-item">CEIT-03-1002E</a>
-                    <a class="dropdown-item">CEIT-03-1002A</a>
-                    <a class="dropdown-item">CEIT-03-1002P</a>-->
                     <a *ngFor="let i of blocks" class="dropdown-item">{{i.code}}</a>
-                </div>
+                </div>-->
             </div>
         </div>
         <div class="p-col-12 p-md-3">
             <div class="btn-group mb-2 mr-2 b">
-                <button type="button" class="btn btn-primary"><b>Activity</b></button>
+                <select class="custom-select my-1 mr-sm-2">
+                    <option selected>Activity</option>
+                    <option *ngFor="let b of activity" value="{{b.id}}">{{b.activity_name}}</option>
+                </select>
+                <!-- <button type="button" class="btn btn-primary"><b>Activity</b></button>
                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split mr-n1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-angle-down dropdown-arrow"></i>
                     <span class="sr-only">Toggle Dropdown</span>
@@ -26,10 +31,10 @@
                     <a class="dropdown-item">Activity 1</a>
                     <a class="dropdown-item">Activity 2</a>
                     <a class="dropdown-item">Activity 3</a>
-                </div>
+                </div>-->
             </div>
         </div>
-        <div class="p-col-12 p-md-3">
+        <div class="p-col-12 p-md-3 button-print">
             <button class="btn btn-primary mr-3" type="button">
                 <span class="mr-1"><span class="fas fa-print"></span></span>
                 Print
@@ -87,7 +92,8 @@
                 <th class="border-0 txt-center" scope="col" id="block">Student No</th>
                 <th class="border-0 txt-center" scope="col" id="block">Block</th>
                 <th class="border-0" scope="col" id="name">Name</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 1</th>
+                <th *ngFor="let a of activity" class="border-0 txt-center" scope="col" id="act">Activity {{a.id}}</th>
+                <!--<th class="border-0 txt-center" scope="col" id="act">Activity 1</th>
                 <th class="border-0 txt-center" scope="col" id="act">Activity 2</th>
                 <th class="border-0 txt-center" scope="col" id="act">Activity 3</th>
                 <th class="border-0 txt-center" scope="col" id="act">Activity 4</th>
@@ -97,16 +103,18 @@
                 <th class="border-0 txt-center" scope="col" id="act">Activity 8</th>
                 <th class="border-0 txt-center" scope="col" id="act">Activity 9</th>
                 <th class="border-0 txt-center" scope="col" id="act">Activity 10</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 11</th>
+                <th class="border-0 txt-center" scope="col" id="act">Activity 11</th>-->
             </tr>
-            <tr *ngFor="let i of list">
+            <tr *ngFor="let i of studentlist">
                 <!--<td class="headcol1 border-0" headers="studentno">2020-100001</td>
                 <td class="sub">
                     <div class="sub2"></div>
                 </td>-->
-                <td class="txt-center">2020-100001E</td>
-                <td class="txt-center">CEIT-03-1002E</td>
+                <td class="txt-center">{{i.student_number}}</td>
+                <td class="txt-center">{{i.section}}</td>
                 <td>Juan Dela Cruz</td>
+                <td *ngFor="let a of activity" class="txt-center">50/50</td>
+                <!--<td class="txt-center">50/50</td>
                 <td class="txt-center">50/50</td>
                 <td class="txt-center">50/50</td>
                 <td class="txt-center">50/50</td>
@@ -116,8 +124,7 @@
                 <td class="txt-center">50/50</td>
                 <td class="txt-center">50/50</td>
                 <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
+                <td class="txt-center">50/50</td>-->
             </tr>
         </table>
     </div>

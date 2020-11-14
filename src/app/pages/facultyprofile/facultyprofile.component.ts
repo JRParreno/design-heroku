@@ -40,7 +40,6 @@ export class FacultyprofileComponent implements OnInit {
   getuser() {
     this.service.getprofessor(sessionStorage.getItem('username')).subscribe(res => {
       this.profile = res;
-      console.log(res);
     }, err => {
       console.log(err);
     });

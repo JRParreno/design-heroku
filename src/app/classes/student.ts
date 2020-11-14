@@ -7,4 +7,5 @@ export class Student {
     password;
     email;
     student_number;
+    section;
 }

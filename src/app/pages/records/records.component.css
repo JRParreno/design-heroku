@@ -116,3 +116,11 @@ th {
 .closebtn {
     margin-bottom: 20px;
 }
+
+.sections {
+    padding-left: 0;
+}
+
+.button-print {
+    margin-top: 4px;
+}

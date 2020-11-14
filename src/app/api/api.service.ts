@@ -107,4 +107,19 @@ export class ApiService {
     return this.http.post<any>(this.API + "/api/activity/viewset/prof_activity/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
+
+  savefeedback(param) {
+    return this.http.post<any>(this.API + "/api/chapter/feedback/chapter1.txt", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
+  getfeedback(chapter) {
+    return this.http.get<any>(this.API + "/api/chapter/feedback/" + chapter, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
+
+
+  getallstudents(section) {
+    return this.http.get<any>(this.API + "/api/section/students/" + section + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
 }
