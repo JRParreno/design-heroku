@@ -88,8 +88,12 @@ export class ApiService {
 
 
   forgotpassword(email: string) {
-    let url = "https://al-online.herokuapp.com/resetpassword";
+    let url = this.API + "/resetpassword";
     return this.http.post<any>(this.API + "/api/auth/request-reset-email/", { email: email, redirect_url: url });
+  }
+
+  submitresetpassword(param) {
+    return this.http.post<any>(this.API + "/api/auth/password-reset-complete/", param);
   }
 
 
