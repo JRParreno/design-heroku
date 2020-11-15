@@ -26,7 +26,11 @@ export class ResetpasswordComponent implements OnInit {
   pass1: string;
   pass2: string;
 
+
+  resmessage: string;
+
   ngOnInit(): void {
+    this.resmessage = '';
     this.activatedRoute.queryParams.subscribe(params => {
       this.token_valid = params['token_valid'];
       this.message = params['message'];
@@ -39,11 +43,10 @@ export class ResetpasswordComponent implements OnInit {
 
 
   submitresetpassword() {
-    console.log(this.pass1);
     let param = { token: this.token, uidb64: this.uidb64, password: this.pass1 };
     this.service.submitresetpassword(param).subscribe(res => {
-      if (res != undefined || res.success) {
-        this.message = res.message;
+      if (res != undefined && res.success) {
+        this.resmessage = res.message;
         let c = document.getElementById('closereg');
         c.click();
       }

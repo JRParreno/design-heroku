@@ -89,7 +89,7 @@ export class ApiService {
 
 
   forgotpassword(email: string) {
-    let url = window.location.hostname + "/resetpassword";
+    let url = "https://" + window.location.hostname + "/resetpassword";
     return this.http.post<any>(this.API + "/api/auth/request-reset-email/", { email: email, redirect_url: url });
   }
 

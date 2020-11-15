@@ -6,7 +6,7 @@
             <span class="fas fa-clock mr-2"></span> {{block.schedule}}
         </div>
         <div class="p-col-12 p-md-3">
-            <button [disabled]="block == null || block.code == null || block.code == ''" class="btn btn-primary" type="button" (click)="newstudent()" data-toggle="modal" data-target="#modal-student">
+            <button [disabled]="block == null || block.code == null || block.code == ''" class="btn btn-primary" type="button" (click)="newstudent()" data-toggle="modal" data-target="#modal-student" data-backdrop="static" data-keyboard="false">
                 <span class="mr-1"><span class="fas fa-user-friends"></span></span>
                 <b>Add Student</b>
             </button>
