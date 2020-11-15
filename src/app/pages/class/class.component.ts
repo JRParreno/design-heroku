@@ -52,7 +52,6 @@ export class ClassComponent implements OnInit {
 
   getstudents() {
     this.service.getstudentspersection(this.sectionid).subscribe(res => {
-      console.log(res);
       this.list = res;
     }, err => {
       console.log(err);
@@ -73,10 +72,10 @@ export class ClassComponent implements OnInit {
     let pass = chars[0].substring(2, 4) + chars[1];
     //this.student.password = pass;
     this.service.savestudent(this.student, this.sectionid).subscribe(res => {
-      console.log(res);
       if (res.username == this.student.username) {
         //success
         this.getstudents();
+        this.message = "New Student saved!";
         let c = document.getElementById('closereg');
         c.click();
       }
