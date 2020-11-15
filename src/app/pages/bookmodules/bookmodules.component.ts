@@ -22,7 +22,10 @@ export class BookmodulesComponent implements OnInit {
   assessments: Assessment[];
   list: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
+  section: any;
+
   ngOnInit(): void {
+    this.section = sessionStorage.getItem('section');
   }
 
   goto(path: string) {

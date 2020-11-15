@@ -61,12 +61,12 @@ export class RecordsComponent implements OnInit {
 
 
   getsections() {
-    this.service.getsectionlistperprof(sessionStorage.getItem('username')).subscribe(res => {
+    this.service.getsectionlistperprof().subscribe(res => {
       this.blocks = res;
+      this.blocks = this.blocks.filter(s => s.user == sessionStorage.getItem('userid'));
       this.blocks.forEach(i => {
         this.getallstudents(i.id);
       });
-      console.log(this.studentlist);
     }, err => {
       console.log(err);
       //toast error

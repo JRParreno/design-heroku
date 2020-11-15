@@ -51,7 +51,7 @@ export class ClasslistComponent implements OnInit {
     this.block = new Block;
     this.getsections();
     this.setactive();
-    this.getactivity();
+    //this.getactivity();
   }
 
   setactive() {
@@ -74,8 +74,10 @@ export class ClasslistComponent implements OnInit {
 
 
   getsections() {
-    this.service.getsectionlistperprof(sessionStorage.getItem('username')).subscribe(res => {
+    this.service.getsectionlistperprof().subscribe(res => {
       this.blocks = res;
+      this.blocks = this.blocks.filter(s => s.user == sessionStorage.getItem('userid'));
+      this.getactivity();
     }, err => {
       console.log(err);
       //toast error
@@ -84,9 +86,8 @@ export class ClasslistComponent implements OnInit {
 
 
   savesection() {
-    //need userid on session
-    //fetch userid on success login
-    this.block.user = 3;
+    this.block.user = sessionStorage.getItem('userid');
+    console.log(this.block);
     this.service.savesection(this.block).subscribe(res => {
       if (res != undefined && res != null) {
         this.getsections();
@@ -202,18 +203,18 @@ export class ClasslistComponent implements OnInit {
 
 
   selectactivity(activity: any) {
-    //this.filter = this.profacts.filter(res => res.activity = activity);
     this.filter = [];
     this.selectedactivity = activity;
     this.selectacts = this.acts.find(a => a.id = activity);
+    if (this.selectacts == undefined) {
+      this.selectacts = new Activity;
+    }
     this.blocks.forEach(s => {
       let b = new Profactivity;
       b.section = s.id;
       b.section_code = s.code;
       this.filter.push(b);
     });
-    /*console.log(this.filter);
-    console.log(this.profacts);*/
     this.profacts.forEach(p => {
       this.filter.forEach(f => {
         if (p.section == f.section) {
@@ -246,6 +247,13 @@ export class ClasslistComponent implements OnInit {
     this.profacts = [];
     this.service.getprofactivity().subscribe(res => {
       this.profacts = res;
+      let all = [];
+      this.blocks.forEach(s => {
+        let list = [];
+        list = this.profacts.filter(a => a.section == s.id);
+        all.push(...list);
+      });
+      this.profacts = all;
     }, err => {
       console.log(err);
     });
@@ -259,20 +267,6 @@ export class ClasslistComponent implements OnInit {
     } else {
       this.acslc = s.section;
     }
-    /*if (s.start != null) {
-      let startdate: string = s.start;
-      startdate = startdate.replace(/-/g, "/");
-      this.acstart = new Date(startdate);
-    } else {
-      this.acstart = null;
-    }
-    if (s.end != null) {
-      let enddate: string = s.end;
-      enddate = enddate.replace(/-/g, "/");
-      this.acend = new Date(enddate);
-    } else {
-      this.acend = null;
-    }*/
   }
 
   saveactivitysched() {
@@ -290,10 +284,10 @@ export class ClasslistComponent implements OnInit {
     if (s.id != undefined) {
       sched.id = s.id;
     }
+    //if (sched.id != null && sched.id != undefined) {
     this.service.setprofactivity(sched).subscribe(res => {
       if (res != undefined && res != null) {
         this.getactivity();
-        this.selectactivity(sched.activity);
         let a = document.getElementById('activityview');
         a.click();
         //toast success
@@ -301,6 +295,18 @@ export class ClasslistComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+    /*} else {
+      this.service.setprofactivity(sched).subscribe(res => {
+        if (res != undefined && res != null) {
+          this.getactivity();
+          let a = document.getElementById('activityview');
+          a.click();
+          //toast success
+        }
+      }, err => {
+        console.log(err);
+      });
+      }*/
   }
 
   gotoactivity() {

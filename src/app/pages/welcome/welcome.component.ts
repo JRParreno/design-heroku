@@ -95,6 +95,7 @@ export class WelcomeComponent implements OnInit {
     let param = { username: this.studentid, password: this.studentpassword };
     this.service.loginstudent(param).subscribe(res => {
       if (res.username == this.studentid) {
+        sessionStorage.setItem('section', res.section);
         sessionStorage.setItem('username', res.username);
         sessionStorage.setItem('access', res.tokens.access);
         sessionStorage.setItem('refresh', res.tokens.refresh);
@@ -113,9 +114,10 @@ export class WelcomeComponent implements OnInit {
 
   loginProfessor() {
     let param = { "username": this.facultyid, "password": this.facultypassword };
-    //this.router.navigate(["/faculty/home"]);
     this.service.loginprofessor(param).subscribe(res => {
+      console.log(res);
       if (res.username == this.facultyid) {
+        sessionStorage.setItem('userid', res.id);
         sessionStorage.setItem('username', res.username);
         sessionStorage.setItem('access', res.tokens.access);
         sessionStorage.setItem('refresh', res.tokens.refresh);
@@ -133,9 +135,9 @@ export class WelcomeComponent implements OnInit {
   }
 
   registerProfessor() {
-    this.profdetails.professor = this.profdetails.username;
     this.service.createprofessor(this.profdetails).subscribe(res => {
-      if (res.professor != undefined && res.professor != null && res.professor == this.profdetails.professor) {
+      console.log(res);
+      if (res.professor != undefined && res.professor != null && res.professor == this.profdetails.username) {
         this.message = 'New User Registration Success!';
         let c = document.getElementById('closereg');
         c.click();
@@ -168,13 +170,14 @@ export class WelcomeComponent implements OnInit {
 
 
 export class userprof {
-  professor;
+  //professor;
   password;
   email;
   first_name;
   last_name;
   middle_name;
   username;
+  university_id;
 }
 
 export class prof {

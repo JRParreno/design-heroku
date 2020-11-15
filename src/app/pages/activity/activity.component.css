@@ -16,3 +16,9 @@
 .cdesc {
     font-size: 12px;
 }
+
+.locked {
+    pointer-events: none;
+    /* for "disabled" effect */
+    opacity: 0.5;
+}

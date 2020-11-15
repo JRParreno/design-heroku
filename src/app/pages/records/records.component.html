@@ -6,14 +6,6 @@
                     <option selected>Section</option>
                     <option *ngFor="let b of blocks" value="{{b.id}}">{{b.code}}</option>
                 </select>
-                <!-- <button type="button" class="btn btn-primary"><b>Section</b></button>
-                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split mr-n1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-angle-down dropdown-arrow"></i>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu">
-                    <a *ngFor="let i of blocks" class="dropdown-item">{{i.code}}</a>
-                </div>-->
             </div>
         </div>
         <div class="p-col-12 p-md-3">
@@ -22,16 +14,6 @@
                     <option selected>Activity</option>
                     <option *ngFor="let b of activity" value="{{b.id}}">{{b.activity_name}}</option>
                 </select>
-                <!-- <button type="button" class="btn btn-primary"><b>Activity</b></button>
-                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split mr-n1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-angle-down dropdown-arrow"></i>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item">Activity 1</a>
-                    <a class="dropdown-item">Activity 2</a>
-                    <a class="dropdown-item">Activity 3</a>
-                </div>-->
             </div>
         </div>
         <div class="p-col-12 p-md-3 button-print">
@@ -42,89 +24,21 @@
         </div>
 
     </div>
-    <!--<div class="left w">
-        <div class="btn-group mb-2 mr-2 b">
-            <button type="button" class="btn btn-primary"><b>Section</b></button>
-            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split mr-n1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-angle-down dropdown-arrow"></i>
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">CEIT-03-1002E</a>
-                <a class="dropdown-item" href="#">CEIT-03-1002A</a>
-                <a class="dropdown-item" href="#">CEIT-03-1002P</a>
-            </div>
-        </div>
-
-        <div class="btn-group  dropleft mb-2 mr-2 b btn-spcr"></div>
-
-        <div class="btn-group mb-2 mr-2 b">
-            <button type="button" class="btn btn-primary"><b>Activity</b></button>
-            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split mr-n1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-angle-down dropdown-arrow"></i>
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Activity 1</a>
-                <a class="dropdown-item" href="#">Activity 2</a>
-                <a class="dropdown-item" href="#">Activity 3</a>
-            </div>
-        </div>
-
-        <div class="btn-group  dropleft mb-2 mr-2 b btn-spcr2"></div>
-
-        <div class="btn-group dropleft mb-2 mr-2">
-            <button class="btn btn-primary mr-3" type="button">
-                <span class="mr-1"><span class="fas fa-print"></span></span>
-                Print
-            </button>
-        </div>
-    </div>-->
 
 
     <div class="tbl shadow-soft rounded">
         <table class="table">
             <tr>
-                <!--<th class="border-0 rounded headcol1 hc1" scope="col" id="studentno">Student No.</th>
-                <th class="border-0 sub" scope="col" id="act">
-                    <div class="sub2"></div>
-                </th>-->
                 <th class="border-0 txt-center" scope="col" id="block">Student No</th>
                 <th class="border-0 txt-center" scope="col" id="block">Block</th>
                 <th class="border-0" scope="col" id="name">Name</th>
                 <th *ngFor="let a of activity" class="border-0 txt-center" scope="col" id="act">Activity {{a.id}}</th>
-                <!--<th class="border-0 txt-center" scope="col" id="act">Activity 1</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 2</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 3</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 4</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 5</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 6</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 7</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 8</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 9</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 10</th>
-                <th class="border-0 txt-center" scope="col" id="act">Activity 11</th>-->
             </tr>
             <tr *ngFor="let i of studentlist">
-                <!--<td class="headcol1 border-0" headers="studentno">2020-100001</td>
-                <td class="sub">
-                    <div class="sub2"></div>
-                </td>-->
                 <td class="txt-center">{{i.student_number}}</td>
                 <td class="txt-center">{{i.section}}</td>
                 <td>Juan Dela Cruz</td>
                 <td *ngFor="let a of activity" class="txt-center">50/50</td>
-                <!--<td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>
-                <td class="txt-center">50/50</td>-->
             </tr>
         </table>
     </div>

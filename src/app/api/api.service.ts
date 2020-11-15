@@ -34,7 +34,7 @@ export class ApiService {
     return this.http.post<any>(this.API + "/api/auth/professor/register/", param);
   }
 
-  getsectionlistperprof(profid: any) {
+  getsectionlistperprof() {
     return this.http.get<any>(this.API + "/api/section/viewset/list/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
@@ -105,6 +105,11 @@ export class ApiService {
 
   setprofactivity(param) {
     return this.http.post<any>(this.API + "/api/activity/viewset/prof_activity/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
+
+  editprofactivity(param) {
+    return this.http.put<any>(this.API + "/api/activity/viewset/prof_activity/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
 

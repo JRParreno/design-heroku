@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api/api.service';
 
 @Component({
   selector: 'app-studentmain',
@@ -10,6 +11,7 @@ export class StudentmainComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private service: ApiService,
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,11 @@ export class StudentmainComponent implements OnInit {
   }
 
 
+  getuserdetails() {
+
+  }
+
+
 
   logout() {
     sessionStorage.clear();
@@ -58,6 +65,11 @@ export class StudentmainComponent implements OnInit {
     } else {
 
     }
+  }
+
+
+  getsection() {
+
   }
 
 
