@@ -118,7 +118,6 @@ export class WelcomeComponent implements OnInit {
   loginProfessor() {
     let param = { "username": this.facultyid, "password": this.facultypassword };
     this.service.loginprofessor(param).subscribe(res => {
-      console.log(res);
       if (res.username == this.facultyid) {
         sessionStorage.setItem('userid', res.id);
         sessionStorage.setItem('username', res.username);
@@ -140,7 +139,6 @@ export class WelcomeComponent implements OnInit {
 
 
   forgotpassword() {
-    //let param = { email: this.passwordemail };
     this.service.forgotpassword(this.passwordemail).subscribe(res => {
       if (res != undefined && res.success != undefined) {
         this.message = res.success;

@@ -32,13 +32,6 @@ export class ResetpasswordComponent implements OnInit {
       this.message = params['message'];
       this.uidb64 = params['uidb64'];
       this.token = params['token'];
-      if (this.token_valid == undefined || this.uidb64 == undefined || this.token == undefined) {
-        this.router.navigate([""]);
-      }
-      console.log(this.token_valid);
-      console.log(this.message);
-      console.log(this.uidb64);
-      console.log(this.token);
     });
   }
 
@@ -49,7 +42,11 @@ export class ResetpasswordComponent implements OnInit {
     console.log(this.pass1);
     let param = { token: this.token, uidb64: this.uidb64, password: this.pass1 };
     this.service.submitresetpassword(param).subscribe(res => {
-      console.log(res);
+      if (res != undefined || res.success) {
+        this.message = res.message;
+        let c = document.getElementById('closereg');
+        c.click();
+      }
     }, err => {
       console.log(err);
     });
