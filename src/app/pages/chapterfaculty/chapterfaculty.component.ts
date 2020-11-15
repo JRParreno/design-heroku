@@ -22,15 +22,33 @@ export class ChapterfacultyComponent implements OnInit {
 
 
   chapterid: string;
+  url: string;
+  notes: string;
 
 
   ngOnInit(): void {
+    this.url = 'Reference link will appear here if your instructor provides one';
+    this.notes = 'Notes from your instructor will appear here if he/she provides one';
     this.list = [];
     this.activatedRoute.paramMap.subscribe(param => {
       this.chapterid = param.get('id');
       this.getchapter();
       this.getfeedback(this.chapterid);
+      this.listchapter(this.chapterid);
     });
+  }
+
+
+  listchapter(id) {
+    this.service.listchapters(id).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  gotourl() {
+    window.open(this.url);
   }
 
 
@@ -60,7 +78,9 @@ export class ChapterfacultyComponent implements OnInit {
   getfeedback(id) {
     this.service.getfeedback(id).subscribe(res => {
       this.list = res;
-      console.log(this.list);
+      /*this.list = this.list.filter(f => f.);
+      console.log(sessionStorage.getItem('userid'));
+      console.log(this.list);*/
     }, err => {
       console.log('err');
       console.log(err);

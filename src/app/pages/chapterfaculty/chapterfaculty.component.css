@@ -18,6 +18,19 @@
 .vid {
     height: 100%;
     width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.notes {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.prof-area {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 100%;
 }
 
 .book-page {
@@ -177,8 +190,23 @@
     float: left;
 }
 
+.txtarea2 {
+    padding-top: 10px;
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
 .btnarea {
     width: 30%;
     height: 100%;
     float: left;
+}
+
+.btnarea2 {
+    width: 30%;
+    height: 100%;
+    float: right;
+    padding-top: 14%;
+    padding-left: 12%;
 }

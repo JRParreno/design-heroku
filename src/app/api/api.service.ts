@@ -10,6 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient, private zone: NgZone) {
     this.API = 'https://tebackendapi.herokuapp.com';
+    console.log(window.location.hostname);
   }
 
 
@@ -88,12 +89,12 @@ export class ApiService {
 
 
   forgotpassword(email: string) {
-    let url = this.API + "/resetpassword";
+    let url = window.location.hostname + "/resetpassword";
     return this.http.post<any>(this.API + "/api/auth/request-reset-email/", { email: email, redirect_url: url });
   }
 
   submitresetpassword(param) {
-    return this.http.post<any>(this.API + "/api/auth/password-reset-complete/", param);
+    return this.http.patch<any>(this.API + "/api/auth/password-reset-complete/", param);
   }
 
 
@@ -131,6 +132,15 @@ export class ApiService {
 
   requestrestemail(param) {
     return this.http.post<any>(this.API + "/api/request-reset-email/", param);
+  }
+
+
+  listchapters(id) {
+    if (id != null) {
+      return this.http.get<any>(this.API + "/api/chapter/viewset/list/" + id + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+    } else {
+      return this.http.get<any>(this.API + "/api/chapter/viewset/list/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+    }
   }
 
 }

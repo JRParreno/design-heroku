@@ -15,16 +15,28 @@
         </div>
         <div class="pnl-spacer"></div>
         <div class="pnl2">
-            <div id="carousel2" class="box2 carousel slide shadow-soft border border-light p-4 rounded" data-ride="carousel">
-                <div class="carousel-inner rounded">
+            <div id="carousel2" class="box2 carousel slide shadow-soft border border-light p-4 rounded notes">
+                <div class="carousel-inner rounded prof-area">
                     <div class="carousel-item active">
                         <div class="vid">
-                            Videos and Images are sometimes available checkout if this chapter have one.
+                            <p>{{notes}}</p>
+                            <!--<textarea class="form-control input" id="url" rows="1" placeholder="Related reference / url"></textarea>
+                            <div>
+                                <div class="txtarea2">
+                                    <textarea class="form-control input" id="notearea" rows="3" placeholder="Notes to audience of this chapter"></textarea>
+                                </div>
+                                <div class="btnarea2">
+                                    <button type="button" class="btn btn-primary text-success">Update</button>
+                                </div>
+                            </div>-->
                         </div>
                     </div>
-                    <div *ngFor="let i of vids" class="carousel-item">
+                    <div class="carousel-item">
                         <div class="vid">
-                            Video {{i}}
+                            <!--<a (click)="gotourl()">{{url}}</a>
+                            <p>{{notes}}</p>-->
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rh0fxJkvL44">
+                            </iframe>
                         </div>
                     </div>
                 </div>

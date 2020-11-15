@@ -3,6 +3,6 @@ export class Profchapter {
     blockid;
     title;
     description;
-    embbedurl;
-    notes;
+    embbeded_url;
+    note;
 }
