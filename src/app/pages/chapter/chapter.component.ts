@@ -10,7 +10,8 @@ import { ApiService } from 'src/app/api/api.service';
 })
 export class ChapterComponent implements OnInit {
 
-  constructor(private http: HttpClient,
+  constructor(
+    private http: HttpClient,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private service: ApiService,
@@ -18,16 +19,37 @@ export class ChapterComponent implements OnInit {
 
   list: any[] = [1, 2, 3, 4, 5, 6, 7];
   vids: any[] = [1, 2, 3, 4];
+
+
   chapterid: string;
+  url: string;
+  notes: string;
+
+  chaptername: string;
+  feedback: string;
 
   ngOnInit(): void {
+    this.feedback = '';
+    this.url = 'Reference link will appear here if your instructor provides one';
+    this.notes = 'Notes from your instructor will appear here if he/she provides one';
     this.list = [];
     this.activatedRoute.paramMap.subscribe(param => {
       this.chapterid = param.get('id');
       this.getchapter();
       this.getfeedback(this.chapterid);
+      this.listchapter(this.chapterid);
     });
   }
+
+
+  listchapter(id) {
+    this.service.listchapters(id).subscribe(res => {
+      this.chaptername = res.filename;
+    }, err => {
+      console.log(err);
+    });
+  }
+
 
   getchapter() {
     let lecture = document.getElementById('lecture');
@@ -41,9 +63,9 @@ export class ChapterComponent implements OnInit {
   }
 
   savefeedback() {
-    console.log('posting feedback..');
+    //console.log('posting feedback..');
     let param = { student_chapter: 1, feedback: "test" };
-    this.service.savefeedback(param).subscribe(res => {
+    this.service.savefeedback(param, this.chapterid).subscribe(res => {
       console.log(res);
     }, err => {
       console.log('err');

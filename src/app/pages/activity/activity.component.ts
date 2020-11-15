@@ -54,7 +54,10 @@ export class ActivityComponent implements OnInit {
         ac.section_code = a.section_code;
         ac.start = a.start;
         this.studentactivity.push(ac);
-        if (ac.start <= new Date() && ac.end > new Date()) {
+        let start = new Date(ac.start).setHours(0, 0, 0, 0);
+        let end = new Date(ac.end).setHours(0, 0, 0, 0);
+        let current = new Date().setHours(0, 0, 0, 0);
+        if (start <= current && end > current) {
           ac.locked = false;
         } else {
           ac.locked = true;

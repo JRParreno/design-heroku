@@ -18,6 +18,19 @@
 .vid {
     height: 100%;
     width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.notes {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.prof-area {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 100%;
 }
 
 .book-page {
@@ -50,7 +63,7 @@
 }
 
 .thread {
-    height: 105px;
+    height: 165px;
     overflow-y: scroll;
 }
 
@@ -150,11 +163,10 @@
 }
 
 .box4 {
-    background-color: orange;
     display: inline-block;
     width: 100%;
     position: relative;
-    height: 30%;
+    height: 37%;
 }
 
 @media screen and (max-width: 800px) {
@@ -178,8 +190,23 @@
     float: left;
 }
 
+.txtarea2 {
+    padding-top: 10px;
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
 .btnarea {
     width: 30%;
     height: 100%;
     float: left;
+}
+
+.btnarea2 {
+    width: 30%;
+    height: 100%;
+    float: right;
+    padding-top: 14%;
+    padding-left: 12%;
 }

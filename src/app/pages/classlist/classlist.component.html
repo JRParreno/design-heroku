@@ -34,8 +34,7 @@
     <div *ngIf="ifactivity" id="activity">
         <div class="ui-fluid p-grid lst">
             <div *ngFor="let i of acts" class="p-col-12 p-md-3">
-                <a id="activityview" data-toggle="modal" data-target="#act-modal-default" (click)="selectactivity(i.id)">
-                    <!--<a routerLink="/faculty/home/activity/{{i.id}}">-->
+                <a id="activityview" data-toggle="modal" data-target="#act-modal-default" data-backdrop="static" data-keyboard="false" (click)="selectactivity(i.id)">
                     <div class="box card bg-primary border-light shadow-soft">
                         <div class="card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>

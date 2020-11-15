@@ -55,7 +55,7 @@ const routes: Routes = [
           { path: "modules", component: BookmodulesComponent },
           { path: "activity", component: ActivityComponent },
           { path: "assessment", component: AssessmentComponent },
-          { path: "chapter:id", component: ChapterComponent },
+          { path: "chapter/:id", component: ChapterComponent },
           { path: "profile", component: StudentprofileComponent },
           { path: "record", component: AssessmentrecordComponent },
         ]

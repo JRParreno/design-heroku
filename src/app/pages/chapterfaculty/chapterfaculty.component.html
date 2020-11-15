@@ -55,13 +55,13 @@
                 <div class="card-body">
                     <div class="card rounded">
                         <div class="tab-content">
-                            <label>Feedback</label>
+                            <label>Comment</label>
                             <div>
                                 <div class="txtarea">
-                                    <textarea class="form-control input" id="notearea" rows="2" placeholder="Send comments or questions to your Instructor regarding this chapter"></textarea>
+                                    <textarea class="form-control input" id="notearea" rows="2" placeholder="Send comments or questions to your Instructor regarding this chapter" [(ngModel)]="feedback" name="feedback"></textarea>
                                 </div>
                                 <div class="btnarea">
-                                    <button type="button" class="right btn btn-primary text-success btn-spc" (click)="savefeedback()">Post</button>
+                                    <button type="button" [disabled]="feedback == null || feedback == ''" class="right btn btn-primary text-success btn-spc" (click)="savefeedback()">Post</button>
                                 </div>
                             </div>
                         </div>

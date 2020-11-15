@@ -3,11 +3,11 @@
     <div class="ui-fluid p-grid">
         <div *ngFor="let i of list" class="p-col-12 p-md-3">
             <div class="box">
-                <a routerLink="/student/home/chapter">
+                <a routerLink="/student/home/chapter/{{i.id}}">
                     <div class="card bg-primary border-light shadow-soft">
                         <div class="center card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-book mr-2"></span></p>
-                            <p class="card-text lbl">CHAPTER {{i}}</p>
+                            <p class="card-text lbl">CHAPTER {{i.id}}</p>
                             <p class="cdesc">Guide to Assembly</p>
                         </div>
                     </div>

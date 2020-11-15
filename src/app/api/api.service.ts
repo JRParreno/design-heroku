@@ -118,8 +118,8 @@ export class ApiService {
   }
 
 
-  savefeedback(param) {
-    return this.http.post<any>(this.API + "/api/chapter/feedback/chapter1.txt", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  savefeedback(param, id) {
+    return this.http.post<any>(this.API + "/api/chapter/feedback/" + id + "/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
   getfeedback(chapter) {

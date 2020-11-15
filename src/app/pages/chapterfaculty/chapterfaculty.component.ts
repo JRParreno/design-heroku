@@ -25,8 +25,12 @@ export class ChapterfacultyComponent implements OnInit {
   url: string;
   notes: string;
 
+  chaptername: string;
+  feedback: string;
+
 
   ngOnInit(): void {
+    this.feedback = '';
     this.url = 'Reference link will appear here if your instructor provides one';
     this.notes = 'Notes from your instructor will appear here if he/she provides one';
     this.list = [];
@@ -41,7 +45,7 @@ export class ChapterfacultyComponent implements OnInit {
 
   listchapter(id) {
     this.service.listchapters(id).subscribe(res => {
-      console.log(res);
+      this.chaptername = res.filename;
     }, err => {
       console.log(err);
     });
@@ -65,9 +69,8 @@ export class ChapterfacultyComponent implements OnInit {
 
 
   savefeedback() {
-    console.log('posting feedback..');
-    let param = { student_chapter: 1, feedback: "test" };
-    this.service.savefeedback(param).subscribe(res => {
+    let param = { user: sessionStorage.getItem('username'), student_chapter: this.chaptername, feedback: this.feedback };
+    this.service.savefeedback(param, this.chapterid).subscribe(res => {
       console.log(res);
     }, err => {
       console.log('err');
@@ -77,6 +80,7 @@ export class ChapterfacultyComponent implements OnInit {
 
   getfeedback(id) {
     this.service.getfeedback(id).subscribe(res => {
+      console.log(res);
       this.list = res;
       /*this.list = this.list.filter(f => f.);
       console.log(sessionStorage.getItem('userid'));

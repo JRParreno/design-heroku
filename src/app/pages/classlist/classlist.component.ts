@@ -28,6 +28,7 @@ export class ClasslistComponent implements OnInit {
 
   acts: Activity[];
   profacts: Profactivity[];
+  profactsslc: Profactivity[];
   filter: Profactivity[];
 
   selectacts: Activity;
@@ -41,6 +42,7 @@ export class ClasslistComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.profactsslc = [];
     this.resmessage = '';
     this.selectacts = new Activity;
     this.selectedactivity = null;
@@ -214,7 +216,7 @@ export class ClasslistComponent implements OnInit {
   selectactivity(activity: any) {
     this.filter = [];
     this.selectedactivity = activity;
-    this.selectacts = this.acts.find(a => a.id = activity);
+    this.selectacts = this.acts.find(a => a.id == activity);
     if (this.selectacts == undefined) {
       this.selectacts = new Activity;
     }
@@ -225,18 +227,22 @@ export class ClasslistComponent implements OnInit {
       this.filter.push(b);
     });
     this.profacts.forEach(p => {
-      this.filter.forEach(f => {
-        if (p.section == f.section) {
-          f.activity = p.activity;
-          f.activity_name = p.activity_name;
-          f.id = p.id;
-          f.start = p.start;
-          f.end = p.end;
-        } else {
-          f.activity = activity;
-        }
-      });
+      if (p.activity == activity) {
+        this.filter.forEach(f => {
+          if (p.section == f.section) {
+            f.activity = p.activity;
+            f.activity_name = p.activity_name;
+            f.id = p.id;
+            f.start = p.start;
+            f.end = p.end;
+          } else {
+            f.activity = activity;
+          }
+
+        });
+      }
     });
+    this.profactsslc = this.profacts.filter(a => a.activity == activity);
     //this.slc = activity;
   }
 
@@ -288,12 +294,11 @@ export class ClasslistComponent implements OnInit {
     sched.section = s.section;
     sched.start = startstr;
     sched.end = endstr;
-    sched.activity = s.activity;
+    sched.activity = this.selectacts.id;
     sched.remarks = false;
     if (s.id != undefined) {
       sched.id = s.id;
     }
-    //if (sched.id != null && sched.id != undefined) {
     this.service.setprofactivity(sched).subscribe(res => {
       if (res != undefined && res != null) {
         this.getactivity();
@@ -310,18 +315,6 @@ export class ClasslistComponent implements OnInit {
       c.click();
       console.log(err);
     });
-    /*} else {
-      this.service.setprofactivity(sched).subscribe(res => {
-        if (res != undefined && res != null) {
-          this.getactivity();
-          let a = document.getElementById('activityview');
-          a.click();
-          //toast success
-        }
-      }, err => {
-        console.log(err);
-      });
-      }*/
   }
 
   gotoactivity() {
