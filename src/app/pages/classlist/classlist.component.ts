@@ -37,9 +37,11 @@ export class ClasslistComponent implements OnInit {
   acslc: any;
 
   selectedactivity: any;
+  resmessage: string;
 
 
   ngOnInit(): void {
+    this.resmessage = '';
     this.selectacts = new Activity;
     this.selectedactivity = null;
     this.acslc = null;
@@ -84,24 +86,31 @@ export class ClasslistComponent implements OnInit {
     });
   }
 
+  newsection() {
+    this.block = new Block;
+  }
+
 
   savesection() {
     this.block.user = sessionStorage.getItem('userid');
-    console.log(this.block);
     this.service.savesection(this.block).subscribe(res => {
       if (res != undefined && res != null) {
+        this.resmessage = "New section saved!";
         this.getsections();
         let cls = document.getElementById('secmodalcls');
         cls.click();
         this.block = new Block;
-        window.alert("Success!");
+        let c = document.getElementById('closereg');
+        c.click();
       } else {
-        window.alert("Failed!");
+        this.resmessage = "Saving new section failed!";
+        let c = document.getElementById('closereg');
+        c.click();
       }
-      //toast success, close modal
-      //this.getsections();
     }, err => {
-      window.alert("Failed!");
+      this.resmessage = "Invalid routine!";
+      let c = document.getElementById('closereg');
+      c.click();
       //toast error
     });
   }
@@ -290,9 +299,15 @@ export class ClasslistComponent implements OnInit {
         this.getactivity();
         let a = document.getElementById('activityview');
         a.click();
+        this.resmessage = "Activity details saved!";
+        let c = document.getElementById('closereg');
+        c.click();
         //toast success
       }
     }, err => {
+      this.resmessage = "Invalid routine!";
+      let c = document.getElementById('closereg');
+      c.click();
       console.log(err);
     });
     /*} else {

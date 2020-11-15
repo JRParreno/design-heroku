@@ -4,6 +4,8 @@
     <b id="opactivity" class="opt" (click)="activityact($event)">ACTIVITIES</b>
     <b id="opchapter" class="opt" (click)="chapteract($event)">CHAPTERS</b>
 
+    <button type="button" id="closereg" data-toggle="modal" class="hide" data-dismiss="modal" data-target="#modal-toast"></button>
+
     <div *ngIf="ifclass" id="classlist">
         <div class="ui-fluid p-grid lst">
             <div *ngFor="let i of blocks" class="p-col-12 p-md-3">
@@ -18,7 +20,7 @@
                 </a>
             </div>
             <div class="p-col-12 p-md-3">
-                <a data-toggle="modal" data-target="#modal-default">
+                <a data-toggle="modal" data-target="#modal-default" (click)="newsection()" data-backdrop="static" data-keyboard="false">
                     <div class="box card bg-primary border-light shadow-soft">
                         <div class="card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-plus-circle mr-2"></span></p>
@@ -208,6 +210,28 @@
                     Questions</button>
 
                 <button type="button" class="btn btn-primary text-danger ml-auto" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modal-toast" tabindex="-1" role="dialog" aria-labelledby="modal-confirm" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-confirm"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">{{resmessage}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Okay</button>
             </div>
         </div>
     </div>

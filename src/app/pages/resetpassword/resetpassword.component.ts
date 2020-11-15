@@ -55,4 +55,9 @@ export class ResetpasswordComponent implements OnInit {
     });
   }
 
+
+  closewindow() {
+    window.close();
+  }
+
 }
