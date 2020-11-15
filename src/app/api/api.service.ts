@@ -88,8 +88,8 @@ export class ApiService {
 
 
   forgotpassword(email: string) {
-    let url = "https://al-online.herokuapp.com/faculty/home/profile";
-    return this.http.post<any>("/api/auth/request-reset-email", { email: email, redirect_url: url });
+    let url = "https://al-online.herokuapp.com/resetpassword";
+    return this.http.post<any>(this.API + "/api/auth/request-reset-email/", { email: email, redirect_url: url });
   }
 
 
@@ -121,10 +121,12 @@ export class ApiService {
     return this.http.get<any>(this.API + "/api/chapter/feedback/" + chapter, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
-
-
   getallstudents(section) {
     return this.http.get<any>(this.API + "/api/section/students/" + section + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
+  requestrestemail(param) {
+    return this.http.post<any>(this.API + "/api/request-reset-email/", param);
   }
 
 }

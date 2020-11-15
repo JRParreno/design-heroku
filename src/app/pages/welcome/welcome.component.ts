@@ -28,7 +28,10 @@ export class WelcomeComponent implements OnInit {
   message: string;
   prgbtn: boolean;
 
+  passwordemail: string;
+
   ngOnInit(): void {
+    this.passwordemail = '';
     this.profpassword2 = '';
     this.prgbtn = true;
     this.message = '';
@@ -134,10 +137,24 @@ export class WelcomeComponent implements OnInit {
     });
   }
 
+
+
+  forgotpassword() {
+    //let param = { email: this.passwordemail };
+    this.service.forgotpassword(this.passwordemail).subscribe(res => {
+      if (res != undefined && res.success != undefined) {
+        this.message = res.success;
+        let c = document.getElementById('closereg');
+        c.click();
+      }
+    }, err => {
+      console.log(err);
+    });
+  }
+
   registerProfessor() {
     this.service.createprofessor(this.profdetails).subscribe(res => {
-      console.log(res);
-      if (res.professor != undefined && res.professor != null && res.professor == this.profdetails.username) {
+      if (res != undefined && res != null && res.username == this.profdetails.username) {
         this.message = 'New User Registration Success!';
         let c = document.getElementById('closereg');
         c.click();

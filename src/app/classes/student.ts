@@ -8,4 +8,5 @@ export class Student {
     email;
     student_number;
     section;
+    university_id;
 }

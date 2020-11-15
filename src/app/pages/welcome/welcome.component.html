@@ -271,12 +271,12 @@
                 <div class="row input">
                     <div class="p col-12 col-md-12">
                         <label class="my-1 mr-2">Enter your email to reset password</label>
-                        <input class="input" type="text" class="form-control" id="email" placeholder="Email">
+                        <input class="input" type="text" class="form-control" placeholder="email" [(ngModel)]="passwordemail" name="passwordemail">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" data-target="#modal-confirm">Enter</button>
+                <button type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" (click)="forgotpassword()">Enter</button>
                 <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Back</button>
             </div>
         </div>
@@ -396,12 +396,13 @@
                 <div class="row input">
                     <div class="p col-12 col-md-12">
                         <label class="my-1 mr-2">Enter your email to reset password</label>
-                        <input class="input" type="text" class="form-control" id="stemail" placeholder="email">
+                        <!--<input class="input" type="text" class="form-control" placeholder="email" [(ngModel)]="passwordemail" name="passwordemail">-->
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" data-target="#student-modal-confirm">Enter</button>
+                <!--<button type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" data-target="#student-modal-confirm" (click)="passwordemail">Enter</button>-->
+                <button type="button" class="btn btn-primary text-secondary" data-dismiss="modal" (click)="forgotpassword()">Enter</button>
                 <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Back</button>
             </div>
         </div>

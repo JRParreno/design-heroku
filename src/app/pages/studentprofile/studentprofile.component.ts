@@ -27,19 +27,31 @@ export class StudentprofileComponent implements OnInit {
   getdetails() {
     this.service.getstudentdetails(sessionStorage.getItem('username')).subscribe(res => {
       this.profile = res;
+      this.getsection();
     }, err => {
+      console.log(err);
       //toast message here
     });
   }
 
+  getsection() {
+    this.service.getsection(sessionStorage.getItem('section')).subscribe(res => {
+      this.profile.section = res.code;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+
 
   updatedetails() {
-    this.service.updatestudent(this.profile).subscribe(res => {
+    console.log(this.profile);
+    /*this.service.updatestudent(this.profile).subscribe(res => {
       //if success toast success message then get updates details
       this.getdetails();
     }, err => {
       //toast error message
-    });
+    });*/
   }
 
   goto(path: string) {
