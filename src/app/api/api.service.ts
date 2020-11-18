@@ -10,7 +10,6 @@ export class ApiService {
 
   constructor(private http: HttpClient, private zone: NgZone) {
     this.API = 'https://tebackendapi.herokuapp.com';
-    console.log(window.location.hostname);
   }
 
 
@@ -78,8 +77,8 @@ export class ApiService {
     return this.http.put<any>(this.API + "/api/user/profile/student/" + param.username + "/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
-  submitactivity(param: any) {
-    return this.http.post<any>("", param);
+  submitactivity(param: any, id) {
+    return this.http.post<any>(this.API + "/api/student/submit/" + id + "/", param);
   }
 
   getquestionsperactivity(activityid: string) {

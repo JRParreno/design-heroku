@@ -86,7 +86,7 @@
                             <span class="fas fa-sign-in-alt mr-2"></span> </button>
                     </div>
                 </div>
-                <small id="signup" class="form-text text-muted" data-toggle="modal" data-target="#modal-signup" data-backdrop="static" data-keyboard="false">No
+                <small id="signup" class="form-text text-muted" data-toggle="modal" data-target="#modal-signup" data-backdrop="static" data-keyboard="false" (click)="newRegister()">No
                     account yet? <a>Sign up</a></small>
             </form>
         </div>
@@ -144,12 +144,12 @@
                 <div class="row input">
                     <div class="p col-12 col-md-12">
                         <label class="my-1 mr-2">Enter your email to reset password</label>
-                        <input class="input" type="text" class="form-control" placeholder="email" [(ngModel)]="passwordemail" name="passwordemail">
+                        <input class="input" type="text" class="form-control" [(ngModel)]="passwordemail" name="passwordemail" id="passwordemail" (change)="validate('passwordemail', null)">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" (click)="forgotpassword()">Enter</button>
+                <button [disabled]="passwordemail == null || passwordemail == ''" type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" (click)="forgotpassword()">Enter</button>
                 <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Back</button>
             </div>
         </div>
@@ -184,67 +184,75 @@
             </div>
             <div class="modal-body">
                 <div class="row input">
-                    <div class="p col-12 col-md-4">
+                    <!--<div class="p col-12 col-md-4">
                         University ID
-                    </div>
-                    <div class="p col-12 col-md-8">
-                        <input class="input" type="text" class="form-control" placeholder="Required" [(ngModel)]="profdetails.university_id" name="profusername">
+                    </div>-->
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">University ID</label>
+                        <input type="text" class="form-control" [(ngModel)]="profdetails.university_id" name="university_id" id="university_id" (change)="validate('university_id', null)">
                     </div>
                 </div>
                 <div class="row input">
-                    <div class="p col-12 col-md-4">
+                    <!--<div class="p col-12 col-md-4">
                         Username
-                    </div>
-                    <div class="p col-12 col-md-8">
-                        <input class="input" type="text" class="form-control" placeholder="Required" [(ngModel)]="profdetails.username" name="profusername">
+                    </div>-->
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Username</label>
+                        <input type="text" class="form-control" [(ngModel)]="profdetails.username" name="profusername" id="profusername" (change)="validate('profusername', null)">
                     </div>
                 </div>
                 <div class="row input">
-                    <div class="p col-12 col-md-4">
+                    <!--<div class="p col-12 col-md-4">
                         Firstname
-                    </div>
-                    <div class="p col-12 col-md-8">
-                        <input class="input" type="text" class="form-control" placeholder="Required(Min. 2 Characters)" [(ngModel)]="profdetails.first_name" name="proffirstname">
+                    </div>-->
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Firstname</label>
+                        <input type="text" class="form-control" [(ngModel)]="profdetails.first_name" name="proffirstname" id="proffirstname" (change)="validate('proffirstname', 2)">
                     </div>
                 </div>
                 <div class="row input">
-                    <div class="p col-12 col-md-4">
+                    <!--<div class="p col-12 col-md-4">
                         Middlename
-                    </div>
-                    <div class="p col-12 col-md-8">
-                        <input class="input" type="text" class="form-control" placeholder="Required(Min. 2 Characters)" [(ngModel)]="profdetails.middle_name" name="profmiddlename">
+                    </div>-->
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Middlename</label>
+                        <input type="text" class="form-control" [(ngModel)]="profdetails.middle_name" name="profmiddlename" id="profmiddlename" (change)="validate('profmiddlename', 2)">
                     </div>
                 </div>
                 <div class="row input">
-                    <div class="p col-12 col-md-4">
+                    <!--<div class="p col-12 col-md-4">
                         Lastname
-                    </div>
-                    <div class="p col-12 col-md-8">
-                        <input class="input" type="text" class="form-control" placeholder="Required(Min. 2 Characters)" [(ngModel)]="profdetails.last_name" name="proflastname">
+                    </div>-->
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Lastname</label>
+                        <input type="text" class="form-control" [(ngModel)]="profdetails.last_name" name="proflastname" id="proflastname" (change)="validate('proflastname', 2)">
                     </div>
                 </div>
                 <div class="row input">
-                    <div class="p col-12 col-md-4">
+                    <!--<div class="p col-12 col-md-4">
                         Email:
-                    </div>
-                    <div class="p col-12 col-md-8">
-                        <input class="input" type="text" class="form-control" placeholder="Required" [(ngModel)]="profdetails.email" name="profemail">
+                    </div>-->
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Email</label>
+                        <input type="text" class="form-control" [(ngModel)]="profdetails.email" name="profemail" id="profemail" (change)="validate('profemail', null)">
                     </div>
                 </div>
                 <div class="row input">
-                    <div class="p col-12 col-md-4">
+                    <!--<div class="p col-12 col-md-4">
                         Set Password:
-                    </div>
-                    <div class="p col-12 col-md-8">
-                        <input class="input" type="password" class="form-control" placeholder="Required(Min. 8 Characters)" [(ngModel)]="profdetails.password" name="password">
+                    </div>-->
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Set Password</label>
+                        <input type="password" class="form-control" [(ngModel)]="profdetails.password" name="profpassword" id="profpassword" (change)="validate('profpassword', 8)">
                     </div>
                 </div>
                 <div class="row input">
-                    <div class="p col-12 col-md-4">
+                    <!--<div class="p col-12 col-md-4">
                         Confirm Password:
-                    </div>
-                    <div class="p col-12 col-md-8">
-                        <input class="input" type="password" class="form-control" placeholder="Required(Min. 8 Characters)" [(ngModel)]="profpassword2" name="confprofpassword">
+                    </div>-->
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Confirm Password</label>
+                        <input type="password" class="form-control" [(ngModel)]="profpassword2" name="confprofpassword" id="confprofpassword" (change)="validate('confprofpassword', 8)">
                     </div>
                 </div>
             </div>
@@ -269,13 +277,13 @@
                 <div class="row input">
                     <div class="p col-12 col-md-12">
                         <label class="my-1 mr-2">Enter your email to reset password</label>
-                        <input class="input" type="text" class="form-control" placeholder="email" [(ngModel)]="passwordemail" name="passwordemail">
+                        <input class="input" type="text" class="form-control" [(ngModel)]="passwordemail" name="passwordemail" id="passwordemail2" (change)="validate('passwordemail2', null)">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <!--<button type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" data-target="#student-modal-confirm" (click)="passwordemail">Enter</button>-->
-                <button type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" (click)="forgotpassword()">Enter</button>
+                <button [disabled]="passwordemail == null || passwordemail == ''" type="button" class="btn btn-primary text-secondary" data-toggle="modal" data-dismiss="modal" (click)="forgotpassword()">Enter</button>
                 <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Back</button>
             </div>
         </div>

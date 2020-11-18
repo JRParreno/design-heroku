@@ -150,6 +150,10 @@ export class WelcomeComponent implements OnInit {
     });
   }
 
+  newRegister() {
+    this.profdetails = new userprof;
+  }
+
   registerProfessor() {
     this.service.createprofessor(this.profdetails).subscribe(res => {
       if (res != undefined && res != null && res.username == this.profdetails.username) {
@@ -179,6 +183,23 @@ export class WelcomeComponent implements OnInit {
       c.click();
       //error toast message
     });
+  }
+
+
+
+  validate(id: any, char) {
+    let d = <HTMLInputElement>document.getElementById(id);
+
+    if (d.value == null || d.value == '') {
+      d.classList.add('is-invalid');
+    } else if (char != null && d.value.length < char) {
+      d.classList.add('is-invalid');
+    } else {
+      if (d.classList.contains('is-invalid')) {
+        d.classList.remove('is-invalid');
+
+      }
+    }
   }
 
 }

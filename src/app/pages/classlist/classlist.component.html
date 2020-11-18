@@ -76,14 +76,14 @@
                 <div class="row">
                     <div class="col-12 col-md-12">
                         <label>Section Code</label>
-                        <input class="input" type="text" class="form-control" id="code" [(ngModel)]="block.code" name="blockcode">
+                        <input class="input" type="text" class="form-control" id="blockcode" [(ngModel)]="block.code" name="blockcode" (change)="validate('blockcode', null)">
                         <label>Section Schedule</label>
-                        <input class="input" type="text" class="form-control" id="schedule" [(ngModel)]="block.schedule" name="blockschedule">
+                        <input class="input" type="text" class="form-control" id="blockschedule" [(ngModel)]="block.schedule" name="blockschedule" (change)="validate('blockschedule', null)">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary text-success" (click)="savesection()">Save</button>
+                <button [disabled]="block.code == null || block.code == '' || block.schedule == null || block.schedule == ''" type="button" class="btn btn-primary text-success" (click)="savesection()">Save</button>
                 <button type="button" class="btn btn-primary text-danger" data-dismiss="modal" id="secmodalcls">Close</button>
             </div>
         </div>
