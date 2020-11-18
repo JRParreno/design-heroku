@@ -4,6 +4,7 @@ import { ApiService } from 'src/app/api/api.service';
 import { Activity } from 'src/app/classes/activity';
 import { Block } from 'src/app/classes/block';
 import { Profactivity } from 'src/app/classes/profactivity';
+import { Profchapter } from 'src/app/classes/profchapter';
 
 @Component({
   selector: 'app-classlist',
@@ -17,7 +18,7 @@ export class ClasslistComponent implements OnInit {
     private service: ApiService,
   ) { }
 
-  list: any[] = [1, 2, 3, 4, 5, 6];
+  list: Profchapter[];
   blocks: Block[];
   block: Block;
   slc: any;
@@ -42,6 +43,7 @@ export class ClasslistComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.list = [];
     this.profactsslc = [];
     this.resmessage = '';
     this.selectacts = new Activity;
@@ -82,6 +84,7 @@ export class ClasslistComponent implements OnInit {
       this.blocks = res;
       this.blocks = this.blocks.filter(s => s.user == sessionStorage.getItem('userid'));
       this.getactivity();
+      this.getchapters();
     }, err => {
       console.log(err);
       //toast error
@@ -335,6 +338,15 @@ export class ClasslistComponent implements OnInit {
 
       }
     }
+  }
+
+
+  getchapters() {
+    this.service.listchapters(null).subscribe(res => {
+      this.list = res;
+    }, err => {
+      console.log(err);
+    });
   }
 
 }

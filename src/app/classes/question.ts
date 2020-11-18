@@ -5,4 +5,5 @@ export class Question {
     question_name;
     choices: any[];
     answer;
+    file_answer;
 }

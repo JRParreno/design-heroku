@@ -19,15 +19,24 @@ export class RecordsComponent implements OnInit {
 
   list: any[] = [1, 2, 3, 4, 5, 6, 7];
   studentlist: Student[];
+  studentlist2: Student[];
   student: Student;
 
   blocks: Block[];
   activity: Activity[];
+  activity2: Activity[];
+
+  sectionslc: any;
+  activityslc: any;
 
   ngOnInit(): void {
+    this.activityslc = 'Activity';
+    this.sectionslc = 'Section';
     this.studentlist = [];
+    this.studentlist2 = [];
     this.blocks = [];
     this.activity = [];
+    this.activity2 = [];
     this.getsections();
     this.getactivity();
   }
@@ -40,6 +49,7 @@ export class RecordsComponent implements OnInit {
   getactivity() {
     this.service.listactivity().subscribe(res => {
       this.activity = res;
+      this.activity2 = res;
     }, err => { });
 
   }
@@ -53,6 +63,7 @@ export class RecordsComponent implements OnInit {
           s.section = this.blocks.find(b => b.id == id).code;
         });
         this.studentlist.push(...sts);
+        this.studentlist2.push(...sts);
       }
     }, err => {
       console.log(err);
@@ -71,5 +82,25 @@ export class RecordsComponent implements OnInit {
       console.log(err);
       //toast error
     });
+  }
+
+
+
+  bysection() {
+    if (this.sectionslc == 'Section') {
+      this.studentlist = this.studentlist2;
+    } else {
+      this.studentlist = this.studentlist2.filter(i => i.section == this.sectionslc);
+    }
+  }
+
+
+  byactivity() {
+    console.log(this.activityslc);
+    if (this.activityslc == 'Activity') {
+      this.activity = this.activity2;
+    } else {
+      this.activity = this.activity2.filter(i => i.id == this.activityslc);
+    }
   }
 }

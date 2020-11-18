@@ -2,17 +2,17 @@
     <div class="ui-fluid p-grid">
         <div class="p-col-12 p-md-3">
             <div class="btn-group mb-2s mr-2 b">
-                <select class="custom-select my-1 mr-sm-2">
+                <select class="custom-select my-1 mr-sm-2" [(ngModel)]="sectionslc" (change)="bysection()">
                     <option selected>Section</option>
-                    <option *ngFor="let b of blocks" value="{{b.id}}">{{b.code}}</option>
+                    <option *ngFor="let b of blocks" value="{{b.code}}">{{b.code}}</option>
                 </select>
             </div>
         </div>
         <div class="p-col-12 p-md-3">
             <div class="btn-group mb-2 mr-2 b">
-                <select class="custom-select my-1 mr-sm-2">
+                <select class="custom-select my-1 mr-sm-2" [(ngModel)]="activityslc" (change)="byactivity()">
                     <option selected>Activity</option>
-                    <option *ngFor="let b of activity" value="{{b.id}}">{{b.activity_name}}</option>
+                    <option *ngFor="let b of activity2" value="{{b.id}}">{{b.activity_name}}</option>
                 </select>
             </div>
         </div>

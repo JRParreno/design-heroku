@@ -48,11 +48,12 @@
     <div *ngIf="ifchapter" id="chapter">
         <div class="ui-fluid p-grid lst">
             <div *ngFor="let i of list" class="p-col-12 p-md-3">
-                <a routerLink="/faculty/home/chapter/{{i}}">
+                <a routerLink="/faculty/home/chapter/{{i.id}}">
                     <div class="box card bg-primary border-light shadow-soft">
                         <div class="card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-book mr-2"></span></p>
-                            <p class="card-text lbl">CHAPTER {{i}}</p>
+                            <p class="card-text lbl">CHAPTER {{i.id}}</p>
+                            <p class="card-text lbl">{{i.note}}</p>
                         </div>
                     </div>
                 </a>

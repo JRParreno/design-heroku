@@ -17,7 +17,10 @@ export class AssessmentComponent implements OnInit {
   questions: Question[];
   questions2: Question[];
 
+  fileToUpload: File = null;
+
   ngOnInit(): void {
+    this.fileToUpload = null;
     this.questions = [];
     this.act = new Activity;
     this.getactivity();
@@ -30,6 +33,11 @@ export class AssessmentComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+  }
+
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+    console.log(this.fileToUpload);
   }
 
 

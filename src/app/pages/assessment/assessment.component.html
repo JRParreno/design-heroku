@@ -11,27 +11,33 @@
                         <span class="icon"><span class="fas fa-plus"></span></span>
                     </a>
                     <div class="collapse" id="{{'panel-' + i.number}}">
-                        <div class="pt-3">
-                            <fieldset>
-                                <div *ngIf="i.q_type == 'MULT'" class="form-check">
-                                    <div *ngFor="let c of i.choices">
-                                        <input class="form-check-input" type="radio" name="{{'radio'+i.number}}" value="{{c.description}}" id="{{'check'+ i.number + '-'+c.description}}">
-                                        <label class="form-check-label" for="{{'check'+ i.number + '-'+c.description}}">
-                                            {{c.description}}
-                                        </label>
-                                        <br>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <div *ngIf="i.q_type == 'IDENT'" class="form-group inputs">
-                                <input type="text" class="form-control" [(ngModel)]="i.answer" name="i.answer">
+                        <!--for file upload-->
+                        <!--<div class="pt-3">
+                            <div class="form-group inputs">
+                                <input type="file" class="custom-file-input" id="customFile" (change)="handleFileInput($event.target.files)">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
+                        </div>-->
+                        <fieldset *ngIf="i.q_type == 'MULT'">
+                            <div class="form-check">
+                                <div *ngFor="let c of i.choices">
+                                    <input class="form-check-input" type="radio" name="{{'radio'+i.number}}" value="{{c.description}}" id="{{'check'+ i.number + '-'+c.description}}">
+                                    <label class="form-check-label" for="{{'check'+ i.number + '-'+c.description}}">
+                                        {{c.description}}
+                                    </label>
+                                    <br>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div *ngIf="i.q_type == 'IDENT'" class="form-group inputs">
+                            <input type="text" class="form-control" [(ngModel)]="i.answer" name="i.answer">
                         </div>
                     </div>
                 </div>
-                <button type="button" class="right btn btn-primary text-success" aria-haspopup="true" aria-expanded="false" (click)="submit()">
-                    Submit
-                </button>
             </div>
+            <button type="button" class="right btn btn-primary text-success" aria-haspopup="true" aria-expanded="false" (click)="submit()">
+                Submit
+            </button>
         </div>
     </div>
+</div>
