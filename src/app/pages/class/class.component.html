@@ -86,32 +86,32 @@
                 </div>
                 <div class="row input">
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Student No.</label>
-                        <input type="text" class="form-control" [(ngModel)]="student.username" name="stusername" placeholder="Required">
+                        <label class="my-1 mr-2">Student No. <span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" [(ngModel)]="student.username" id="stusername" name="stusername" (change)="validate('stusername', null)">
                     </div>
                 </div>
                 <div class="row input">
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Firstname</label>
-                        <input type="text" class="form-control" [(ngModel)]="student.first_name" name="stfirstname" placeholder="Required">
+                        <label class="my-1 mr-2">Firstname <span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" [(ngModel)]="student.first_name" id="stfirstname" name="stfirstname" (change)="validate('stfirstname', null)">
                     </div>
                 </div>
                 <div class="row input">
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Middlename</label>
-                        <input type="text" class="form-control" [(ngModel)]="student.middle_name" name="stmiddlename" placeholder="Required">
+                        <label class="my-1 mr-2">Middlename <span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" [(ngModel)]="student.middle_name" id="stmiddlename" name="stmiddlename" (change)="validate('stmiddlename', null)">
                     </div>
                 </div>
                 <div class="row input">
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Lastname</label>
-                        <input type="text" class="form-control" [(ngModel)]="student.last_name" name="stlastname" placeholder="Required">
+                        <label class="my-1 mr-2">Lastname <span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" [(ngModel)]="student.last_name" id="stlastname" name="stlastname" (change)="validate('stlastname', null)">
                     </div>
                 </div>
                 <div class="row input">
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Email</label>
-                        <input type="text" class="form-control" [(ngModel)]="student.email" name="stemail" placeholder="Required">
+                        <label class="my-1 mr-2">Email <span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" [(ngModel)]="student.email" id="stemail" name="stemail" (change)="validate('stemail', null)">
                     </div>
                 </div>
             </div>

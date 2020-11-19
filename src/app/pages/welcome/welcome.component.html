@@ -188,7 +188,7 @@
                         University ID
                     </div>-->
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">University ID</label>
+                        <label class="my-1 mr-2">University ID <span class="asterisk">*</span></label>
                         <input type="text" class="form-control" [(ngModel)]="profdetails.university_id" name="university_id" id="university_id" (change)="validate('university_id', null)">
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                         Username
                     </div>-->
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Username</label>
+                        <label class="my-1 mr-2">Username <span class="asterisk">*</span></label>
                         <input type="text" class="form-control" [(ngModel)]="profdetails.username" name="profusername" id="profusername" (change)="validate('profusername', null)">
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                         Firstname
                     </div>-->
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Firstname</label>
+                        <label class="my-1 mr-2">Firstname <span class="asterisk">*</span></label>
                         <input type="text" class="form-control" [(ngModel)]="profdetails.first_name" name="proffirstname" id="proffirstname" (change)="validate('proffirstname', 2)">
                     </div>
                 </div>
@@ -215,7 +215,7 @@
                         Middlename
                     </div>-->
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Middlename</label>
+                        <label class="my-1 mr-2">Middlename <span class="asterisk">*</span></label>
                         <input type="text" class="form-control" [(ngModel)]="profdetails.middle_name" name="profmiddlename" id="profmiddlename" (change)="validate('profmiddlename', 2)">
                     </div>
                 </div>
@@ -224,7 +224,7 @@
                         Lastname
                     </div>-->
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Lastname</label>
+                        <label class="my-1 mr-2">Lastname <span class="asterisk">*</span></label>
                         <input type="text" class="form-control" [(ngModel)]="profdetails.last_name" name="proflastname" id="proflastname" (change)="validate('proflastname', 2)">
                     </div>
                 </div>
@@ -233,7 +233,7 @@
                         Email:
                     </div>-->
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Email</label>
+                        <label class="my-1 mr-2">Email <span class="asterisk">*</span></label>
                         <input type="text" class="form-control" [(ngModel)]="profdetails.email" name="profemail" id="profemail" (change)="validate('profemail', null)">
                     </div>
                 </div>
@@ -242,7 +242,7 @@
                         Set Password:
                     </div>-->
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Set Password</label>
+                        <label class="my-1 mr-2">Set Password <span class="asterisk">*</span></label>
                         <input type="password" class="form-control" [(ngModel)]="profdetails.password" name="profpassword" id="profpassword" (change)="validate('profpassword', 8)">
                     </div>
                 </div>
@@ -251,7 +251,7 @@
                         Confirm Password:
                     </div>-->
                     <div class="p col-12 col-md-12">
-                        <label class="my-1 mr-2">Confirm Password</label>
+                        <label class="my-1 mr-2">Confirm Password <span class="asterisk">*</span></label>
                         <input type="password" class="form-control" [(ngModel)]="profpassword2" name="confprofpassword" id="confprofpassword" (change)="validate('confprofpassword', 8)">
                     </div>
                 </div>

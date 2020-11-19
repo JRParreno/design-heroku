@@ -112,4 +112,19 @@ export class ClassComponent implements OnInit {
     this.router.navigate([path]);
   }
 
+  validate(id: any, char) {
+    let d = <HTMLInputElement>document.getElementById(id);
+
+    if (d.value == null || d.value == '') {
+      d.classList.add('is-invalid');
+    } else if (char != null && d.value.length < char) {
+      d.classList.add('is-invalid');
+    } else {
+      if (d.classList.contains('is-invalid')) {
+        d.classList.remove('is-invalid');
+
+      }
+    }
+  }
+
 }

@@ -185,3 +185,7 @@ b {
     height: 25%;
     width: 100%;
 }
+
+.asterisk {
+    color: red;
+}
