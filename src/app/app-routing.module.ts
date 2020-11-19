@@ -16,6 +16,7 @@ import { ClasslistComponent } from './pages/classlist/classlist.component';
 import { FacultyComponent } from './pages/faculty/faculty.component';
 import { FacultymainComponent } from './pages/facultymain/facultymain.component';
 import { FacultyprofileComponent } from './pages/facultyprofile/facultyprofile.component';
+import { FilecheckingComponent } from './pages/filechecking/filechecking.component';
 import { RecordsComponent } from './pages/records/records.component';
 import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
 import { StudentComponent } from './pages/student/student.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
           { path: "class/:id", component: ClassComponent },
           { path: "profile", component: FacultyprofileComponent },
           { path: "records", component: RecordsComponent },
+          { path: "file-check", component: FilecheckingComponent },
         ]
       },
       { path: "", redirectTo: "home", pathMatch: 'full' },

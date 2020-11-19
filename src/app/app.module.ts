@@ -29,6 +29,7 @@ import { StudentmainComponent } from './pages/studentmain/studentmain.component'
 import { StudentprofileComponent } from './pages/studentprofile/studentprofile.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
+import { FilecheckingComponent } from './pages/filechecking/filechecking.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.comp
     StudentmainComponent,
     StudentprofileComponent,
     WelcomeComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    FilecheckingComponent
   ],
   imports: [
     ReactiveFormsModule,

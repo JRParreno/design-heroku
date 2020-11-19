@@ -98,7 +98,7 @@ export class ApiService {
 
 
   changepassword(param) {
-    return this.http.post<any>(this.API + "/api/change-password/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+    return this.http.put<any>(this.API + "/api/auth/change-password/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
 

@@ -90,3 +90,8 @@
     transition: 0.2s;
     width: 100vw;
 }
+
+.nav-icon-item {
+    margin-left: 20px;
+    margin-right: 20px;
+}

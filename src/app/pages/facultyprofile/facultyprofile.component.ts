@@ -54,9 +54,11 @@ export class FacultyprofileComponent implements OnInit {
   }
 
   changepassword() {
-    let param: any = { "oldpassword": this.oldpassword, "newpassword": this.newpassword };
+    let param: any = { "old_password": this.oldpassword, "new_password": this.newpassword };
     this.service.changepassword(param).subscribe(res => {
-      console.log(res);
+      if (res.status == "success") {
+        //toast res.message
+      }
     }, err => {
       console.log(err);
     });

@@ -100,51 +100,56 @@
                     <div class="form-group">
                         <h2 class="h6 modal-title mb-0" id="modal-title-default">{{selectacts.activity_name}}</h2>
                     </div>
-                    <div>
-                        <div class="input-daterange row align-items-center">
-                            <div class="col">
-                                <div class="form-group">
-                                    <div class="input-group input-group-border">
-                                        <!--<div class="input-group-prepend"><span class="input-group-text"><span
+                    <div class="row align-items-center">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <!--<div class="input-group-prepend"><span class="input-group-text"><span
                                                     class="far fa-calendar-alt"></span></span>
                                         </div>-->
-                                        <input class="form-control" [(ngModel)]="acstart" name="acstart" id="date1" placeholder="Start date" type="date">
-                                        <!--<input class="form-control datepicker" id="date1" placeholder="Start date" type="text">-->
-                                        <!--<input class="form-control" id="time1" placeholder="Start time" type="time">-->
-                                    </div>
-                                </div>
+                                <input class="form-control" [(ngModel)]="acstart" name="acstart" id="date1" placeholder="Start date" type="date">
+                                <!--<input class="form-control datepicker" id="date1" placeholder="Start date" type="text">-->
+                                <!--<input class="form-control" id="time1" placeholder="Start time" type="time">-->
                             </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <div class="input-group input-group-border">
-                                        <!--<div class="input-group-prepend"><span class="input-group-text"><span
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <!--<div class="input-group-prepend"><span class="input-group-text"><span
                                                     class="far fa-calendar-alt"></span></span>
                                         </div>-->
-                                        <input class="form-control" [(ngModel)]="acend" name="acend" id="date2" placeholder="End date" type="date">
-                                        <!--<input class="form-control datepicker" [(ngModel)]="acend" name="acend" id="date2" placeholder="End date" type="text">-->
-                                        <!--<input class="form-control" id="time2" placeholder="End time" type="time">-->
-                                    </div>
-                                </div>
+                                <input class="form-control" [(ngModel)]="acend" name="acend" id="date2" placeholder="End date" type="date">
+                                <!--<input class="form-control datepicker" [(ngModel)]="acend" name="acend" id="date2" placeholder="End date" type="text">-->
+                                <!--<input class="form-control" id="time2" placeholder="End time" type="time">-->
                             </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <select class="custom-select my-1 mr-sm-2 actsect" (change)="profactivityselect($event)">
-                                        <option selected>Choose...</option>
-                                        <option *ngFor="let b of filter" value="{{b.id}}">{{b.section_code}}</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <select class="custom-select actsect" (change)="profactivityselect($event)">
+                                    <option selected>Choose...</option>
+                                    <option *ngFor="let b of filter" value="{{b.id}}">{{b.section_code}}</option>
+                                </select>
                             </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <button [disabled]="acstart == null || acend == null || acslc == null" type="button" class="btn btn-primary text-success" (click)="saveactivitysched()">Save</button>
-                                </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <select class="custom-select actsect">
+                                    <option selected>Choose...</option>
+                                    <option value="Laboratory">Laboratory</option>
+                                    <option value="Lecture">Lecture</option>
+                                    <option value="Lecture & Laboratory">Lecture & Laboratory</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="form-group">
+                                <button [disabled]="acstart == null || acend == null || acslc == null" type="button" class="btn btn-primary text-success" (click)="saveactivitysched()">Save</button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-body act-tbl">
-                <div class="accordion shadow-soft rounded" id="accordionExample1">
+                <!--<div class="accordion shadow-soft rounded" id="accordionExample1">
                     <div *ngFor="let i of filter" class="card card-sm card-body bg-primary border-light mb-0">
                         <a ref="#panel-1" data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
                             <span class="h6 mb-0 font-weight-bold">{{i.section_code}} | Date: {{i.start}} -
@@ -159,40 +164,8 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="card card-sm card-body bg-primary border-light mb-0">
-                        <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
-                            <span class="h6 mb-0 font-weight-bold">2)Next question, 2?</span>
-                            <span class="icon"><span class="fas fa-plus"></span></span>
-                        </a>
-                        <div class="collapse" id="panel-2">
-                            <div class="pt-3">
-                                <p class="mb-0">
-                                    <input type="radio" name="choice" value="q2c1">Choice 1<br>
-                                    <input type="radio" name="choice" value="q2c2">Choice 2<br>
-                                    <input type="radio" name="choice" value="q2c3">Choice 3<br>
-                                    <input type="radio" name="choice" value="q2c4">Choice 4
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-sm card-body bg-primary border-light">
-                        <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
-                            <span class="h6 mb-0 font-weight-bold">3)Last question, 3?</span>
-                            <span class="icon"><span class="fas fa-plus"></span></span>
-                        </a>
-                        <div class="collapse" id="panel-3">
-                            <div class="pt-3">
-                                <p class="mb-0">
-                                    <input type="radio" name="choice" value="q3c1">Choice 1<br>
-                                    <input type="radio" name="choice" value="q3c2">Choice 2<br>
-                                    <input type="radio" name="choice" value="q3c3">Choice 3<br>
-                                    <input type="radio" name="choice" value="q3c4">Choice 4
-                                </p>
-                            </div>
-                        </div>
-                    </div>-->
-                </div>
-                <!--<table class="table shadow-soft rounded act-tbl">
+                </div>-->
+                <table class="table shadow-soft rounded act-tbl">
                     <tr>
                         <th class="border-0" scope="col" id="block">Section</th>
                         <th class="border-0" scope="col" id="start">Start</th>
@@ -203,7 +176,7 @@
                         <td headers="start">{{i.start}}</td>
                         <td headers="end">{{i.end}}</td>
                     </tr>
-                </table>-->
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary text-secondary" (click)="gotoactivity()" data-dismiss="modal">View
