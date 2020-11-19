@@ -33,6 +33,8 @@
     </div>
 </div>-->
 <div class="layout">
+    <button type="button" id="closereg" data-toggle="modal" class="hide" data-dismiss="modal" data-target="#modal-toast"></button>
+
     <div class="ui-fluid p-grid grd">
         <div class="p-col-12 p-md-12">
             <div class="p-grid">
@@ -81,6 +83,25 @@
                     <button type="button" class="right btn btn-primary text-danger" (click)="goto('faculty/home')">Close</button>
                     <button type="button" class="right pbtn btn btn-primary text-success" (click)="changepassword()" [disabled]="oldpassword == '' || newpassword == '' || newpassword != newpassword2">Save</button>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal-toast" tabindex="-1" role="dialog" aria-labelledby="modal-toast" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-toast"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="p col-12 col-md-12">
+                    <label class="my-1 mr-2">{{message}}</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Okay</button>
             </div>
         </div>
     </div>

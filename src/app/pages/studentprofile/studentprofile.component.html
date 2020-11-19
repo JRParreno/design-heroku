@@ -1,4 +1,6 @@
 <div class="layout">
+    <button type="button" id="closereg" data-toggle="modal" class="hide" data-dismiss="modal" data-target="#modal-toast"></button>
+
     <div class="ui-fluid p-grid grd">
         <div class="p-col-12 p-md-12">
             <div class="p-grid">
@@ -24,57 +26,44 @@
             </div>
             <div *ngIf="!changepass" class="p-grid">
                 <div class="p-col-12">
-                    <input type="password" class="form-control input" id="password" placeholder="Old Password">
+                    <input type="password" class="form-control input" id="password" placeholder="Old Password" [(ngModel)]="oldpassword">
                 </div>
             </div>
             <div *ngIf="!changepass" class="p-grid">
                 <div class="p-col-12">
-                    <input type="password" class="form-control input" id="password2" placeholder="New Password">
+                    <input type="password" class="form-control input" id="password2" placeholder="New Password" [(ngModel)]="newpassword">
                 </div>
             </div>
             <div *ngIf="!changepass" class="p-grid">
                 <div class="p-col-12">
-                    <input type="password" class="form-control input" id="password3" placeholder="Re-type New Password">
+                    <input type="password" class="form-control input" id="password3" placeholder="Re-type New Password" [(ngModel)]="newpassword2">
                 </div>
             </div>
             <div class="p-grid">
                 <div class="p-col-12">
                     <button type="button" class="right btn btn-primary text-danger" (click)="goto('student/home')">Close</button>
-                    <button type="button" class="right pbtn btn btn-primary text-success" (click)="updatedetails()">Save</button> </div>
+                    <button type="button" class="right pbtn btn btn-primary text-success" (click)="changepassword()">Save</button> </div>
             </div>
         </div>
     </div>
-    <!--<div class="pnl">
-        <div class="pnl3">
-            <div class="b1">
-                <div class="display card bg-primary border-light shadow-soft">
-                    <div class="card-body">
-                        <span class="fas fa-user user"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="pnl3">
-            <div class="r">
-                <label class="form-control input">Juan Dela Cruz</label>
-                <label class="form-control input">2020-10001</label>
-                <label class="form-control input">CEIT-03-1002E</label>
-                <input class="input" type="text" class="form-control" id="email" placeholder="Email">
-                <a class="text-info" (click)="togglechangepass()">Change Password</a>
-                <small *ngIf="!changepass" id="emailHelp" class="form-text text-muted">It's a good idea to use a strong
-                    password that you're not
-                    using elsewhere</small>
-                <div *ngIf="changepass">
-                    <input type="password" class="form-control input" id="password" placeholder="Old Password">
-                    <input type="password" class="form-control input" id="password2" placeholder="New Password">
-                    <input type="password" class="form-control input" id="password3" placeholder="Re-type New Password">
-                </div>
-                <button type="button" class="right btn btn-primary text-danger"
-                    (click)="goto('student/home')">Close</button>
-                <button type="button" class="right pbtn btn btn-primary text-success"
-                    (click)="updatedetails()">Save</button>
-            </div>
-        </div>
-    </div>-->
+</div>
 
+
+
+<div class="modal fade" id="modal-toast" tabindex="-1" role="dialog" aria-labelledby="modal-toast" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-toast"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="p col-12 col-md-12">
+                    <label class="my-1 mr-2">{{message}}</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Okay</button>
+            </div>
+        </div>
+    </div>
 </div>

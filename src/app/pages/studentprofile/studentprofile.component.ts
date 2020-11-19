@@ -18,7 +18,17 @@ export class StudentprofileComponent implements OnInit {
   changepass: boolean;
   profile: Student;
 
+  oldpassword: string;
+  newpassword: string;
+  newpassword2: string;
+
+  message: string;
+
   ngOnInit(): void {
+    this.message = '';
+    this.oldpassword = '';
+    this.newpassword = '';
+    this.newpassword2 = '';
     this.profile = new Student;
     this.changepass = false;
     this.getdetails();
@@ -64,6 +74,22 @@ export class StudentprofileComponent implements OnInit {
     } else {
       this.changepass = true;
     }
+  }
+
+  changepassword() {
+    let param: any = { "old_password": this.oldpassword, "new_password": this.newpassword };
+    this.service.changepassword(param).subscribe(res => {
+      if (res.status == "success") {
+        this.message = res.message;
+        let c = document.getElementById('closereg');
+        c.click();
+      }
+    }, err => {
+      this.message = "Invalid routine!";
+      let c = document.getElementById('closereg');
+      c.click();
+      console.log(err);
+    });
   }
 
 }

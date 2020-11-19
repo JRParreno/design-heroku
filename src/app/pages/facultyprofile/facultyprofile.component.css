@@ -165,3 +165,10 @@ label {
     text-transform: uppercase;
     font-weight: bolder;
 }
+
+.hide {
+    visibility: hidden;
+    position: absolute;
+    width: 100px;
+    height: 20px;
+}
