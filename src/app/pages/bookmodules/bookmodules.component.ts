@@ -42,7 +42,6 @@ export class BookmodulesComponent implements OnInit {
     this.service.listchapters(null).subscribe(res => {
       this.list = res;
       this.list.sort((a, b) => (a.id > b.id) ? 1 : -1);
-      console.log(res);
     }, err => {
       console.log(err);
     });

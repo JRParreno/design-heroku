@@ -4,10 +4,7 @@
             <div class="btn-group mb-2 mr-2 b inp">
                 <select class="custom-select my-1 mr-sm-2">
                     <option selected>Section</option>
-                    <option value="asd">asd</option>
-                    <option value="asd">asd</option>
-                    <option value="asd">asd</option>
-                    <option value="asd">asd</option>
+                    <option *ngFor="let i of sections" value="{{i.code}}">{{i.code}}</option>
                 </select>
             </div>
         </div>
@@ -15,10 +12,7 @@
             <div class="btn-group mb-2 mr-2 b inp">
                 <select class="custom-select my-1 mr-sm-2">
                     <option selected>Activity</option>
-                    <option value="asd">asd</option>
-                    <option value="asd">asd</option>
-                    <option value="asd">asd</option>
-                    <option value="asd">asd</option>
+                    <option *ngFor="let i of activities" value="{{i.activity_name}}">{{i.activity_name}}</option>
                 </select>
             </div>
         </div>

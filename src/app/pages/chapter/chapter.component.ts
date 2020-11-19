@@ -17,7 +17,7 @@ export class ChapterComponent implements OnInit {
     private service: ApiService,
   ) { }
 
-  list: any[] = [1, 2, 3, 4, 5, 6, 7];
+  list: any[];
   vids: any[] = [1, 2, 3, 4];
 
 
@@ -63,12 +63,13 @@ export class ChapterComponent implements OnInit {
   }
 
   savefeedback() {
-    //console.log('posting feedback..');
-    let param = { student_chapter: 1, feedback: "test" };
+    let param = { username: sessionStorage.getItem('username'), date_posted: new Date(), student_chapter: this.chapterid, feedback: this.feedback, user: sessionStorage.getItem('userid') };
     this.service.savefeedback(param, this.chapterid).subscribe(res => {
-      console.log(res);
+      if (res != undefined) {
+        //toast post success
+        this.getfeedback(this.chapterid);
+      }
     }, err => {
-      console.log('err');
       console.log(err);
     });
   }
@@ -76,9 +77,7 @@ export class ChapterComponent implements OnInit {
   getfeedback(id) {
     this.service.getfeedback(id).subscribe(res => {
       this.list = res;
-      console.log(this.list);
     }, err => {
-      console.log('err');
       console.log(err);
     });
   }

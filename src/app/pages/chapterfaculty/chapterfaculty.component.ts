@@ -69,24 +69,21 @@ export class ChapterfacultyComponent implements OnInit {
 
 
   savefeedback() {
-    let param = { user: sessionStorage.getItem('username'), student_chapter: this.chaptername, feedback: this.feedback };
+    let param = { username: sessionStorage.getItem('username'), date_posted: new Date(), student_chapter: this.chapterid, feedback: this.feedback, user: sessionStorage.getItem('userid') };
     this.service.savefeedback(param, this.chapterid).subscribe(res => {
-      console.log(res);
+      if (res != undefined) {
+        //toast post success
+        this.getfeedback(this.chapterid);
+      }
     }, err => {
-      console.log('err');
       console.log(err);
     });
   }
 
   getfeedback(id) {
     this.service.getfeedback(id).subscribe(res => {
-      console.log(res);
       this.list = res;
-      /*this.list = this.list.filter(f => f.);
-      console.log(sessionStorage.getItem('userid'));
-      console.log(this.list);*/
     }, err => {
-      console.log('err');
       console.log(err);
     });
   }

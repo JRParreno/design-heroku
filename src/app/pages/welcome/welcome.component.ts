@@ -102,6 +102,7 @@ export class WelcomeComponent implements OnInit {
         sessionStorage.setItem('username', res.username);
         sessionStorage.setItem('access', res.tokens.access);
         sessionStorage.setItem('refresh', res.tokens.refresh);
+        sessionStorage.setItem('userid', res.id);
         this.router.navigate(["/student/home"]);
       }
     }, err => {
