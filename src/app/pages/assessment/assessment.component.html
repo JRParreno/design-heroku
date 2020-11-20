@@ -5,19 +5,16 @@
             <h3 class="h5 card-title mt-3">{{act.activity_name}}</h3>
             <p class="card-text">Answer carefully</p>
             <div class="accordion shadow-soft rounded">
+                <!--<div class="form-group inputs">
+                    <input type="file" class="custom-file-input" id="customFile" (change)="handleFileInput($event.target.files)">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>-->
                 <div *ngFor="let i of questions" class="card card-sm card-body bg-primary border-light">
                     <a href="{{'#panel-' + i.number}}" data-target="{{'#panel-' + i.number}}" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
                         <span class="h6 mb-0 font-weight-bold">{{i.number}} {{i.question_name}}</span>
                         <span class="icon"><span class="fas fa-plus"></span></span>
                     </a>
                     <div class="collapse" id="{{'panel-' + i.number}}">
-                        <!--for file upload-->
-                        <!--<div class="pt-3">
-                            <div class="form-group inputs">
-                                <input type="file" class="custom-file-input" id="customFile" (change)="handleFileInput($event.target.files)">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
-                        </div>-->
                         <fieldset *ngIf="i.q_type == 'MULT'">
                             <div class="form-check">
                                 <div *ngFor="let c of i.choices">

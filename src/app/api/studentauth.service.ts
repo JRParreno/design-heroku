@@ -15,6 +15,7 @@ export class StudentauthService implements CanActivate {
     if (this.userLoggedin()) {
       return true;
     } else {
+      sessionStorage.clear();
       this.router.navigate(['/portal/student']);
       return false;
     }
@@ -23,6 +24,7 @@ export class StudentauthService implements CanActivate {
 
   userLoggedin(): boolean {
     let user = sessionStorage.getItem('username');
-    return !(user === null)
+    let student = sessionStorage.getItem('student');
+    return !(user === null || student === null)
   }
 }

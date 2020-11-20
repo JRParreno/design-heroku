@@ -22,7 +22,8 @@ export class FilecheckingComponent implements OnInit {
   activities: Activity[];
 
   ngOnInit(): void {
-    this.getactivity();
+    this.getactivity(1);//lecture
+    //this.getactivity(2);//laboratory
     this.getsections();
   }
 
@@ -36,8 +37,8 @@ export class FilecheckingComponent implements OnInit {
     });
   }
 
-  getactivity() {
-    this.service.listactivity().subscribe(res => {
+  getactivity(type) {
+    this.service.listactivity(type).subscribe(res => {
       this.activities = res;
     }, err => {
       console.log(err);

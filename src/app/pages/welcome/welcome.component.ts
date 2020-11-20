@@ -103,6 +103,7 @@ export class WelcomeComponent implements OnInit {
         sessionStorage.setItem('access', res.tokens.access);
         sessionStorage.setItem('refresh', res.tokens.refresh);
         sessionStorage.setItem('userid', res.id);
+        sessionStorage.setItem('student', 'true');
         this.router.navigate(["/student/home"]);
       }
     }, err => {
@@ -124,6 +125,7 @@ export class WelcomeComponent implements OnInit {
         sessionStorage.setItem('username', res.username);
         sessionStorage.setItem('access', res.tokens.access);
         sessionStorage.setItem('refresh', res.tokens.refresh);
+        sessionStorage.setItem('professor', 'true');
         this.router.navigate(["/faculty/home"]);
       }
     }, err => {

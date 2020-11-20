@@ -37,8 +37,21 @@ export class AssessmentComponent implements OnInit {
 
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
-    console.log(this.fileToUpload);
+    let s = new Submission;
+    s.question = 1;
+    s.student = 13;
+    s.table_image = this.fileToUpload;
+    const f: FormData = new FormData();
+    f.append('table_image', this.fileToUpload, this.fileToUpload.name);
+    f.append('question', s.question);
+    f.append('student', s.student);
+    this.service.submitactivity(f, 1).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
+
 
 
   getquestions() {
@@ -62,11 +75,21 @@ export class AssessmentComponent implements OnInit {
       param.push({ question: q.number, answer: q.answer });
     });
     console.log(param);
-    this.service.submitactivity(param, this.act.id).subscribe(res => {
+    /*this.service.submitactivity(param, this.act.id).subscribe(res => {
       console.log(res);
     }, err => {
       console.log(err);
-    });
+    });*/
   }
 
+}
+
+
+
+export class Submission {
+  question;
+  student;
+  answer;
+  table_image: File;
+  code_file: File;
 }

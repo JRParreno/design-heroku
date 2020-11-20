@@ -60,8 +60,8 @@ export class ApiService {
 
   }
 
-  listactivity() {
-    return this.http.get<any>(this.API + "/api/activity/viewset/list/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  listactivity(type) {
+    return this.http.get<any>(this.API + "/api/activity/viewset/" + type + "/list/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
   getstudentassesments(studentid: string) {
@@ -77,8 +77,8 @@ export class ApiService {
     return this.http.put<any>(this.API + "/api/user/profile/student/" + param.username + "/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
-  submitactivity(param: any, id) {
-    return this.http.post<any>(this.API + "/api/student/submit/" + id + "/", param);
+  submitactivity(param: FormData, id) {
+    return this.http.post<any>(this.API + "/api/student/submit/" + id + "/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
   getquestionsperactivity(activityid: string) {
@@ -96,19 +96,24 @@ export class ApiService {
     return this.http.patch<any>(this.API + "/api/auth/password-reset-complete/", param);
   }
 
+  getactivitytype() {
+    return this.http.get<any>(this.API + "/api/activity/type/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
 
   changepassword(param) {
     return this.http.put<any>(this.API + "/api/auth/change-password/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
 
-  getprofactivity() {
-    return this.http.get<any>(this.API + "/api/activity/viewset/prof_activity/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  getprofactivity(type) {
+    // return this.http.get<any>(this.API + "/api/activity/viewset/"+activitytype+"prof_activity/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+    return this.http.get<any>(this.API + "/api/activity/viewset/" + type + "/prof_activity/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
 
-  setprofactivity(param) {
-    return this.http.post<any>(this.API + "/api/activity/viewset/prof_activity/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  setprofactivity(param, type) {
+    return this.http.post<any>(this.API + "/api/activity/viewset/" + type + "/prof_activity/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
 

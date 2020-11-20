@@ -33,12 +33,12 @@
     </div>
     <div *ngIf="ifactivity" id="activity">
         <div class="ui-fluid p-grid lst">
-            <div *ngFor="let i of acts" class="p-col-12 p-md-3">
+            <div *ngFor="let i of list" class="p-col-12 p-md-3">
                 <a id="activityview" data-toggle="modal" data-target="#act-modal-default" data-backdrop="static" data-keyboard="false" (click)="selectactivity(i.id)">
                     <div class="box card bg-primary border-light shadow-soft">
                         <div class="card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>
-                            <p class="card-text lbl">{{i.activity_name}}</p>
+                            <p class="card-text lbl">{{i.note}}</p>
                         </div>
                     </div>
                 </a>
@@ -131,12 +131,10 @@
                         </div>
                         <div class="col-2">
                             <div class="form-group">
-                                <select class="custom-select actsect">
-                                    <option selected>Choose...</option>
-                                    <option value="Laboratory">Laboratory</option>
-                                    <option value="Lecture">Lecture</option>
-                                    <option value="Lecture & Laboratory">Lecture & Laboratory</option>
-
+                                <select class="custom-select actsect" [(ngModel)]="acttype" (change)="bytype()" name="acttype">
+                                    <!--<option selected value="1">Lecture</option>
+                                    <option value="2">Laboratory</option>-->
+                                    <option *ngFor="let b of acttypes" selected value="{{b.id}}">{{b.name}}</option>
                                 </select>
                             </div>
                         </div>
@@ -168,11 +166,13 @@
                 <table class="table shadow-soft rounded act-tbl">
                     <tr>
                         <th class="border-0" scope="col" id="block">Section</th>
+                        <th class="border-0" scope="col" id="activitytype">Activity type</th>
                         <th class="border-0" scope="col" id="start">Start</th>
                         <th class="border-0" scope="col" id="end">End</th>
                     </tr>
                     <tr *ngFor="let i of filter">
                         <td headers="block">{{i.section_code}}</td>
+                        <td headers="activitytype">{{acttypedesc}}</td>
                         <td headers="start">{{i.start}}</td>
                         <td headers="end">{{i.end}}</td>
                     </tr>
@@ -209,3 +209,24 @@
         </div>
     </div>
 </div>
+
+<!--<div class="modal fade" id="modal-act-type" tabindex="-1" role="dialog" aria-labelledby="modal-confirm" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="modal-title-confirm"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">Lecture</label>
+                        <label class="my-1 mr-2">Laboratory</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>-->

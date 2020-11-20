@@ -22,11 +22,14 @@ export class ActivityfacultyComponent implements OnInit {
   choices: Choices[];
   list: any[] = [1, 2, 3, 4];
   activityid: any;
+  activitytype: any;
 
   ngOnInit(): void {
     this.activity = new Activity;
     this.activatedRoute.paramMap.subscribe(param => {
       this.activityid = param.get('id');
+      this.activitytype = param.get('type');
+      console.log(this.activitytype);
       this.getactivity();
       this.getquestions();
     });

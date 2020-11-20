@@ -26,7 +26,10 @@ export class ClassComponent implements OnInit {
   sectionid: any;
   studentslc: Student;
 
+  studentdelete: Student[];
+
   ngOnInit(): void {
+    this.studentdelete = [];
     this.block = new Block;
     this.message = '';
     this.student = new Student;
@@ -52,6 +55,7 @@ export class ClassComponent implements OnInit {
 
   getstudents() {
     this.service.getstudentspersection(this.sectionid).subscribe(res => {
+      this.studentdelete = [];
       this.list = res;
     }, err => {
       console.log(err);
@@ -124,6 +128,20 @@ export class ClassComponent implements OnInit {
         d.classList.remove('is-invalid');
 
       }
+    }
+  }
+
+
+
+  selectStudent(event, student: Student) {
+    let checked = event.target.checked;
+    if (checked) {
+      let s = this.studentdelete.find(i => i.student_number == student.student_number);
+      if (s == undefined) {
+        this.studentdelete.push(student);
+      }
+    } else {
+      this.studentdelete = this.studentdelete.filter(i => i.student_number != student.student_number);
     }
   }
 

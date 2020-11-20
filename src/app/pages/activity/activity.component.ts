@@ -40,7 +40,12 @@ export class ActivityComponent implements OnInit {
 
 
   getactivity() {
-    this.service.getprofactivity().subscribe(res => {
+    this.service.listactivity(1).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
+    /*this.service.getprofactivity().subscribe(res => {
       this.sectionactivity = res;
       this.sectionactivity = this.sectionactivity.filter(i => i.section == this.sectionid);
       this.studentactivity = [];
@@ -65,7 +70,7 @@ export class ActivityComponent implements OnInit {
       });
     }, err => {
       console.log(err);
-    });
+    });*/
   }
 
   getsection() {
@@ -90,7 +95,7 @@ export class ActivityComponent implements OnInit {
 
 
   getactivities() {
-    this.service.listactivity().subscribe(res => {
+    this.service.listactivity(1).subscribe(res => {
       this.activity = res;
       this.getactivity();
     }, err => {

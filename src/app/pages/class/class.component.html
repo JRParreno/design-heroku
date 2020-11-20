@@ -11,6 +11,18 @@
                 <b>Add Student</b>
             </button>
         </div>
+        <div class="p-col-12 p-md-3">
+            <button class="btn btn-primary" type="button">
+                <span class="mr-1"><span class="fas fa-user-minus"></span></span>
+                <b>Delete Student</b>
+            </button>
+        </div>
+        <!--<div class="p-col-12 p-md-3">
+            <button [disabled]="block == null || block.code == null || block.code == ''" class="btn btn-primary" type="button" (click)="newstudent()" data-toggle="modal" data-target="#modal-student" data-backdrop="static" data-keyboard="false">
+                <span class="mr-1"><span class="fas fa-user-friends"></span></span>
+                <b>Add Student</b>
+            </button>
+        </div>-->
         <!--<div class="p-col-12 p-md-3">
             <div class="custom-file cusfile">
                 <input type="file" class="custom-file-input" id="customfile">
@@ -20,17 +32,20 @@
                 </label>
             </div>
         </div>-->
-        <div class="p-col-12 p-md-3"></div>
 
     </div>
 
     <table class="table shadow-soft rounded">
         <tr>
+            <th class="border-0 " scope="col">Select</th>
             <th class="border-0 " scope="col" id="studentno">Student No.</th>
             <th class="border-0" scope="col" id="name">Name</th>
             <!--<th class="border-0" scope="col" id="det">Details</th>-->
         </tr>
         <tr *ngFor="let i of list">
+            <td>
+                <input class="form-check square-check form-check-input check-box-slc" type="checkbox" value="" id="remember" (change)="selectStudent($event, i)">
+            </td>
             <td headers="studentno">{{i.student_number}}</td>
             <td headers="name">{{i.first_name}} {{i.middle_name}} {{i.last_name}}</td>
             <!--<td headers="det">

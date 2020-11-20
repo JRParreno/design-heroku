@@ -40,9 +40,15 @@ export class ClasslistComponent implements OnInit {
 
   selectedactivity: any;
   resmessage: string;
+  acttype;
+  acttypedesc;
+
+  acttypes: any[];
 
 
   ngOnInit(): void {
+    this.acttype = 1;//default to lecture
+    //this.acttypedesc = 'Lecture';//default to lecture
     this.list = [];
     this.profactsslc = [];
     this.resmessage = '';
@@ -57,7 +63,16 @@ export class ClasslistComponent implements OnInit {
     this.block = new Block;
     this.getsections();
     this.setactive();
-    //this.getactivity();
+    this.getactivitytype();
+  }
+
+
+  getactivitytype() {
+    this.service.getactivitytype().subscribe(res => {
+      this.acttypes = res;
+    }, err => {
+      console.log(err);
+    });
   }
 
   setactive() {
@@ -83,7 +98,7 @@ export class ClasslistComponent implements OnInit {
     this.service.getsectionlistperprof().subscribe(res => {
       this.blocks = res;
       this.blocks = this.blocks.filter(s => s.user == sessionStorage.getItem('userid'));
-      this.getactivity();
+      this.getactivity(this.acttype);
       this.getchapters();
     }, err => {
       console.log(err);
@@ -101,7 +116,7 @@ export class ClasslistComponent implements OnInit {
     this.service.savesection(this.block).subscribe(res => {
       if (res != undefined && res != null) {
         this.resmessage = "New section saved!";
-        this.getsections();
+        this.getsections();//default to lecture
         let cls = document.getElementById('secmodalcls');
         cls.click();
         this.block = new Block;
@@ -218,8 +233,11 @@ export class ClasslistComponent implements OnInit {
 
   selectactivity(activity: any) {
     this.filter = [];
+    //this.acttype = 1;//default to lecture every open of activity
+    //this.acttypedesc = 'Lecture';//default to lecture every open of activity
+    this.acttypedesc = this.acttypes.find(i => i.id == this.acttype).name;
     this.selectedactivity = activity;
-    this.selectacts = this.acts.find(a => a.id == activity);
+    /*this.selectacts = this.acts.find(a => a.id == activity);
     if (this.selectacts == undefined) {
       this.selectacts = new Activity;
     }
@@ -245,25 +263,78 @@ export class ClasslistComponent implements OnInit {
         });
       }
     });
-    this.profactsslc = this.profacts.filter(a => a.activity == activity);
-    //this.slc = activity;
-  }
-
-
-  getactivity() {
-    this.acts = [];
-    this.service.listactivity().subscribe(res => {
+    this.profactsslc = this.profacts.filter(a => a.activity == activity);*/
+    this.service.listactivity(this.acttype).subscribe(res => {
       this.acts = res;
-      this.getprofactivity();
+      this.profacts = [];
+      this.service.getprofactivity(this.acttype).subscribe(res => {
+        this.profacts = res;
+        let all = [];
+        this.blocks.forEach(s => {
+          let list = [];
+          list = this.profacts.filter(a => a.section == s.id);
+          all.push(...list);
+        });
+        this.profacts = all;
+
+        this.filter = [];
+        this.selectacts = this.acts.find(a => a.id == this.selectedactivity);
+        if (this.selectacts == undefined) {
+          this.selectacts = new Activity;
+        }
+        this.blocks.forEach(s => {
+          let b = new Profactivity;
+          b.section = s.id;
+          b.section_code = s.code;
+          this.filter.push(b);
+        });
+        this.profacts.forEach(p => {
+          if (p.activity == this.selectedactivity) {
+            this.filter.forEach(f => {
+              if (p.section == f.section) {
+                f.activity = p.activity;
+                f.activity_name = p.activity_name;
+                f.id = p.id;
+                f.start = p.start;
+                f.end = p.end;
+              } else {
+                f.activity = this.selectedactivity;
+              }
+
+            });
+          }
+        });
+      }, err => {
+        console.log(err);
+      });
+      this.profactsslc = this.profacts.filter(a => a.activity == this.selectedactivity);
     }, err => {
       console.log(err);
     });
   }
 
 
-  getprofactivity() {
+  bytype() {
+    this.acts = [];
+    this.acttypedesc = this.acttypes.find(i => i.id == this.acttype).name;
+    this.selectactivity(this.acttype);
+  }
+
+
+  getactivity(type) {
+    this.acts = [];
+    this.service.listactivity(type).subscribe(res => {
+      this.acts = res;
+      this.getprofactivity(type);
+    }, err => {
+      console.log(err);
+    });
+  }
+
+
+  getprofactivity(type) {
     this.profacts = [];
-    this.service.getprofactivity().subscribe(res => {
+    this.service.getprofactivity(type).subscribe(res => {
       this.profacts = res;
       let all = [];
       this.blocks.forEach(s => {
@@ -302,15 +373,14 @@ export class ClasslistComponent implements OnInit {
     if (s.id != undefined) {
       sched.id = s.id;
     }
-    this.service.setprofactivity(sched).subscribe(res => {
+    this.service.setprofactivity(sched, this.acttype).subscribe(res => {
       if (res != undefined && res != null) {
-        this.getactivity();
+        this.getactivity(this.acttype);
         let a = document.getElementById('activityview');
         a.click();
         this.resmessage = "Activity details saved!";
         let c = document.getElementById('closereg');
         c.click();
-        //toast success
       }
     }, err => {
       this.resmessage = "Invalid routine!";
@@ -321,7 +391,7 @@ export class ClasslistComponent implements OnInit {
   }
 
   gotoactivity() {
-    this.router.navigate(['/faculty/home/activity/' + this.selectedactivity]);
+    this.router.navigate(['/faculty/home/activity/' + this.selectedactivity + '/' + this.acttype]);
   }
 
 

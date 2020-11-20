@@ -38,7 +38,8 @@ export class RecordsComponent implements OnInit {
     this.activity = [];
     this.activity2 = [];
     this.getsections();
-    this.getactivity();
+    this.getactivity(1);//lecture
+    //this.getactivity(2);//laboratory
   }
 
   goto(path: string) {
@@ -46,11 +47,13 @@ export class RecordsComponent implements OnInit {
   }
 
 
-  getactivity() {
-    this.service.listactivity().subscribe(res => {
+  getactivity(type) {
+    this.service.listactivity(type).subscribe(res => {
       this.activity = res;
       this.activity2 = res;
-    }, err => { });
+    }, err => {
+      console.log(err);
+    });
 
   }
 
@@ -96,7 +99,6 @@ export class RecordsComponent implements OnInit {
 
 
   byactivity() {
-    console.log(this.activityslc);
     if (this.activityslc == 'Activity') {
       this.activity = this.activity2;
     } else {
