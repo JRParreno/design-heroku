@@ -1,7 +1,8 @@
 <div class="layout">
 
     <b id="opclass" class="opt" (click)="classlistact($event)">CLASSLIST</b>
-    <b id="opactivity" class="opt" (click)="activityact($event)">ACTIVITIES</b>
+    <b id="opactivity" class="opt" (click)="activityact($event)">LECTURE ACTIVITIES</b>
+    <b id="oplaboratory" class="opt" (click)="labact($event)">LABORATORY ACTIVITIES</b>
     <b id="opchapter" class="opt" (click)="chapteract($event)">CHAPTERS</b>
 
     <button type="button" id="closereg" data-toggle="modal" class="hide" data-dismiss="modal" data-target="#modal-toast"></button>
@@ -33,12 +34,28 @@
     </div>
     <div *ngIf="ifactivity" id="activity">
         <div class="ui-fluid p-grid lst">
-            <div *ngFor="let i of list" class="p-col-12 p-md-3">
+            <div *ngFor="let i of acts" class="p-col-12 p-md-3">
                 <a id="activityview" data-toggle="modal" data-target="#act-modal-default" data-backdrop="static" data-keyboard="false" (click)="selectactivity(i.id)">
                     <div class="box card bg-primary border-light shadow-soft">
                         <div class="card-body">
                             <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>
-                            <p class="card-text lbl">{{i.note}}</p>
+                            <!--<p class="card-text lbl">LECTURE ACTIVITY</p>-->
+                            <p class="card-text lbl">{{i.activity_name}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="iflab" id="laboratory">
+        <div class="ui-fluid p-grid lst">
+            <div *ngFor="let i of acts" class="p-col-12 p-md-3">
+                <a id="activityview" data-toggle="modal" data-target="#act-modal-default" data-backdrop="static" data-keyboard="false" (click)="selectactivity(i.id)">
+                    <div class="box card bg-primary border-light shadow-soft">
+                        <div class="card-body">
+                            <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>
+                            <!--<p class="card-text lbl">LABORATORY ACTIVITY</p>-->
+                            <p class="card-text lbl">{{i.activity_name}}</p>
                         </div>
                     </div>
                 </a>
@@ -121,7 +138,7 @@
                                 <!--<input class="form-control" id="time2" placeholder="End time" type="time">-->
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="col-3">
                             <div class="form-group">
                                 <select class="custom-select actsect" (change)="profactivityselect($event)">
                                     <option selected>Choose...</option>
@@ -129,15 +146,13 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-2">
+                        <!--<div class="col-2">
                             <div class="form-group">
                                 <select class="custom-select actsect" [(ngModel)]="acttype" (change)="bytype()" name="acttype">
-                                    <!--<option selected value="1">Lecture</option>
-                                    <option value="2">Laboratory</option>-->
                                     <option *ngFor="let b of acttypes" selected value="{{b.id}}">{{b.name}}</option>
                                 </select>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="col-1">
                             <div class="form-group">
                                 <button [disabled]="acstart == null || acend == null || acslc == null" type="button" class="btn btn-primary text-success" (click)="saveactivitysched()">Save</button>

@@ -22,3 +22,15 @@
     /* for "disabled" effect */
     opacity: 0.5;
 }
+
+.box {
+    height: 200px;
+}
+
+.box-modal {
+    height: 10px;
+}
+
+.card-modal {
+    margin-bottom: 20px;
+}

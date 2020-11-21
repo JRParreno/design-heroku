@@ -29,6 +29,13 @@
     width: 100%;
 }
 
+#laboratory {
+    padding-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+}
+
 .box {
     height: 200px;
 }

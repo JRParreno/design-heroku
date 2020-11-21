@@ -215,3 +215,33 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+
+/* width */
+
+.content::-webkit-scrollbar {
+    /*background: #d1d9e6;*/
+    height: 5px;
+    width: 5px;
+}
+
+
+/* Track */
+
+.content::-webkit-scrollbar-track {
+    background: #d1d9e6;
+}
+
+
+/* Handle */
+
+.content::-webkit-scrollbar-thumb {
+    background: #31344b;
+}
+
+
+/* Handle on hover */
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #31344b;
+}

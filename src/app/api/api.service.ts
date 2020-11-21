@@ -105,10 +105,14 @@ export class ApiService {
     return this.http.put<any>(this.API + "/api/auth/change-password/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
-
   getprofactivity(type) {
     // return this.http.get<any>(this.API + "/api/activity/viewset/"+activitytype+"prof_activity/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
     return this.http.get<any>(this.API + "/api/activity/viewset/" + type + "/prof_activity/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
+  getstudentactivitysched(type) {
+    return this.http.get<any>(this.API + "/api/activity/student/" + type + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+
   }
 
 

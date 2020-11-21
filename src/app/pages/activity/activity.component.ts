@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api/api.service';
 import { Activity } from 'src/app/classes/activity';
@@ -31,17 +32,57 @@ export class ActivityComponent implements OnInit {
   studentactivity: stactivity[];
   sectionactivity: any[];
 
+  acttype: any[];
+  allacts: any[];
+  actsslc: any[];
+
+  section: Block;
+
   ngOnInit(): void {
+    this.section = new Block;
     this.blocks = [];
     this.studentactivity = [];
+    this.acttype = [];
     this.sectionid = sessionStorage.getItem('section');
-    this.getactivity();
+    this.getchapters();
+    this.getsection();
+  }
+
+  getchapters() {
+    this.service.listchapters(null).subscribe(res => {
+      this.list = res;
+      this.getactivitytype();
+    }, err => {
+      console.log(err);
+    });
+  }
+
+
+  getactivitytype() {
+    this.allacts = [];
+    this.service.getactivitytype().subscribe(res => {
+      this.acttype = res;
+      this.acttype.forEach(i => {
+        this.service.listactivity(i.id).subscribe(res => {
+          this.allacts = [...this.allacts, ...res];
+        }, err => {
+          console.log(err);
+        })
+      });
+    }, err => {
+      console.log(err);
+    });
+  }
+
+
+  selectchapter(id) {
+    this.actsslc = this.allacts.filter(i => i.chapter == id);
   }
 
 
   getactivity() {
     this.service.listactivity(1).subscribe(res => {
-      console.log(res);
+      //console.log(res);
     }, err => {
       console.log(err);
     });
@@ -86,18 +127,7 @@ export class ActivityComponent implements OnInit {
   getsections() {
     this.service.getsectionlistperprof().subscribe(res => {
       this.blocks = res;
-      let section = this.blocks.find(i => i.id == this.sectionid);
-      console.log(section);
-    }, err => {
-      console.log(err);
-    });
-  }
-
-
-  getactivities() {
-    this.service.listactivity(1).subscribe(res => {
-      this.activity = res;
-      this.getactivity();
+      this.section = this.blocks.find(i => i.id == this.sectionid);
     }, err => {
       console.log(err);
     });

@@ -26,11 +26,16 @@ export class ClasslistComponent implements OnInit {
   ifclass: boolean;
   ifactivity: boolean;
   ifchapter: boolean;
+  iflab: boolean;
 
   acts: Activity[];
   profacts: Profactivity[];
   profactsslc: Profactivity[];
   filter: Profactivity[];
+
+
+  labacts: Activity[];
+  lecacts: Activity[];
 
   selectacts: Activity;
 
@@ -60,6 +65,8 @@ export class ClasslistComponent implements OnInit {
     this.filter = [];
     this.profacts = [];
     this.acts = [];
+    this.labacts = [];
+    this.lecacts = [];
     this.block = new Block;
     this.getsections();
     this.setactive();
@@ -80,16 +87,19 @@ export class ClasslistComponent implements OnInit {
       this.ifactivity = false;
       this.ifchapter = false;
       this.ifclass = true;
+      this.iflab = false;
     }
     if (this.router.url == "/faculty/home/activities") {
       this.ifactivity = true;
       this.ifchapter = false;
       this.ifclass = false;
+      this.iflab = false;
     }
     if (this.router.url == "/faculty/home/modules") {
       this.ifactivity = false;
       this.ifchapter = true;
       this.ifclass = false;
+      this.iflab = false;
     }
   }
 
@@ -143,6 +153,7 @@ export class ClasslistComponent implements OnInit {
     this.ifactivity = false;
     this.ifchapter = false;
     this.ifclass = true;
+    this.iflab = false;
     let c = document.getElementsByClassName("opt");
     for (let i = 0; i < c.length; i++) {
       if (c[i].id == "opclass") {
@@ -173,6 +184,9 @@ export class ClasslistComponent implements OnInit {
     this.ifactivity = true;
     this.ifchapter = false;
     this.ifclass = false;
+    this.iflab = false;
+    this.acttype = 1;//default 1 for lecture
+    this.getactivity(this.acttype);
     let c = document.getElementsByClassName("opt");
     for (let i = 0; i < c.length; i++) {
       if (c[i].id == "opactivity") {
@@ -199,10 +213,45 @@ export class ClasslistComponent implements OnInit {
     }
   }
 
+
+  labact(event) {
+    this.ifactivity = false;
+    this.ifchapter = false;
+    this.ifclass = false;
+    this.iflab = true;
+    this.acttype = 2;//default 2 for laboratory
+    this.getactivity(this.acttype);
+    let c = document.getElementsByClassName("opt");
+    for (let i = 0; i < c.length; i++) {
+      if (c[i].id == "oplaboratory") {
+        if (!c[i].classList.contains("underline")) {
+          c[i].classList.add("underline");
+        }
+      } else {
+        if (c[i].classList.contains("underline")) {
+          c[i].classList.remove("underline");
+        }
+      }
+    }
+    let e = document.getElementsByClassName("carousel-item");
+    for (let i = 0; i < e.length; i++) {
+      if (e[i].id == "laboratory") {
+        if (!e[i].classList.contains("active")) {
+          e[i].classList.add("active");
+        }
+      } else {
+        if (e[i].classList.contains("active")) {
+          e[i].classList.remove("active");
+        }
+      }
+    }
+  }
+
   chapteract(event) {
     this.ifactivity = false;
     this.ifchapter = true;
     this.ifclass = false;
+    this.iflab = false;
     let c = document.getElementsByClassName("opt");
     for (let i = 0; i < c.length; i++) {
       if (c[i].id == "opchapter") {
@@ -232,6 +281,9 @@ export class ClasslistComponent implements OnInit {
 
 
   selectactivity(activity: any) {
+    this.acstart = null;
+    this.acend = null;
+    this.acslc = null;
     this.filter = [];
     //this.acttype = 1;//default to lecture every open of activity
     //this.acttypedesc = 'Lecture';//default to lecture every open of activity
@@ -264,53 +316,54 @@ export class ClasslistComponent implements OnInit {
       }
     });
     this.profactsslc = this.profacts.filter(a => a.activity == activity);*/
-    this.service.listactivity(this.acttype).subscribe(res => {
-      this.acts = res;
-      this.profacts = [];
-      this.service.getprofactivity(this.acttype).subscribe(res => {
-        this.profacts = res;
-        let all = [];
-        this.blocks.forEach(s => {
-          let list = [];
-          list = this.profacts.filter(a => a.section == s.id);
-          all.push(...list);
-        });
-        this.profacts = all;
-
-        this.filter = [];
-        this.selectacts = this.acts.find(a => a.id == this.selectedactivity);
-        if (this.selectacts == undefined) {
-          this.selectacts = new Activity;
-        }
-        this.blocks.forEach(s => {
-          let b = new Profactivity;
-          b.section = s.id;
-          b.section_code = s.code;
-          this.filter.push(b);
-        });
-        this.profacts.forEach(p => {
-          if (p.activity == this.selectedactivity) {
-            this.filter.forEach(f => {
-              if (p.section == f.section) {
-                f.activity = p.activity;
-                f.activity_name = p.activity_name;
-                f.id = p.id;
-                f.start = p.start;
-                f.end = p.end;
-              } else {
-                f.activity = this.selectedactivity;
-              }
-
-            });
-          }
-        });
-      }, err => {
-        console.log(err);
+    /*this.service.listactivity(this.acttype).subscribe(res => {
+      this.acts = res;*/
+    this.profacts = [];
+    this.service.getprofactivity(this.acttype).subscribe(res => {
+      this.profacts = res;
+      let all = [];
+      this.blocks.forEach(s => {
+        let list = [];
+        list = this.profacts.filter(a => a.section == s.id);
+        all.push(...list);
       });
-      this.profactsslc = this.profacts.filter(a => a.activity == this.selectedactivity);
+      this.profacts = all;
+
+      this.filter = [];
+      this.selectacts = this.acts.find(a => a.id == this.selectedactivity);
+      if (this.selectacts == undefined) {
+        this.selectacts = new Activity;
+      }
+      this.blocks.forEach(s => {
+        let b = new Profactivity;
+        b.section = s.id;
+        b.section_code = s.code;
+        this.filter.push(b);
+      });
+      this.profacts.forEach(p => {
+        if (p.activity == this.selectedactivity) {
+          this.filter.forEach(f => {
+            if (p.section == f.section) {
+              f.activity = p.activity;
+              f.activity_name = p.activity_name;
+              f.id = p.id;
+              f.start = p.start;
+              f.end = p.end;
+            } else {
+              f.activity = this.selectedactivity;
+            }
+
+          });
+        }
+      });
     }, err => {
       console.log(err);
     });
+    this.profactsslc = this.profacts.filter(a => a.activity == this.selectedactivity);
+    console.log(this.profactsslc);
+    /*}, err => {
+      console.log(err);
+    });*/
   }
 
 
@@ -373,6 +426,7 @@ export class ClasslistComponent implements OnInit {
     if (s.id != undefined) {
       sched.id = s.id;
     }
+    console.log(sched);
     this.service.setprofactivity(sched, this.acttype).subscribe(res => {
       if (res != undefined && res != null) {
         this.getactivity(this.acttype);
@@ -414,6 +468,7 @@ export class ClasslistComponent implements OnInit {
   getchapters() {
     this.service.listchapters(null).subscribe(res => {
       this.list = res;
+      this.list.sort((a, b) => (a.id > b.id) ? 1 : -1);
     }, err => {
       console.log(err);
     });
