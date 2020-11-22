@@ -20,11 +20,26 @@ export class FilecheckingComponent implements OnInit {
 
   sections: Block[];
   activities: Activity[];
+  acttype: any[];
+  acttypeslc: any;
+  activityslc: any;
 
   ngOnInit(): void {
-    this.getactivity(1);//lecture
-    //this.getactivity(2);//laboratory
+    this.acttypeslc = 'Activity Type';
+    this.activityslc = 'Activity';
+    this.getactivitytype();
     this.getsections();
+  }
+
+
+  getactivitytype() {
+    this.acttype = [];
+    this.acttypeslc = 'Activity Type';
+    this.service.getactivitytype().subscribe(res => {
+      this.acttype = res;
+    }, err => {
+      console.log(err);
+    });
   }
 
   getsections() {
@@ -33,16 +48,28 @@ export class FilecheckingComponent implements OnInit {
       this.sections = this.sections.filter(s => s.user == sessionStorage.getItem('userid'));
     }, err => {
       console.log(err);
-      //toast error
     });
   }
 
-  getactivity(type) {
-    this.service.listactivity(type).subscribe(res => {
-      this.activities = res;
-    }, err => {
-      console.log(err);
-      //toast error 
-    });
+  getactivity() {
+    this.activities = [];
+    if (this.acttypeslc != 'Activity Type') {
+      this.service.listactivity(this.acttypeslc).subscribe(res => {
+        this.activities = res;
+      }, err => {
+        console.log(err);
+      });
+    }
+  }
+
+
+  getsubmission() {
+    if (this.activityslc != 'Activity') {
+      this.service.getsubmitted(this.activityslc).subscribe(res => {
+        console.log(res);
+      }, err => {
+        console.log(err);
+      });
+    }
   }
 }

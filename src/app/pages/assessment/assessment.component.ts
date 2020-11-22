@@ -88,6 +88,7 @@ export class AssessmentComponent implements OnInit {
   getsubmittedanswers(activityid) {
     this.service.getsubmitted(activityid).subscribe(res => {
       this.answers = res;
+      console.log(this.answers);
       this.answers.forEach(a => {
         this.questions.forEach(q => {
           if (q.id == a.question) {
