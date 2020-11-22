@@ -150,7 +150,15 @@ export class ApiService {
   }
 
   getsubmitted(activityid) {
-    return this.http.get<any>(this.API + "/api/student/summary/" + activityid + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+    return this.http.get<any>(this.API + "/api/student/update/" + activityid + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
+  getpassedwork(sectionid, activityid) {
+    return this.http.get<any>(this.API + "/api/student/summary/" + sectionid + "/" + activityid + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
+  encodegrade(param, activityid) {
+    return this.http.post<any>(this.API + "/api/student/update/" + activityid + "/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
 }

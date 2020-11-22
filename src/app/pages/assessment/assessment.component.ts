@@ -88,7 +88,6 @@ export class AssessmentComponent implements OnInit {
   getsubmittedanswers(activityid) {
     this.service.getsubmitted(activityid).subscribe(res => {
       this.answers = res;
-      console.log(this.answers);
       this.answers.forEach(a => {
         this.questions.forEach(q => {
           if (q.id == a.question) {
@@ -113,7 +112,7 @@ export class AssessmentComponent implements OnInit {
     formdata.append('question', question.id);
     formdata.append('student', sessionStorage.getItem('userid'));
     if (question.q_type == "CODE") {
-      formdata.append('table_filename', question.table_filename, question.table_filename.name);
+      formdata.append('code_file', question.table_filename, question.table_filename.name);
     }
     if (question.q_type == "IDENT") {
       formdata.append('answer', question.answer);
