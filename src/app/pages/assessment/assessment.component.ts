@@ -21,12 +21,14 @@ export class AssessmentComponent implements OnInit {
   questions: any[];
   questions2: any[];
   activityid: any;
+  answers: any[];
 
   fileToUpload: File = null;
 
   ngOnInit(): void {
     this.fileToUpload = null;
     this.questions = [];
+    this.answers = [];
     this.act = new Activity;
     this.activatedRoute.paramMap.subscribe(param => {
       if (param.get('id') != sessionStorage.getItem('tempactivity')) {
@@ -41,7 +43,6 @@ export class AssessmentComponent implements OnInit {
   getactivity(id) {
     this.service.getactivity(id).subscribe(res => {
       this.act = res;
-      console.log(this.act);
     }, err => {
       console.log(err);
     });
@@ -77,15 +78,26 @@ export class AssessmentComponent implements OnInit {
         }
       });
       this.questions.sort((a, b) => (a.number > b.number) ? 1 : -1);
+      this.getsubmittedanswers(activityid);
     }, err => {
       console.log(err);
-      //toast error message
     });
   }
 
 
-  getsubmittedanswers() {
-
+  getsubmittedanswers(activityid) {
+    this.service.getsubmitted(activityid).subscribe(res => {
+      this.answers = res;
+      this.answers.forEach(a => {
+        this.questions.forEach(q => {
+          if (q.id == a.question) {
+            this.questions.splice(this.questions.indexOf(q), 1);
+          }
+        });
+      });
+    }, err => {
+      console.log(err);
+    });
   }
 
 
@@ -106,20 +118,11 @@ export class AssessmentComponent implements OnInit {
       formdata.append('answer', question.answer);
     }
     this.service.submitactivity(formdata, this.activityid).subscribe(res => {
-      console.log(res);
+      this.getquestions(this.activityid);
+      //toast submitted answer
     }, err => {
       console.log(err);
     });
-    /* let param: any[] = [];
-     this.questions.forEach(q => {
-       param.push({ question: q.number, answer: q.answer });
-     });
-     console.log(param);
-     this.service.submitactivity(param, this.act.id).subscribe(res => {
-       console.log(res);
-     }, err => {
-       console.log(err);
-     });*/
   }
 
 }

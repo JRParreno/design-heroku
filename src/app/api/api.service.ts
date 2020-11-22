@@ -82,7 +82,6 @@ export class ApiService {
   }
 
   getquestionsperactivity(activityid: string) {
-    //return (object/class)questions[] : list
     return this.http.get<any>(this.API + "/api/question/list/" + activityid + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
@@ -118,16 +117,13 @@ export class ApiService {
     return this.http.get<any>(this.API + "/api/activity/viewset/" + type + "/" + id + "/prof_activity/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
-
   setprofactivity(param, type) {
     return this.http.post<any>(this.API + "/api/activity/viewset/" + type + "/prof_activity/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
-
   editprofactivity(param) {
     return this.http.put<any>(this.API + "/api/activity/viewset/prof_activity/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
-
 
   savefeedback(param, id) {
     return this.http.post<any>(this.API + "/api/chapter/feedback/" + id + "/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
@@ -145,13 +141,16 @@ export class ApiService {
     return this.http.post<any>(this.API + "/api/request-reset-email/", param);
   }
 
-
   listchapters(id) {
     if (id != null) {
       return this.http.get<any>(this.API + "/api/chapter/viewset/list/" + id + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
     } else {
       return this.http.get<any>(this.API + "/api/chapter/viewset/list/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
     }
+  }
+
+  getsubmitted(activityid) {
+    return this.http.get<any>(this.API + "/api/student/summary/" + activityid + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
 }

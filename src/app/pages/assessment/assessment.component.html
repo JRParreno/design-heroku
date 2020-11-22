@@ -6,7 +6,7 @@
             <p class="card-text">Answer carefully</p>
             <div id="Carousel2" class="carousel slide shadow-inset border border-light p-4 rounded" data-interval="false">
                 <div class="carousel-inner rounded question-panel">
-                    <div *ngFor="let i of questions" class="carousel-item" [ngClass]="{'active': i.number == 1}">
+                    <div *ngFor="let i of questions; let ind = index" class="carousel-item" [ngClass]="{'active': ind == 0}">
                         {{i.number}}.){{i.question_name}}
                         <br>
                         <br>
