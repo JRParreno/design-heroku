@@ -20,6 +20,7 @@ export class AssessmentComponent implements OnInit {
   act: Activity;
   questions: any[];
   questions2: any[];
+  activityid: any;
 
   fileToUpload: File = null;
 
@@ -32,29 +33,31 @@ export class AssessmentComponent implements OnInit {
         this.router.navigate(["/student/home/activity"]);
       } else {
         this.getquestions(param.get('id'));
+        this.activityid = param.get('id');
       }
     });
   }
 
-  /*getactivity() {
-    this.service.getactivity(1).subscribe(res => {
+  getactivity(id) {
+    this.service.getactivity(id).subscribe(res => {
       this.act = res;
-      this.getquestions();
+      console.log(this.act);
     }, err => {
       console.log(err);
     });
-  }*/
+  }
 
-  handleFileInput(files: FileList) {
+  handleFileInput(files: FileList, question) {
     this.fileToUpload = files.item(0);
-    let s = new Submission;
+    /*let s = new Submission;
     s.question = 1;
     s.student = 13;
-    s.table_image = this.fileToUpload;
+    s.table_image = this.fileToUpload;*/
+    question.table_filename = this.fileToUpload;
     const f: FormData = new FormData();
     f.append('table_image', this.fileToUpload, this.fileToUpload.name);
-    f.append('question', s.question);
-    f.append('student', s.student);
+    /*f.append('question', s.question);
+    f.append('student', s.student);*/
     /*this.service.submitactivity(f, 1).subscribe(res => {
       console.log(res);
     }, err => {
@@ -69,7 +72,6 @@ export class AssessmentComponent implements OnInit {
       this.questions = res;
       this.questions2 = res;
       this.questions.forEach(q => {
-        console.log(q);
         if (q.q_type == "IDENT") {
           q.answer = '';
         }
@@ -81,17 +83,43 @@ export class AssessmentComponent implements OnInit {
     });
   }
 
-  submit() {
-    let param: any[] = [];
-    this.questions.forEach(q => {
-      param.push({ question: q.number, answer: q.answer });
-    });
-    console.log(param);
-    /*this.service.submitactivity(param, this.act.id).subscribe(res => {
+
+  getsubmittedanswers() {
+
+  }
+
+
+  removefile(question) {
+    if (question.table_filename != undefined && question.table_filename != null && question.table_filename != '') {
+      question.table_filename = null;
+    }
+  }
+
+  submit(question) {
+    const formdata: FormData = new FormData();
+    formdata.append('question', question.id);
+    formdata.append('student', sessionStorage.getItem('userid'));
+    if (question.q_type == "CODE") {
+      formdata.append('table_filename', question.table_filename, question.table_filename.name);
+    }
+    if (question.q_type == "IDENT") {
+      formdata.append('answer', question.answer);
+    }
+    this.service.submitactivity(formdata, this.activityid).subscribe(res => {
       console.log(res);
     }, err => {
       console.log(err);
-    });*/
+    });
+    /* let param: any[] = [];
+     this.questions.forEach(q => {
+       param.push({ question: q.number, answer: q.answer });
+     });
+     console.log(param);
+     this.service.submitactivity(param, this.act.id).subscribe(res => {
+       console.log(res);
+     }, err => {
+       console.log(err);
+     });*/
   }
 
 }
