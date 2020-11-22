@@ -1,11 +1,12 @@
 <div class="layout">
 
     <div class=" ui-fluid p-grid red">
-        <div *ngFor="let i of list" class="p-col-12 p-md-3" [ngClass]="{'locked': i.locked}">
+        <div *ngFor="let i of list" class="p-col-12 p-md-3">
             <a data-toggle="modal" data-target="#modal-default-act" data-backdrop="static" data-keyboard="false" (click)="selectchapter(i.id)">
                 <div class="card bg-primary border-light shadow-soft">
                     <div class="box center card-body">
                         <p class="icon card-title mt-3"><span class="fas fa-clipboard mr-2"></span></p>
+                        <p class="card-text lbl">CHAPTER ACTIVITY</p>
                         <p class="card-text lbl">{{i.note}}</p>
                         <!--<p class="cdesc">Start: {{i.start | date: 'short'}} <br> Due: {{i.end | date: 'short'}}
                                 <br><b>Score: 20/20</b></p>-->
@@ -25,18 +26,19 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div *ngFor="let i of actsslc" class="col-12 col-md-12">
+                    <a *ngFor="let i of schedacts" class="col-12 col-md-12" [ngClass]="{'locked': i.locked}" (click)="gotoactivity(i.activity, i.activity_type)">
                         <!--<a>{{i.activity_name}}</a>-->
                         <div class="card bg-primary shadow-soft text-center border-light card-modal">
                             <div class="card-header box-modal">
-                                <span class="card-text small"><span class="far fa-calendar-alt mr-2"></span>15 March 2020
+                                <span class="card-text small"><span
+                                        class="far fa-calendar-alt mr-2"></span>{{i.start | date: 'mediumDate'}} - {{i.end | date: 'mediumDate'}}
                                 </span>
                             </div>
                             <div class="card-body">
                                 <p class="card-text">{{i.activity_name}}</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <div class="modal-footer">

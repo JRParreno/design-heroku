@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api/api.service';
 import { Activity } from 'src/app/classes/activity';
 import { Question } from 'src/app/classes/question';
@@ -10,12 +11,15 @@ import { Question } from 'src/app/classes/question';
 })
 export class AssessmentComponent implements OnInit {
 
-  constructor(private service: ApiService,
+  constructor(
+    private router: Router,
+    private service: ApiService,
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   act: Activity;
-  questions: Question[];
-  questions2: Question[];
+  questions: any[];
+  questions2: any[];
 
   fileToUpload: File = null;
 
@@ -23,17 +27,23 @@ export class AssessmentComponent implements OnInit {
     this.fileToUpload = null;
     this.questions = [];
     this.act = new Activity;
-    this.getactivity();
+    this.activatedRoute.paramMap.subscribe(param => {
+      if (param.get('id') != sessionStorage.getItem('tempactivity')) {
+        this.router.navigate(["/student/home/activity"]);
+      } else {
+        this.getquestions(param.get('id'));
+      }
+    });
   }
 
-  getactivity() {
+  /*getactivity() {
     this.service.getactivity(1).subscribe(res => {
       this.act = res;
       this.getquestions();
     }, err => {
       console.log(err);
     });
-  }
+  }*/
 
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
@@ -45,24 +55,26 @@ export class AssessmentComponent implements OnInit {
     f.append('table_image', this.fileToUpload, this.fileToUpload.name);
     f.append('question', s.question);
     f.append('student', s.student);
-    this.service.submitactivity(f, 1).subscribe(res => {
+    /*this.service.submitactivity(f, 1).subscribe(res => {
       console.log(res);
     }, err => {
       console.log(err);
-    });
+    });*/
   }
 
 
 
-  getquestions() {
-    this.service.getquestionsperactivity(this.act.id).subscribe(res => {
+  getquestions(activityid) {
+    this.service.getquestionsperactivity(activityid).subscribe(res => {
       this.questions = res;
       this.questions2 = res;
       this.questions.forEach(q => {
+        console.log(q);
         if (q.q_type == "IDENT") {
           q.answer = '';
         }
       });
+      this.questions.sort((a, b) => (a.number > b.number) ? 1 : -1);
     }, err => {
       console.log(err);
       //toast error message

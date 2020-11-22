@@ -15,9 +15,9 @@
 }
 
 .inputs {
-    width: 30%;
+    width: 100%;
 }
 
-.palegreen {
-    padding-bottom: 0;
+.question-panel {
+    padding: 0 10%;
 }

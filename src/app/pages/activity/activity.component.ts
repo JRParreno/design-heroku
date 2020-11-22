@@ -1,5 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api/api.service';
 import { Activity } from 'src/app/classes/activity';
 import { Block } from 'src/app/classes/block';
@@ -16,6 +17,7 @@ export class ActivityComponent implements OnInit {
 
   constructor(
     private service: ApiService,
+    private router: Router,
   ) { }
 
   questions: Question[];
@@ -36,9 +38,14 @@ export class ActivityComponent implements OnInit {
   allacts: any[];
   actsslc: any[];
 
+  studentacts: any[];
+  schedacts: any[];
+
   section: Block;
 
   ngOnInit(): void {
+    this.schedacts = [];
+    this.studentacts = [];
     this.section = new Block;
     this.blocks = [];
     this.studentactivity = [];
@@ -51,6 +58,7 @@ export class ActivityComponent implements OnInit {
   getchapters() {
     this.service.listchapters(null).subscribe(res => {
       this.list = res;
+      this.list.sort((a, b) => (a.id > b.id) ? 1 : -1);
       this.getactivitytype();
     }, err => {
       console.log(err);
@@ -63,6 +71,12 @@ export class ActivityComponent implements OnInit {
     this.service.getactivitytype().subscribe(res => {
       this.acttype = res;
       this.acttype.forEach(i => {
+        this.service.getstudentactivitysched(i.id).subscribe(res => {
+          this.studentacts = [...this.studentacts, ...res];
+        }, err => {
+          console.log(err);
+        });
+
         this.service.listactivity(i.id).subscribe(res => {
           this.allacts = [...this.allacts, ...res];
         }, err => {
@@ -76,7 +90,32 @@ export class ActivityComponent implements OnInit {
 
 
   selectchapter(id) {
+    this.schedacts = [];
+    this.actsslc = [];
     this.actsslc = this.allacts.filter(i => i.chapter == id);
+    if (this.actsslc.length > 0) {
+      this.actsslc.forEach(i => {
+        let activities = this.studentacts.filter(a => a.chapter == i.chapter && a.activity_name == i.activity_name && a.activity_type == i.activity_type);
+        this.schedacts = [...this.schedacts, ...activities];
+      });
+      this.schedacts.forEach(s => {
+        let start = new Date(s.start).setHours(0, 0, 0, 0);
+        let end = new Date(s.end).setHours(0, 0, 0, 0);
+        let current = new Date().setHours(0, 0, 0, 0);
+        if (start <= current && end > current) {
+          s.locked = false;
+        } else {
+          s.locked = true;
+        }
+      });
+    }
+  }
+
+  gotoactivity(id, type) {
+    sessionStorage.setItem('tempactivity', id);
+    let d = document.getElementById('secmodalcls');
+    d.click();
+    this.router.navigate(["/student/home/assessment/" + type + "/" + id + "/"]);
   }
 
 

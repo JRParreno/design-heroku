@@ -360,7 +360,6 @@ export class ClasslistComponent implements OnInit {
       console.log(err);
     });
     this.profactsslc = this.profacts.filter(a => a.activity == this.selectedactivity);
-    console.log(this.profactsslc);
     /*}, err => {
       console.log(err);
     });*/
@@ -378,6 +377,7 @@ export class ClasslistComponent implements OnInit {
     this.acts = [];
     this.service.listactivity(type).subscribe(res => {
       this.acts = res;
+      this.acts.sort((a, b) => (a.id > b.id) ? 1 : -1);
       this.getprofactivity(type);
     }, err => {
       console.log(err);
@@ -426,7 +426,6 @@ export class ClasslistComponent implements OnInit {
     if (s.id != undefined) {
       sched.id = s.id;
     }
-    console.log(sched);
     this.service.setprofactivity(sched, this.acttype).subscribe(res => {
       if (res != undefined && res != null) {
         this.getactivity(this.acttype);

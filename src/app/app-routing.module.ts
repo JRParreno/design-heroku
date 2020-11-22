@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ActivityopenService } from './api/activityopen.service';
 import { StudentauthService } from './api/studentauth.service';
 
 import { UserauthService } from './api/userauth.service';
@@ -56,7 +57,7 @@ const routes: Routes = [
           { path: "", component: StudenthomeComponent },
           { path: "modules", component: BookmodulesComponent },
           { path: "activity", component: ActivityComponent },
-          { path: "assessment", component: AssessmentComponent },
+          { path: "assessment/:type/:id", component: AssessmentComponent, canActivate: [ActivityopenService] },
           { path: "chapter/:id", component: ChapterComponent },
           { path: "profile", component: StudentprofileComponent },
           { path: "record", component: AssessmentrecordComponent },

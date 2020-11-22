@@ -112,7 +112,10 @@ export class ApiService {
 
   getstudentactivitysched(type) {
     return this.http.get<any>(this.API + "/api/activity/student/" + type + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
 
+  getprofactivityperid(type, id) {
+    return this.http.get<any>(this.API + "/api/activity/viewset/" + type + "/" + id + "/prof_activity/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
 

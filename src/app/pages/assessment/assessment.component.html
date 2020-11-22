@@ -4,11 +4,38 @@
             <span class="h6 icon-tertiary small"><span class="fas fa-pencil-alt mr-2"></span>Assembly Language</span>
             <h3 class="h5 card-title mt-3">{{act.activity_name}}</h3>
             <p class="card-text">Answer carefully</p>
-            <div class="accordion shadow-soft rounded">
-                <!--<div class="form-group inputs">
-                    <input type="file" class="custom-file-input" id="customFile" (change)="handleFileInput($event.target.files)">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
-                </div>-->
+            <div id="Carousel2" class="carousel slide shadow-inset border border-light p-4 rounded" data-interval="false">
+                <div class="carousel-inner rounded question-panel">
+                    <div *ngFor="let i of questions" class="carousel-item" [ngClass]="{'active': i.number == 1}">
+                        {{i.number}}.){{i.question_name}}
+                        <br>
+                        <br>
+                        <div *ngIf="i.q_type == 'IDENT'" class="form-group inputs">
+                            <input type="text" class="form-control" [(ngModel)]="i.answer" name="i.answer">
+                        </div>
+                        <button type="button" class="btn btn-primary text-success" aria-haspopup="true" aria-expanded="false" (click)="submit()">
+                        Submit
+                    </button>
+                        <br>
+                        <br>
+                    </div>
+                    <!--<div class="carousel-item">
+                        test2
+                    </div>
+                    <div class="carousel-item">
+                        test3
+                    </div>-->
+                </div>
+                <a class="carousel-control-prev" href="#Carousel2" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#Carousel2" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!--<div class="accordion shadow-soft rounded">
                 <div *ngFor="let i of questions" class="card card-sm card-body bg-primary border-light">
                     <a href="{{'#panel-' + i.number}}" data-target="{{'#panel-' + i.number}}" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
                         <span class="h6 mb-0 font-weight-bold">{{i.number}} {{i.question_name}}</span>
@@ -32,9 +59,10 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="right btn btn-primary text-success" aria-haspopup="true" aria-expanded="false" (click)="submit()">
+            <button type="button" class="right btn btn-primary text-success" aria-haspopup="true" aria-expanded="false"
+                (click)="submit()">
                 Submit
-            </button>
+            </button>-->
         </div>
     </div>
 </div>

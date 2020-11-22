@@ -188,8 +188,8 @@
                     <tr *ngFor="let i of filter">
                         <td headers="block">{{i.section_code}}</td>
                         <td headers="activitytype">{{acttypedesc}}</td>
-                        <td headers="start">{{i.start}}</td>
-                        <td headers="end">{{i.end}}</td>
+                        <td headers="start">{{i.start | date: 'mediumDate'}}</td>
+                        <td headers="end">{{i.end | date: 'mediumDate'}}</td>
                     </tr>
                 </table>
             </div>
