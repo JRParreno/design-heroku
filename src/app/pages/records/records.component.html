@@ -4,7 +4,7 @@
             <div class="btn-group mb-2s mr-2 b">
                 <select class="custom-select my-1 mr-sm-2" [(ngModel)]="sectionslc" (change)="bysection()">
                     <option selected>Section</option>
-                    <option *ngFor="let b of blocks" value="{{b.code}}">{{b.code}}</option>
+                    <option *ngFor="let b of blocks" value="{{b.id}}">{{b.code}}</option>
                 </select>
             </div>
         </div>
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="p-col-12 p-md-3 button-print">
-            <button class="btn btn-primary mr-3" type="button">
+            <button [disabled]="activityslc == 'Activity' || sectionslc == 'Section'" class="btn btn-primary mr-3" type="button">
                 <span class="mr-1"><span class="fas fa-file-download"></span></span>
                 Download
             </button>
@@ -32,13 +32,13 @@
                 <th class="border-0 txt-center" scope="col" id="block">Student No</th>
                 <th class="border-0 txt-center" scope="col" id="block">Block</th>
                 <th class="border-0" scope="col" id="name">Name</th>
-                <th *ngFor="let a of activity" class="border-0 txt-center" scope="col" id="act">Activity {{a.id}}</th>
+                <th *ngFor="let a of activity" class="border-0 txt-center" scope="col" id="act">{{a.activity_name}}</th>
             </tr>
             <tr *ngFor="let i of studentlist">
-                <td class="txt-center">{{i.student_number}}</td>
-                <td class="txt-center">{{i.section}}</td>
-                <td>Juan Dela Cruz</td>
-                <td *ngFor="let a of activity" class="txt-center">50/50</td>
+                <td class="txt-center">{{i.university_id}}</td>
+                <td class="txt-center">{{sectionslc}}</td>
+                <td>{{i.full_name}}</td>
+                <td *ngFor="let a of activity" class="txt-center">{{getgrade(a.id, i)}}</td>
             </tr>
         </table>
     </div>

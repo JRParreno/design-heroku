@@ -21,3 +21,14 @@
 .question-panel {
     padding: 0 10%;
 }
+
+.close {
+    display: none;
+}
+
+.hide {
+    visibility: hidden;
+    position: absolute;
+    width: 100px;
+    height: 20px;
+}

@@ -18,13 +18,15 @@ export class RecordsComponent implements OnInit {
   ) { }
 
   list: any[] = [1, 2, 3, 4, 5, 6, 7];
-  studentlist: Student[];
-  studentlist2: Student[];
+  studentlist: any[];
+  studentlist2: any[];
   student: Student;
 
   blocks: Block[];
   activity: Activity[];
   activity2: Activity[];
+
+  acttype: any[];
 
   sectionslc: any;
   activityslc: any;
@@ -38,23 +40,35 @@ export class RecordsComponent implements OnInit {
     this.activity = [];
     this.activity2 = [];
     this.getsections();
-    this.getactivity(1);//lecture
-    //this.getactivity(2);//laboratory
+    this.getactivitytype();
   }
 
   goto(path: string) {
     this.router.navigate([path]);
   }
 
-
-  getactivity(type) {
-    this.service.listactivity(type).subscribe(res => {
-      this.activity = res;
-      this.activity2 = res;
+  getactivitytype() {
+    this.acttype = [];
+    this.service.getactivitytype().subscribe(res => {
+      this.acttype = res;
+      this.activity = [];
+      this.activity2 = [];
+      this.acttype.forEach(i => {
+        this.getactivity(i.id);
+      });
     }, err => {
       console.log(err);
     });
+  }
 
+
+  getactivity(type) {
+    this.service.listactivity(type).subscribe(res => {
+      this.activity.push(...res);
+      this.activity2.push(...res);
+    }, err => {
+      console.log(err);
+    });
   }
 
 
@@ -78,9 +92,6 @@ export class RecordsComponent implements OnInit {
     this.service.getsectionlistperprof().subscribe(res => {
       this.blocks = res;
       this.blocks = this.blocks.filter(s => s.user == sessionStorage.getItem('userid'));
-      this.blocks.forEach(i => {
-        this.getallstudents(i.id);
-      });
     }, err => {
       console.log(err);
       //toast error
@@ -91,9 +102,9 @@ export class RecordsComponent implements OnInit {
 
   bysection() {
     if (this.sectionslc == 'Section') {
-      this.studentlist = this.studentlist2;
+      this.studentlist = [];
     } else {
-      this.studentlist = this.studentlist2.filter(i => i.section == this.sectionslc);
+      this.getrecords(this.sectionslc);
     }
   }
 
@@ -103,6 +114,45 @@ export class RecordsComponent implements OnInit {
       this.activity = this.activity2;
     } else {
       this.activity = this.activity2.filter(i => i.id == this.activityslc);
+      /*this.activity.forEach(a => {
+        let printjson: any[] = this.studentlist;
+        printjson.forEach(s => {
+          if (s.assesment != undefined) {
+            let ac = s.assesment.find(i => i.activity == a.id);
+            if (ac != undefined) {
+              s.activity = ac.activity;
+              s.score = ac.score;
+              s.date_taken = ac.date_taken;
+              delete s["assesment"];
+            }
+          }
+        });
+        console.log(printjson);
+      });*/
     }
+  }
+
+
+  getrecords(sectionid) {
+    this.service.getrecords(sectionid).subscribe(res => {
+      this.studentlist = res;
+      this.studentlist2 = res;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  getgrade(id, student): string {
+    let acs: any[] = student.assesment;
+    if (acs != undefined && acs.length > 0) {
+      let a = acs.find(a => { return a.activity == id });
+      if (a != undefined) {
+        return a.score;
+      } else {
+        return "NA";
+      }
+    } else {
+      return "NA";
+    };
   }
 }

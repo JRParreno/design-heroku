@@ -24,8 +24,10 @@ export class AssessmentComponent implements OnInit {
   answers: any[];
 
   fileToUpload: File = null;
+  message: string;
 
   ngOnInit(): void {
+    this.message = '';
     this.fileToUpload = null;
     this.questions = [];
     this.answers = [];
@@ -86,7 +88,7 @@ export class AssessmentComponent implements OnInit {
 
 
   getsubmittedanswers(activityid) {
-    this.service.getsubmitted(activityid).subscribe(res => {
+    this.service.getsubmitted(sessionStorage.getItem('userid'), activityid).subscribe(res => {
       this.answers = res;
       this.answers.forEach(a => {
         this.questions.forEach(q => {
@@ -119,9 +121,14 @@ export class AssessmentComponent implements OnInit {
     }
     this.service.submitactivity(formdata, this.activityid).subscribe(res => {
       this.getquestions(this.activityid);
-      //toast submitted answer
+      this.message = "Submitted!";
+      let c = document.getElementById('closereg');
+      c.click();
     }, err => {
       console.log(err);
+      this.message = "Invalid routine!";
+      let c = document.getElementById('closereg');
+      c.click();
     });
   }
 

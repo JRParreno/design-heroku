@@ -78,6 +78,7 @@ export class FilecheckingComponent implements OnInit {
       this.sectiondesc = this.sections.find(s => { return s.id == this.sectionslc; }).code;
       this.activitydesc = this.activities.find(s => { return s.id == this.activityslc; }).activity_name;
       this.service.getpassedwork(this.sectionslc, this.activityslc).subscribe(res => {
+        console.log(res);
         this.works = res;
         this.works.forEach(w => {
           if (w.submitsummary != undefined && w.submitsummary.length > 0) {
@@ -85,10 +86,8 @@ export class FilecheckingComponent implements OnInit {
               element.grade = null;
             });
           }
-          /*w.submitsummary.array.forEach(element => {
-            element.grade = null;
-          });*/
         });
+        console.log(this.works);
       }, err => {
         console.log(err);
       });
@@ -100,13 +99,14 @@ export class FilecheckingComponent implements OnInit {
     let submit: any[] = [];
     let param: any = {};
     param.question = row.question;
-    param.student = row.student;
+    //param.student = row.student;
     param.q_type = row.q_type;
-    param.id = row.id;
-    param.answer = row.answer;
-    param.assessment = { "score": +row.grade };
+    //param.id = row.id;
+    //param.answer = row.answer;
+    param.assesment = { "score": + row.grade };
     submit.push(param);
-    this.service.encodegrade(param, this.activityslc).subscribe(res => {
+    //need studentid(student- PK)
+    this.service.encodegrade(submit, this.activityslc, row.student_id).subscribe(res => {
       console.log(res);
     }, err => {
       console.log(err);

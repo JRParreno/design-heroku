@@ -110,7 +110,7 @@ export class ApiService {
   }
 
   getstudentactivitysched(type) {
-    return this.http.get<any>(this.API + "/api/activity/student/" + type + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+    return this.http.get<any>(this.API + "/api/activity/student/" + type, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
   getprofactivityperid(type, id) {
@@ -149,16 +149,24 @@ export class ApiService {
     }
   }
 
-  getsubmitted(activityid) {
-    return this.http.get<any>(this.API + "/api/student/update/" + activityid + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  getsubmitted(studentid, activityid) {
+    return this.http.get<any>(this.API + "/api/student/update/" + studentid + "/" + activityid + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
   getpassedwork(sectionid, activityid) {
     return this.http.get<any>(this.API + "/api/student/summary/" + sectionid + "/" + activityid + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
   }
 
-  encodegrade(param, activityid) {
-    return this.http.post<any>(this.API + "/api/student/update/" + activityid + "/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  encodegrade(param, activityid, studentid) {
+    return this.http.post<any>(this.API + "/api/student/update/" + studentid + "/" + activityid + "/", param, { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
+  getrecords(sectionid) {
+    if (sectionid != null) {
+      return this.http.get<any>(this.API + "/api/assesment/list/filter/" + sectionid + "/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+    } else {
+      return this.http.get<any>(this.API + "/api/assesment/list/", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+    }
   }
 
 }

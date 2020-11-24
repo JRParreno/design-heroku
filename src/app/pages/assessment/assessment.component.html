@@ -1,4 +1,6 @@
 <div class="layout">
+    <button type="button" id="closereg" data-toggle="modal" class="hide" data-dismiss="modal" data-target="#student-modal-submit" data-backdrop="static" data-keyboard="false"></button>
+
     <div class="card bg-primary border-light shadow-soft">
         <div class="card-body">
             <span class="h6 icon-tertiary small"><span class="fas fa-pencil-alt mr-2"></span>Assembly Language</span>
@@ -76,6 +78,29 @@
                 (click)="submit()">
                 Submit
             </button>-->
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="student-modal-submit" tabindex="-1" role="dialog" aria-labelledby="modal-confirm" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="h6 modal-title mb-0" id="student-modal-title-confirm"></h2>
+
+            </div>
+            <div class="modal-body">
+                <div class="row input">
+                    <div class="p col-12 col-md-12">
+                        <label class="my-1 mr-2">{{message}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Okay</button>
+            </div>
         </div>
     </div>
 </div>

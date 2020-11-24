@@ -2,30 +2,35 @@
     <h3>{{activity.activity_name}}</h3>
     <div class="tbl shadow-soft rounded">
         <table class="table">
+            <tr>
+                <th class="border-0 " scope="col" id="studentno">NUMBER</th>
+                <th class="border-0 " scope="col" id="studentno">QUESTION</th>
+                <th class="border-0" scope="col" id="name">ANSWER</th>
+            </tr>
+            <tr *ngFor="let i of questions">
+                <td>{{i.number}}</td>
+                <td>{{i.question_name}}</td>
+                <td>{{i.answer}}</td>
+            </tr>
+            <!--<tr *ngFor="let i of list">
+                <td headers="studentno">2020-100001</td>
+                <td headers="name">Juan Dela Cruz</td>
+                <td headers="det">details</td>
+            </tr>-->
+            <!--<div *ngFor="let i of questions">-->
             <!--<tr>
-            <th class="border-0 " scope="col" id="studentno">Student No.</th>
-            <th class="border-0" scope="col" id="name">Name</th>
-            <th class="border-0" scope="col" id="det">Details</th>
-        </tr>
-        <tr *ngFor="let i of list">
-            <td headers="studentno">2020-100001</td>
-            <td headers="name">Juan Dela Cruz</td>
-            <td headers="det">details</td>
-        </tr>-->
-            <div *ngFor="let i of questions">
-                <tr>
                     <th class="border-0" id="question">QUESTION</th>
-                    <th class="border-0" id="choices">CHOICES</th>
-                    <!--<th class="border-0" id="answer"></th>-->
-                </tr>
+                    <th class="border-0" id="choices">CHOICES</th>-->
+            <!--<th class="border-0" id="answer"></th>-->
+            <!--</tr>
                 <tr>
                     <td scope="row" rowspan="4">Question {{i.question_name}}</td>
                 </tr>
 
                 <tr *ngFor="let c of i.choices">
                     <td scope="row">{{c.description}}</td>
-                </tr>
-                <!--<tr>
+                </tr>-->
+            <!--<tr>
                     <th scope="row" rowspan="5">Question 1</th>
                 </tr>
                 <tr>
@@ -71,7 +76,7 @@
                     <th scope="row">choice 4</th>
                     <td> <span class="fas fa-times"></span> </td>
                 </tr>-->
-            </div>
+            <!--</div>-->
         </table>
     </div>
 

@@ -15,11 +15,13 @@ export class AssessmentrecordComponent implements OnInit {
     private service: ApiService
   ) { }
 
-  list: any[] = [1, 2, 3, 4, 5, 6, 7];
+  list: any[];
   records: Assessment[];
+  activity: any[];
 
 
   ngOnInit(): void {
+    this.getactivity();
     this.getrecords();
   }
 
@@ -28,11 +30,44 @@ export class AssessmentrecordComponent implements OnInit {
   }
 
   getrecords() {
-    /*this.service.getstudentassesments(sessionStorage.getItem('studentid')).subscribe(res => {
-      this.records = res;
+    this.list = [];
+    this.service.getrecords(sessionStorage.getItem('section')).subscribe(res => {
+      let block: any[] = res;
+      let student = block.find(i => { return i.university_id == sessionStorage.getItem('username'); });
+      if (student != undefined) {
+        this.list = student.assesment;
+        console.log(this.list);
+      }
     }, err => {
-      //toast error message
-    });*/
+      console.log(err);
+    });
+  }
+
+
+  getactivity() {
+    this.activity = [];
+    this.service.getactivitytype().subscribe(i => {
+      let act: any[] = i;
+      act.forEach(a => {
+        this.service.listactivity(a.id).subscribe(res => {
+          this.activity.push(...res);
+        }, err => {
+          console.log(err);
+        });
+      });
+    }, err => {
+      console.log(err);
+    });
+  }
+
+
+
+  getscore(activity): string {
+    let a = this.list.find(i => {
+      console.log(i);
+      return i.activity == activity.id;
+    });
+    return "NA";
   }
 
 }

@@ -29,8 +29,6 @@ export class ActivityfacultyComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(param => {
       this.activityid = param.get('id');
       this.activitytype = param.get('type');
-      console.log(this.activitytype);
-      this.getactivity();
       this.getquestions();
     });
   }
@@ -42,17 +40,18 @@ export class ActivityfacultyComponent implements OnInit {
 
   getquestions() {
     this.service.getquestionsperactivity(this.activityid).subscribe(res => {
-      console.log(res);
       this.questions = res;
-      console.log(this.questions);
-    }, err => { });
+      this.questions.sort((a, b) => (a.number > b.number) ? 1 : -1);
+    }, err => {
+      console.log(err);
+    });
   }
 
 
-  getactivity() {
+  /*getactivity() {
     this.service.getactivity(this.activityid).subscribe(res => {
       this.activity = res;
     }, err => { });
-  }
+  }*/
 
 }

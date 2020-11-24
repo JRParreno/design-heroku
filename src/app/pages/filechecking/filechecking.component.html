@@ -29,138 +29,40 @@
 
     <br>
 
-    <div *ngFor="let i of works" class="accordion shadow-soft rounded" id="accordionExample1">
+    <!--<div *ngFor="let i of works" class="accordion shadow-soft rounded" id="accordionExample1">
         <div class="card card-sm card-body bg-primary border-light mb-0">
             <div class="accordion-panel-header">
-                <div class="ui-fluid p-grid file-row">
-                    <div class="col-1"></div>
-                    <div class="col-2">
-                        <div class="inp">
-                            <label class="label-student">{{i.student_number}}</label>
-                            <button *ngFor="let s of i.submitsummary" class="btn btn-primary" type="button" (click)="openfile(s.code_file)">
-                                <b>{{s.id}}</b>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-1">
-                        <div class="inp">
-                            <label class="label-spacer">.</label>
-                            <input *ngFor="let s of i.submitsummary" class="form-control" type="text" [(ngModel)]="s.grade">
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="inp">
-                            <label class="label-student">{{i.full_name}}</label>
-                            <button *ngFor="let s of i.submitsummary" class="btn btn-primary text-success" type="button" (click)="savegrade(s)">
-                                <span class="fas fa-check"></span>
-                                Encode
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="inp">
-                            <label class="label-block">{{sectiondesc}}</label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="inp">
-                            <label class="label-block">{{activitydesc}}</label>
-                        </div>
-                    </div>
-                    <div class="col-1">
-
-                    </div>
-                </div>
+                test
+ 
             </div>
         </div>
 
-        <!--<div class="card card-sm card-body bg-primary border-light mb-0">
-            <div class="accordion-panel-header">
-                <div class="ui-fluid p-grid file-row">
-                    <div class="col-1"></div>
-                    <div class="col-2">
-                        <div class="inp">
-                            <label class="label-student">2020-100001</label>
-                            <br>
-                            <button class="btn btn-primary" type="button"> <b>file.PDF</b>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-1">
-                        <div class="inp">
-                            <label class="label-spacer">.</label>
-                            <br>
-                            <input class="form-control" type="text">
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="inp">
-                            <label class="label-student">Juan Dela Cruz</label>
-                            <br>
-                            <button class="btn btn-primary text-success" type="button">
-                                <span class="fas fa-check"></span>
-                                Encode
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="inp">
-                            <label class="label-block">CEIT-03-101</label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="inp">
-                            <label class="label-block">Activity 1</label>
-                        </div>
-                    </div>
-                    <div class="col-1"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card card-sm card-body bg-primary border-light">
-            <div class="accordion-panel-header">
-                <div class="ui-fluid p-grid file-row">
-                    <div class="col-1"></div>
-                    <div class="col-2">
-                        <div class="inp">
-                            <label class="label-student">2020-100001</label>
-                            <br>
-                            <button class="btn btn-primary" type="button"> <b>file.PDF</b>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-1">
-                        <div class="inp">
-                            <label class="label-spacer">.</label>
-                            <br>
-                            <input class="form-control" type="text">
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="inp">
-                            <label class="label-student">Juan Dela Cruz</label>
-                            <br>
-                            <button class="btn btn-primary text-success" type="button">
-                                <span class="fas fa-check"></span>
-                                Encode
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="inp">
-                            <label class="label-block">CEIT-03-101</label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="inp">
-                            <label class="label-block">Activity 1</label>
-                        </div>
-                    </div>
-                    <div class="col-1"></div>
-                </div>
-            </div>
-        </div>
     </div>-->
-
-    </div>
+    <table class="table">
+        <tr>
+            <th class="border-0" scope="col">Student No</th>
+            <th class="border-0" scope="col">Block</th>
+            <th class="border-0" scope="col">Name</th>
+            <th class="border-0" scope="col">File</th>
+            <th class="border-0" scope="col">Grade</th>
+            <th class="border-0" scope="col">Action</th>
+            <th class="border-0" scope="col">Activity</th>
+        </tr>
+        <tr *ngFor="let i of works">
+            <td>{{i.student_number}}</td>
+            <td>{{sectiondesc}}</td>
+            <td>{{i.full_name}}</td>
+            <td>
+                <button class="btn btn-primary text-dark mr-2 mb-2" type="button">filename</button>
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary text-success mr-2 mb-2" type="button" (click)="savegrade(i)">Encode</button>
+            </td>
+            <td>
+                {{activitydesc}}
+            </td>
+        </tr>
+    </table>
