@@ -26,8 +26,10 @@
         "@angular/platform-browser": "~10.1.5",
         "@angular/platform-browser-dynamic": "~10.1.5",
         "@angular/router": "~10.1.5",
+        "alasql": "^0.6.5",
         "bootstrap": "^4.5.3",
         "express": "^4.17.1",
+        "file-saver": "^2.0.5",
         "html-table-to-json": "^1.0.0",
         "path": "^0.12.7",
         "primeflex": "^2.0.0",
@@ -35,6 +37,7 @@
         "rxjs": "~6.6.0",
         "tslib": "^2.0.0",
         "typescript": "~4.0.2",
+        "xlsx": "^0.16.9",
         "zone.js": "~0.10.2"
     },
     "devDependencies": {

@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="p-col-12 p-md-3 button-print">
-            <button [disabled]="activityslc == 'Activity' || sectionslc == 'Section'" class="btn btn-primary mr-3" type="button" (click)="downloadfile()">
+            <button [disabled]="sectionslc == 'Section'" class="btn btn-primary mr-3" type="button" (click)="downloadfile()">
                 <span class="mr-1"><span class="fas fa-file-download"></span></span>
                 Download
             </button>

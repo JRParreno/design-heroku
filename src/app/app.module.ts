@@ -32,6 +32,7 @@ import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.comp
 import { FilecheckingComponent } from './pages/filechecking/filechecking.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
