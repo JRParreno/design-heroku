@@ -28,6 +28,7 @@
         "@angular/router": "~10.1.5",
         "bootstrap": "^4.5.3",
         "express": "^4.17.1",
+        "html-table-to-json": "^1.0.0",
         "path": "^0.12.7",
         "primeflex": "^2.0.0",
         "primeng": "^10.0.3",

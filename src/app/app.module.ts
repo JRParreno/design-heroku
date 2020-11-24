@@ -31,6 +31,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
 import { FilecheckingComponent } from './pages/filechecking/filechecking.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +66,7 @@ import { FilecheckingComponent } from './pages/filechecking/filechecking.compone
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

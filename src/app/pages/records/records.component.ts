@@ -5,6 +5,9 @@ import { Activity } from 'src/app/classes/activity';
 import { Block } from 'src/app/classes/block';
 import { Student } from 'src/app/classes/student';
 
+//const HtmlTableToJson = require('html-table-to-json');
+
+
 @Component({
   selector: 'app-records',
   templateUrl: './records.component.html',
@@ -21,6 +24,7 @@ export class RecordsComponent implements OnInit {
   studentlist: any[];
   studentlist2: any[];
   student: Student;
+
 
   blocks: Block[];
   activity: Activity[];
@@ -114,22 +118,13 @@ export class RecordsComponent implements OnInit {
       this.activity = this.activity2;
     } else {
       this.activity = this.activity2.filter(i => i.id == this.activityslc);
-      /*this.activity.forEach(a => {
-        let printjson: any[] = this.studentlist;
-        printjson.forEach(s => {
-          if (s.assesment != undefined) {
-            let ac = s.assesment.find(i => i.activity == a.id);
-            if (ac != undefined) {
-              s.activity = ac.activity;
-              s.score = ac.score;
-              s.date_taken = ac.date_taken;
-              delete s["assesment"];
-            }
-          }
-        });
-        console.log(printjson);
-      });*/
     }
+  }
+
+  downloadfile() {
+    let t = <HTMLTableElement>document.getElementById('recordtable');
+    let s = JSON.stringify(this.tableToJson(t));
+    console.log(this.tableToJson(t));
   }
 
 
@@ -154,5 +149,25 @@ export class RecordsComponent implements OnInit {
     } else {
       return "NA";
     };
+  }
+
+  //https://gist.github.com/johannesjo/6b11ef072a0cb467cc93a885b5a1c19f
+  tableToJson(table) {
+    var data = [];
+    // first row needs to be headers
+    var headers = [];
+    for (var i = 0; i < table.rows[0].cells.length; i++) {
+      headers[i] = table.rows[0].cells[i].innerHTML.toLowerCase().replace(/ /gi, '');
+    }
+    // go through cells
+    for (var i = 1; i < table.rows.length; i++) {
+      var tableRow = table.rows[i];
+      var rowData = {};
+      for (var j = 0; j < tableRow.cells.length; j++) {
+        rowData[headers[j]] = tableRow.cells[j].innerHTML;
+      }
+      data.push(rowData);
+    }
+    return data;
   }
 }
