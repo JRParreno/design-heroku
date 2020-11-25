@@ -32,7 +32,7 @@ export class FacultyprofileComponent implements OnInit {
     this.newpassword = '';
     this.newpassword2 = '';
     this.profile = new Professor;
-    this.changepass = false;
+    this.changepass = true;
     this.getuser();
   }
 

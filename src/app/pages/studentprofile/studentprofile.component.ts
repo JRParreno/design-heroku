@@ -30,7 +30,7 @@ export class StudentprofileComponent implements OnInit {
     this.newpassword = '';
     this.newpassword2 = '';
     this.profile = new Student;
-    this.changepass = false;
+    this.changepass = true;
     this.getdetails();
   }
 

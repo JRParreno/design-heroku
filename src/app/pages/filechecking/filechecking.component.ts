@@ -28,9 +28,11 @@ export class FilecheckingComponent implements OnInit {
   sectiondesc: any;
   activitydesc: any;
 
+  resmessage: string;
   works: any[];
 
   ngOnInit(): void {
+    this.resmessage = '';
     this.sectiondesc = '';
     this.activitydesc = '';
     this.sectionslc = 'Section';
@@ -78,7 +80,6 @@ export class FilecheckingComponent implements OnInit {
       this.sectiondesc = this.sections.find(s => { return s.id == this.sectionslc; }).code;
       this.activitydesc = this.activities.find(s => { return s.id == this.activityslc; }).activity_name;
       this.service.getpassedwork(this.sectionslc, this.activityslc).subscribe(res => {
-        console.log(res);
         this.works = res;
         this.works.forEach(w => {
           if (w.submitsummary != undefined && w.submitsummary.length > 0) {
@@ -87,7 +88,6 @@ export class FilecheckingComponent implements OnInit {
             });
           }
         });
-        console.log(this.works);
       }, err => {
         console.log(err);
       });
@@ -107,9 +107,14 @@ export class FilecheckingComponent implements OnInit {
     submit.push(param);
     //need studentid(student- PK)
     this.service.encodegrade(submit, this.activityslc, row.student_id).subscribe(res => {
-      console.log(res);
+      this.resmessage = "Activity grade recorded!";
+      let c = document.getElementById('closereg');
+      c.click();
     }, err => {
       console.log(err);
+      this.resmessage = "Invalid routine!";
+      let c = document.getElementById('closereg');
+      c.click();
     });
   }
 
