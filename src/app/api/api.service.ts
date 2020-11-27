@@ -169,4 +169,8 @@ export class ApiService {
     }
   }
 
+  getstudentgrades() {
+    return this.http.get<any>(this.API + "/api/assesment/activity", { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('access') } });
+  }
+
 }

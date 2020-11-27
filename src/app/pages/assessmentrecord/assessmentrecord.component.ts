@@ -16,6 +16,7 @@ export class AssessmentrecordComponent implements OnInit {
   ) { }
 
   list: any[];
+  grades: any[];
   records: Assessment[];
   activity: any[];
 
@@ -23,6 +24,7 @@ export class AssessmentrecordComponent implements OnInit {
   ngOnInit(): void {
     this.getactivity();
     this.getrecords();
+    this.getassessment();
   }
 
   goto(path: string) {
@@ -55,6 +57,7 @@ export class AssessmentrecordComponent implements OnInit {
           console.log(err);
         });
       });
+      console.log(this.activity);
     }, err => {
       console.log(err);
     });
@@ -63,11 +66,34 @@ export class AssessmentrecordComponent implements OnInit {
 
 
   getscore(activity): string {
-    let a = this.list.find(i => {
-      console.log(i);
-      return i.activity == activity.id;
+    let g = this.grades.find(i => { return i.activity == activity.id; });
+    if (g != undefined) {
+      return g.score;
+    } else {
+      return "NA";
+    }
+  }
+
+  getdate(activity) {
+    let g = this.grades.find(i => { return i.activity == activity.id; });
+    if (g != undefined) {
+      return g.date_taken;
+    } else {
+      return "NA";
+    }
+  }
+
+
+  getassessment() {
+    this.grades = [];
+    this.service.getstudentgrades().subscribe(res => {
+      let records: any[] = res;
+      let student = records.find(i => { return i.university_id == sessionStorage.getItem('username'); });
+      this.grades = student.assesment;
+      console.log(this.grades);
+    }, err => {
+      console.log(err);
     });
-    return "NA";
   }
 
 }

@@ -9,7 +9,7 @@
             <tr *ngFor="let i of activity">
                 <td headers="activityno">{{i.activity_name}}</td>
                 <td class="score-col" headers="score">{{ getscore(i) }}</td>
-                <td class="date-col" headers="datetaken">{{i.date_taken}}</td>
+                <td class="date-col" headers="datetaken">{{ getdate(i) }}</td>
             </tr>
         </table>
     </div>
