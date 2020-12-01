@@ -86,7 +86,7 @@ export class FilecheckingComponent implements OnInit {
             w.submitsummary.forEach(element => {
               console.log(element);
               element.grade = null;
-              if (element.points != null) {
+              if (element.points != null && element.points != 0) {
                 element.grade = element.points;
                 w.graded = true;
               } else {
