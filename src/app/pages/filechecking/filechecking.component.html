@@ -56,13 +56,14 @@
             <td>{{sectiondesc}}</td>
             <td>{{i.full_name}}</td>
             <td>
-                <button class="btn btn-primary text-dark mr-2 mb-2" type="button">filename</button>
+                <button class="btn btn-primary text-dark mr-2 mb-2" type="button" (click)="openfile(i)">Open
+                    file</button>
             </td>
             <td>
-                <input type="text" class="form-control">
+                <input [disabled]="i.graded" type="text" class="form-control" [(ngModel)]="i.grade" (change)="test(i)">
             </td>
             <td>
-                <button class="btn btn-primary text-success mr-2 mb-2" type="button" (click)="savegrade(i)">Encode</button>
+                <button [disabled]="i.graded" class="btn btn-primary text-success mr-2 mb-2" type="button" (click)="savegrade(i)">Encode</button>
             </td>
             <td>
                 {{activitydesc}}

@@ -85,6 +85,12 @@ export class FilecheckingComponent implements OnInit {
           if (w.submitsummary != undefined && w.submitsummary.length > 0) {
             w.submitsummary.forEach(element => {
               element.grade = null;
+              if (element.points != null) {
+                element.grade = element.points;
+                w.graded = true;
+              } else {
+                w.graded = false;
+              }
             });
           }
         });
@@ -99,13 +105,9 @@ export class FilecheckingComponent implements OnInit {
     let submit: any[] = [];
     let param: any = {};
     param.question = row.question;
-    //param.student = row.student;
     param.q_type = row.q_type;
-    //param.id = row.id;
-    //param.answer = row.answer;
     param.assesment = { "score": + row.grade };
     submit.push(param);
-    //need studentid(student- PK)
     this.service.encodegrade(submit, this.activityslc, row.student_id).subscribe(res => {
       this.resmessage = "Activity grade recorded!";
       let c = document.getElementById('closereg');
@@ -118,7 +120,12 @@ export class FilecheckingComponent implements OnInit {
     });
   }
 
-  openfile(link) {
-    console.log(link);
+
+  test(i) {
+    console.log(i);
+  }
+
+  openfile(i) {
+    window.open(i.submitsummary[0].code_file);
   }
 }
