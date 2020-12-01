@@ -84,17 +84,18 @@ export class FilecheckingComponent implements OnInit {
         this.works.forEach(w => {
           if (w.submitsummary != undefined && w.submitsummary.length > 0) {
             w.submitsummary.forEach(element => {
-              console.log(element);
               element.grade = null;
               if (element.points != null && element.points != 0) {
+                element.student_id = w.student_id;
                 element.grade = element.points;
-                w.graded = true;
+                element.graded = true;
               } else {
-                w.graded = false;
+                element.graded = false;
               }
             });
           }
         });
+        console.log(this.works);
       }, err => {
         console.log(err);
       });
@@ -102,15 +103,17 @@ export class FilecheckingComponent implements OnInit {
   }
 
 
-  savegrade(row) {
+  savegrade(row, i) {
     let submit: any[] = [];
     let param: any = {};
-    param.question = row.submitsummary[0].question;
-    param.q_type = row.submitsummary[0].q_type;
+    param.question = row.question;
+    param.q_type = row.q_type;
     param.assesment = { "score": + row.grade };
     submit.push(param);
+    console.log(submit);
     //console.log(submit);
-    this.service.encodegrade(submit, this.activityslc, row.student_id).subscribe(res => {
+    this.service.encodegrade(submit, this.activityslc, i.student_id).subscribe(res => {
+      this.getsubmission();
       this.resmessage = "Activity grade recorded!";
       let c = document.getElementById('closereg');
       c.click();
@@ -128,6 +131,6 @@ export class FilecheckingComponent implements OnInit {
   }
 
   openfile(i) {
-    window.open(i.submitsummary[0].code_file);
+    window.open(i.code_file);
   }
 }

@@ -44,8 +44,9 @@
     <table class="table">
         <tr>
             <th class="border-0" scope="col">Student No</th>
-            <th class="border-0" scope="col">Block</th>
+            <!--<th class="border-0" scope="col">Block</th>-->
             <th class="border-0" scope="col">Name</th>
+            <th class="border-0" scope="col">Question</th>
             <th class="border-0" scope="col">File</th>
             <th class="border-0" scope="col">Grade</th>
             <th class="border-0" scope="col">Action</th>
@@ -53,20 +54,35 @@
         </tr>
         <tr *ngFor="let i of works">
             <td>{{i.student_number}}</td>
-            <td>{{sectiondesc}}</td>
+            <!--<td>{{sectiondesc}}</td>-->
             <td>{{i.full_name}}</td>
             <td>
-                <button class="btn btn-primary text-dark mr-2 mb-2" type="button" (click)="openfile(i)">Open
-                    file</button>
+                <div *ngFor="let s of i.submitsummary">
+                    <button class="btn btn-primary text-dark mr-2 mb-2" type="button" data-toggle="tooltip" data-placement="top" title="{{s.qestion_name}}">
+                        {{s.question}}</button>
+                </div>
             </td>
             <td>
-                <input [disabled]="i.graded" type="text" class="form-control" [(ngModel)]="i.grade" (change)="test(i)">
+                <div *ngFor="let s of i.submitsummary">
+                    <button class="btn btn-primary text-dark mr-2 mb-2" type="button" (click)="openfile(s)">
+                        file</button>
+                </div>
             </td>
             <td>
-                <button [disabled]="i.graded" class="btn btn-primary text-success mr-2 mb-2" type="button" (click)="savegrade(i)">Encode</button>
+                <div *ngFor="let s of i.submitsummary">
+                    <input [disabled]="s.graded" type="text" class="form-control input" [(ngModel)]="s.grade" (change)="test(s)">
+                </div>
             </td>
             <td>
-                {{activitydesc}}
+                <div *ngFor="let s of i.submitsummary">
+                    <button [disabled]="s.graded" class="btn btn-primary text-success mr-2 mb-2" type="button" (click)="savegrade(s, i)">Encode</button>
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let s of i.submitsummary">
+                    <button class="btn btn-primary text-dark mr-2 mb-2" type="button" [disabled]="true">
+                        {{activitydesc}}</button>
+                </div>
             </td>
         </tr>
     </table>
