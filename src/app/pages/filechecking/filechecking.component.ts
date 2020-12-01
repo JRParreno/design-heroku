@@ -84,6 +84,7 @@ export class FilecheckingComponent implements OnInit {
         this.works.forEach(w => {
           if (w.submitsummary != undefined && w.submitsummary.length > 0) {
             w.submitsummary.forEach(element => {
+              console.log(element);
               element.grade = null;
               if (element.points != null) {
                 element.grade = element.points;
@@ -104,10 +105,11 @@ export class FilecheckingComponent implements OnInit {
   savegrade(row) {
     let submit: any[] = [];
     let param: any = {};
-    param.question = row.question;
-    param.q_type = row.q_type;
+    param.question = row.submitsummary[0].question;
+    param.q_type = row.submitsummary[0].q_type;
     param.assesment = { "score": + row.grade };
     submit.push(param);
+    //console.log(submit);
     this.service.encodegrade(submit, this.activityslc, row.student_id).subscribe(res => {
       this.resmessage = "Activity grade recorded!";
       let c = document.getElementById('closereg');
