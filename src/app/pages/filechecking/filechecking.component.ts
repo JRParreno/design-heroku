@@ -84,6 +84,7 @@ export class FilecheckingComponent implements OnInit {
         this.works.forEach(w => {
           if (w.submitsummary != undefined && w.submitsummary.length > 0) {
             w.submitsummary.forEach(element => {
+              console.log(element);
               element.grade = null;
               if (element.points != null && element.points != 0) {
                 element.student_id = w.student_id;
@@ -110,7 +111,6 @@ export class FilecheckingComponent implements OnInit {
     param.q_type = row.q_type;
     param.assesment = { "score": + row.grade };
     submit.push(param);
-    console.log(submit);
     //console.log(submit);
     this.service.encodegrade(submit, this.activityslc, i.student_id).subscribe(res => {
       this.getsubmission();

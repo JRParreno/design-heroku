@@ -70,7 +70,7 @@
             </td>
             <td>
                 <div *ngFor="let s of i.submitsummary">
-                    <input [disabled]="s.graded" type="text" class="form-control input" [(ngModel)]="s.grade" (change)="test(s)">
+                    <input [disabled]="s.graded" type="number" class="form-control input" [(ngModel)]="s.grade" (change)="test(s)" min="1" max="s.max_points">
                 </div>
             </td>
             <td>
