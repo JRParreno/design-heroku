@@ -245,3 +245,10 @@
 .content::-webkit-scrollbar-thumb:hover {
     background: #31344b;
 }
+
+.hide {
+    visibility: hidden;
+    position: absolute;
+    width: 100px;
+    height: 20px;
+}

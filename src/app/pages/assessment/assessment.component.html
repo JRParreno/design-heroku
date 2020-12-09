@@ -5,8 +5,8 @@
         <div class="card-body">
             <span class="h6 icon-tertiary small"><span class="fas fa-pencil-alt mr-2"></span>Assembly Language</span>
             <h3 class="h5 card-title mt-3">{{act.activity_name}}</h3>
-            <p class="card-text">Answer carefully</p>
-            <div id="Carousel2" class="carousel slide shadow-inset border border-light p-4 rounded" data-interval="false">
+            <p class="card-text">{{act.description}}</p>
+            <div *ngIf="notdone" id="Carousel2" class="carousel slide shadow-inset border border-light p-4 rounded" data-interval="false">
                 <div class="carousel-inner rounded question-panel">
                     <div *ngFor="let i of questions; let ind = index" class="carousel-item" [ngClass]="{'active': ind == 0}">
                         {{i.number}}.){{i.question_name}}

@@ -25,8 +25,10 @@ export class AssessmentComponent implements OnInit {
 
   fileToUpload: File = null;
   message: string;
+  notdone: boolean;
 
   ngOnInit(): void {
+    this.notdone = true;
     this.message = '';
     this.fileToUpload = null;
     this.questions = [];
@@ -37,14 +39,25 @@ export class AssessmentComponent implements OnInit {
         this.router.navigate(["/student/home/activity"]);
       } else {
         this.getquestions(param.get('id'));
+        this.getactivity(param.get('id'));
         this.activityid = param.get('id');
+        if (param.get('type') == 'Lecture') {
+          this.getactivity(1);
+        }
+        if (param.get('type') == 'Laboratory') {
+          this.getactivity(2);
+        }
       }
     });
   }
 
-  getactivity(id) {
-    this.service.getactivity(id).subscribe(res => {
-      this.act = res;
+  getactivity(type) {
+    this.service.listactivity(type).subscribe(res => {
+      let r: any[] = res;
+      let a = r.find(i => { return i.id == this.activityid; });
+      if (a != undefined) {
+        this.act = a;
+      }
     }, err => {
       console.log(err);
     });
@@ -96,6 +109,12 @@ export class AssessmentComponent implements OnInit {
             this.questions.splice(this.questions.indexOf(q), 1);
           }
         });
+        if (this.questions.length < 1) {
+          this.notdone = false;
+          this.message = "Activity Done!";
+          let c = document.getElementById('closereg');
+          c.click();
+        }
       });
     }, err => {
       console.log(err);

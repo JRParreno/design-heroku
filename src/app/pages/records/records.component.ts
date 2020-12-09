@@ -35,8 +35,10 @@ export class RecordsComponent implements OnInit {
 
   sectionslc: any;
   activityslc: any;
+  sectionslcdesc: any;
 
   ngOnInit(): void {
+    this.sectionslcdesc = '';
     this.activityslc = 'Activity';
     this.sectionslc = 'Section';
     this.studentlist = [];
@@ -109,6 +111,12 @@ export class RecordsComponent implements OnInit {
     if (this.sectionslc == 'Section') {
       this.studentlist = [];
     } else {
+      let c = this.blocks.find(b => { return b.id == this.sectionslc; }).code;
+      if (c != undefined) {
+        this.sectionslcdesc = c;
+      } else {
+        this.sectionslc = '';
+      }
       this.getrecords(this.sectionslc);
     }
   }
@@ -159,7 +167,11 @@ export class RecordsComponent implements OnInit {
     if (acs != undefined && acs.length > 0) {
       let a = acs.find(a => { return a.activity == id });
       if (a != undefined) {
-        return a.score;
+        if (a.score != 0 && a.score != "0") {
+          return a.score;
+        } else {
+          "Processing";
+        }
       } else {
         return "NA";
       }

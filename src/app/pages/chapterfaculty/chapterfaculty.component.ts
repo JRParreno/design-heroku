@@ -27,9 +27,11 @@ export class ChapterfacultyComponent implements OnInit {
 
   chaptername: string;
   feedback: string;
+  resmessage: string;
 
 
   ngOnInit(): void {
+    this.resmessage = '';
     this.feedback = '';
     this.url = 'Reference link will appear here if your instructor provides one';
     this.notes = 'Notes from your instructor will appear here if he/she provides one';
@@ -73,10 +75,17 @@ export class ChapterfacultyComponent implements OnInit {
     this.service.savefeedback(param, this.chapterid).subscribe(res => {
       if (res != undefined) {
         //toast post success
+        this.feedback = '';
+        this.resmessage = 'Feedback Posted.';
         this.getfeedback(this.chapterid);
+        let c = document.getElementById('closereg');
+        c.click();
       }
     }, err => {
       console.log(err);
+      this.resmessage = 'Problem posting feedback.';
+      let c = document.getElementById('closereg');
+        c.click();
     });
   }
 

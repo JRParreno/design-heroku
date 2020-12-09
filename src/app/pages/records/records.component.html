@@ -36,7 +36,7 @@
             </tr>
             <tr *ngFor="let i of studentlist">
                 <td class="txt-center">{{i.university_id}}</td>
-                <td class="txt-center">{{sectionslc}}</td>
+                <td class="txt-center">{{sectionslcdesc}}</td>
                 <td>{{i.full_name}}</td>
                 <td *ngFor="let a of activity" class="txt-center">{{getgrade(a.id, i)}}</td>
             </tr>

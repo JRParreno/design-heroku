@@ -57,7 +57,6 @@ export class AssessmentrecordComponent implements OnInit {
           console.log(err);
         });
       });
-      console.log(this.activity);
     }, err => {
       console.log(err);
     });
@@ -68,7 +67,11 @@ export class AssessmentrecordComponent implements OnInit {
   getscore(activity): string {
     let g = this.grades.find(i => { return i.activity == activity.id; });
     if (g != undefined) {
-      return g.score;
+      if (g.score != 0 && g.score != "0") {
+        return g.score;
+      } else {
+        "Processing";
+      }
     } else {
       return "NA";
     }
@@ -90,7 +93,6 @@ export class AssessmentrecordComponent implements OnInit {
       let records: any[] = res;
       let student = records.find(i => { return i.university_id == sessionStorage.getItem('username'); });
       this.grades = student.assesment;
-      console.log(this.grades);
     }, err => {
       console.log(err);
     });
