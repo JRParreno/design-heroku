@@ -24,11 +24,16 @@ export class ChapterComponent implements OnInit {
   chapterid: string;
   url: string;
   notes: string;
+  link: string;
 
   chaptername: string;
   feedback: string;
+  resmessage: string;
+
 
   ngOnInit(): void {
+    this.link = '';
+    this.resmessage = '';
     this.feedback = '';
     this.url = 'Reference link will appear here if your instructor provides one';
     this.notes = 'Notes from your instructor will appear here if he/she provides one';
@@ -44,7 +49,15 @@ export class ChapterComponent implements OnInit {
 
   listchapter(id) {
     this.service.listchapters(id).subscribe(res => {
+      let urlink: string = res.embbeded_url;
+      if (urlink != undefined && urlink != null && urlink != '') {
+        urlink = urlink.replace('watch?v=', 'embed/');
+        let f = <HTMLIFrameElement>document.getElementById('videoframe');
+        f.src = urlink;
+      }
       this.chaptername = res.filename;
+      //let f = <HTMLIFrameElement>document.getElementById('videoframe');
+      // console.log(f.src);
     }, err => {
       console.log(err);
     });
@@ -67,10 +80,19 @@ export class ChapterComponent implements OnInit {
     this.service.savefeedback(param, this.chapterid).subscribe(res => {
       if (res != undefined) {
         //toast post success
+        this.feedback = '';
+
         this.getfeedback(this.chapterid);
+        this.resmessage = 'Feedback Posted.';
+        this.getfeedback(this.chapterid);
+        let c = document.getElementById('closereg');
+        c.click();
       }
     }, err => {
       console.log(err);
+      this.resmessage = 'Problem posting feedback.';
+      let c = document.getElementById('closereg');
+      c.click();
     });
   }
 
