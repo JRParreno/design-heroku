@@ -111,7 +111,7 @@ export class AssessmentComponent implements OnInit {
         });
         if (this.questions.length < 1) {
           this.notdone = false;
-          this.message = "Activity Done!";
+          this.message = "You have completed this activity.";
           let c = document.getElementById('closereg');
           c.click();
         }

@@ -67,13 +67,13 @@ export class AssessmentrecordComponent implements OnInit {
   getscore(activity): string {
     let g = this.grades.find(i => { return i.activity == activity.id; });
     if (g != undefined) {
-      if (g.score != 0 && g.score != "0") {
-        return g.score;
-      } else {
-        "Processing";
-      }
+      //if (g.score != 0 && g.score != "0") {
+      return g.score;
+      //} else {
+      // "Processing";
+      //}
     } else {
-      return "NA";
+      return "Processing";
     }
   }
 

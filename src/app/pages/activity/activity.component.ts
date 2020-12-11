@@ -100,7 +100,7 @@ export class ActivityComponent implements OnInit {
       });
       this.schedacts.forEach(s => {
         let start = new Date(s.start).setHours(0, 0, 0, 0);
-        let end = new Date(s.end).setHours(23,59, 59, 999);
+        let end = new Date(s.end).setHours(23, 59, 59, 999);
         let current = new Date().setHours(0, 0, 0, 0);
         if (start <= current && end > current) {
           s.locked = false;
