@@ -26,8 +26,10 @@ export class AssessmentComponent implements OnInit {
   fileToUpload: File = null;
   message: string;
   notdone: boolean;
+  selected: boolean;
 
   ngOnInit(): void {
+    this.selected = false;
     this.notdone = true;
     this.message = '';
     this.fileToUpload = null;
@@ -84,6 +86,7 @@ export class AssessmentComponent implements OnInit {
 
 
   getquestions(activityid) {
+    this.notdone = true;
     this.service.getquestionsperactivity(activityid).subscribe(res => {
       this.questions = res;
       this.questions2 = res;
@@ -91,12 +94,30 @@ export class AssessmentComponent implements OnInit {
         if (q.q_type == "IDENT") {
           q.answer = '';
         }
+        if (q.q_type == "MULT") {
+          q.answer = '';
+          for (let c of q.choices) {
+            c.selected = false;
+          }
+        }
       });
       this.questions.sort((a, b) => (a.number > b.number) ? 1 : -1);
+      //console.log(this.questions);
       this.getsubmittedanswers(activityid);
     }, err => {
       console.log(err);
     });
+  }
+
+
+  selectchoice(choice, id, question) {
+    let s = <HTMLInputElement>document.getElementById(id);
+    if (s.checked) {
+      this.selected = true;
+      question.answer = choice.description;
+    } else {
+      this.selected = false;
+    }
   }
 
 
@@ -122,6 +143,13 @@ export class AssessmentComponent implements OnInit {
   }
 
 
+  closemodal() {
+    if (!this.notdone) {
+      this.router.navigate(['/student/home']);
+    }
+  }
+
+
   removefile(question) {
     if (question.table_filename != undefined && question.table_filename != null && question.table_filename != '') {
       question.table_filename = null;
@@ -138,11 +166,14 @@ export class AssessmentComponent implements OnInit {
     if (question.q_type == "IDENT") {
       formdata.append('answer', question.answer);
     }
+    if (question.q_type == "MULT") {
+      formdata.append('answer', question.answer);
+    }
     this.service.submitactivity(formdata, this.activityid).subscribe(res => {
-      this.getquestions(this.activityid);
       this.message = "Submitted!";
       let c = document.getElementById('closereg');
       c.click();
+      this.getquestions(this.activityid);
     }, err => {
       console.log(err);
       this.message = "Invalid routine!";

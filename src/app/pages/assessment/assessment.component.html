@@ -12,6 +12,16 @@
                         {{i.number}}.){{i.question_name}}
                         <br>
                         <br>
+                        <div *ngIf="i.q_type == 'MULT'" class="form-group inputs mult-choices">
+                            <fieldset>
+                                <div *ngFor="let c of i.choices" class="form-check">
+                                    <input class="form-check-input" name="{{'question' +  i.id}}" type="radio" id="{{ 'choice' + c.description}}" value="{{c.selected}}" (click)="selectchoice(c, 'choice'+c.description, i)">
+                                    <label class="form-check-label" for="{{ 'choice' + c.description}}">
+                                        {{c.description}}
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
                         <div *ngIf="i.q_type == 'IDENT'" class="form-group inputs">
                             <input type="text" class="form-control" [(ngModel)]="i.answer" name="i.answer">
                         </div>
@@ -99,7 +109,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal">Okay</button>
+                <button type="button" class="btn btn-primary text-danger" data-dismiss="modal" (click)="closemodal()">Okay</button>
             </div>
         </div>
     </div>

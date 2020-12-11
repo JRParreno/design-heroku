@@ -38,7 +38,6 @@ export class AssessmentrecordComponent implements OnInit {
       let student = block.find(i => { return i.university_id == sessionStorage.getItem('username'); });
       if (student != undefined) {
         this.list = student.assesment;
-        console.log(this.list);
       }
     }, err => {
       console.log(err);
@@ -53,6 +52,7 @@ export class AssessmentrecordComponent implements OnInit {
       act.forEach(a => {
         this.service.listactivity(a.id).subscribe(res => {
           this.activity.push(...res);
+          this.activity.sort((a, b) => (a.chapter > b.chapter) ? 1 : -1);
         }, err => {
           console.log(err);
         });
@@ -82,7 +82,7 @@ export class AssessmentrecordComponent implements OnInit {
     if (g != undefined) {
       return g.date_taken;
     } else {
-      return "NA";
+      return "Processing";
     }
   }
 

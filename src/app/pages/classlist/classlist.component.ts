@@ -377,7 +377,7 @@ export class ClasslistComponent implements OnInit {
     this.acts = [];
     this.service.listactivity(type).subscribe(res => {
       this.acts = res;
-      this.acts.sort((a, b) => (a.id > b.id) ? 1 : -1);
+      this.acts.sort((a, b) => (a.chapter > b.chapter) ? 1 : -1);
       this.getprofactivity(type);
     }, err => {
       console.log(err);
