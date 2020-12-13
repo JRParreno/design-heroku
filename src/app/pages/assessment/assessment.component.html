@@ -26,16 +26,25 @@
                             <input type="text" class="form-control" [(ngModel)]="i.answer" name="i.answer">
                         </div>
                         <div *ngIf="i.q_type == 'CODE'" class="form-group inputs">
-                            <div *ngIf="i.table_filename == undefined || i.table_filename == null || i.table_filename == ''" class="custom-file">
+                            <!--<div *ngIf="i.table_filename == undefined || i.table_filename == null || i.table_filename == ''" class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" (change)="handleFileInput($event.target.files, i)">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>-->
+                            <div *ngIf="i.table_filename != undefined && i.table_filename != null && i.table_filename != ''" class="table-question">
+                                <!--<img src="assets/LECACT9-1.JPG">-->
+                                <div class="btn btn-primary">
+                                    <img id="imgq" src="assets/{{i.table_filename}}" class="table-img">
+                                </div>
+                                <!--<button class="btn btn-primary" type="button" (click)="removefile(i)">
+                                    <img src="assets/LECACT9-1.JPG">
+                                </button>-->
+                            </div>
+
+                            <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" (change)="handleFileInput($event.target.files, i)">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
-                            <div *ngIf="i.table_filename != undefined && i.table_filename != null && i.table_filename != ''">
-                                <button class="btn btn-primary" type="button" (click)="removefile(i)">
-                                    {{i.table_filename.name}}
-                                    <span class="ml-1"><span class="fas fa-times-circle"></span></span>
-                                </button>
-                            </div>
+
                         </div>
                         <button [disabled]="(i.answer == undefined || i.answer == null || i.answer == '') && (i.table_filename == undefined || i.table_filename == null || i.table_filename == '')" type="button" class="btn btn-primary text-success" aria-haspopup="true" aria-expanded="false"
                             (click)="submit(i)">

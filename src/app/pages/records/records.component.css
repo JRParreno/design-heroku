@@ -2,6 +2,10 @@
     float: left;
 }
 
+.note {
+    margin-left: 10px;
+}
+
 .w {
     width: 100%;
     padding-bottom: 20px;

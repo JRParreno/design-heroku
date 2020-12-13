@@ -173,10 +173,10 @@ export class RecordsComponent implements OnInit {
           "Processing";
         }
       } else {
-        return "NA";
+        return "Processing";
       }
     } else {
-      return "NA";
+      return "Processing";
     };
   }
 

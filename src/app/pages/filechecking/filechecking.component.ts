@@ -76,7 +76,7 @@ export class FilecheckingComponent implements OnInit {
 
   getsubmission() {
     this.works = [];
-    if (this.activityslc != 'Activity' && this.sectionslc != 'Activity') {
+    if (this.activityslc != null && this.sectionslc != null && this.activityslc != 'Activity' && this.sectionslc != 'Section') {
       this.sectiondesc = this.sections.find(s => { return s.id == this.sectionslc; }).code;
       this.activitydesc = this.activities.find(s => { return s.id == this.activityslc; }).activity_name;
       this.service.getpassedwork(this.sectionslc, this.activityslc).subscribe(res => {
@@ -84,7 +84,6 @@ export class FilecheckingComponent implements OnInit {
         this.works.forEach(w => {
           if (w.submitsummary != undefined && w.submitsummary.length > 0) {
             w.submitsummary.forEach(element => {
-              console.log(element);
               element.grade = null;
               if (element.points != null && element.points != 0) {
                 element.student_id = w.student_id;
@@ -96,7 +95,6 @@ export class FilecheckingComponent implements OnInit {
             });
           }
         });
-        console.log(this.works);
       }, err => {
         console.log(err);
       });

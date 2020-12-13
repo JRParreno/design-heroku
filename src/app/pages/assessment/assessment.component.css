@@ -36,3 +36,13 @@
 .mult-choices {
     margin-left: 40px;
 }
+
+.table-question {
+    margin-bottom: 10px;
+}
+
+.table-img {
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

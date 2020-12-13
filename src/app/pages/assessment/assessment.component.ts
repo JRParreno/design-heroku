@@ -94,12 +94,20 @@ export class AssessmentComponent implements OnInit {
         if (q.q_type == "IDENT") {
           q.answer = '';
         }
+
         if (q.q_type == "MULT") {
           q.answer = '';
           for (let c of q.choices) {
             c.selected = false;
           }
         }
+
+        /*if (q.q_type == "CODE") {
+         if(q.table_filename != undefined &&  q.table_filename != null && q.table_filename != ''){
+           let img = <HTMLImageElement>document.getElementById('imgq');
+           img.src = 'assets/' + q.table_filename;
+         }
+        }*/
       });
       this.questions.sort((a, b) => (a.number > b.number) ? 1 : -1);
       //console.log(this.questions);
