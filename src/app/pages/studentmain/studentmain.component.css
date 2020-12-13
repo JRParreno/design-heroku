@@ -2,6 +2,10 @@
     box-shadow: 0 8px 4px -4px rgba(0, 0, 0, .2);
 }
 
+.lbl {
+    margin-left: 10px;
+}
+
 #header {
     width: 100%;
     margin-bottom: 20px;
@@ -65,8 +69,11 @@
     text-decoration: none;
     display: block;
     transition: 0.3s;
-    text-align: center;
+    text-align: left;
+    padding-left: 20px;
 }
+
+.tognav {}
 
 .sidenav a:hover {
     background-color: whitesmoke;
@@ -74,6 +81,9 @@
 
 @media screen and (max-width: 1000px) {
     div.menu {
+        display: none;
+    }
+    #tognav {
         display: none;
     }
 }

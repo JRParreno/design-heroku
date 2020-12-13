@@ -14,7 +14,10 @@ export class StudentmainComponent implements OnInit {
     private service: ApiService,
   ) { }
 
+  isnav: boolean;
+
   ngOnInit(): void {
+    this.isnav = true;
   }
 
   navigate(path: string) {
@@ -43,6 +46,19 @@ export class StudentmainComponent implements OnInit {
 
   getuserdetails() {
 
+  }
+
+  togglenav() {
+    let n = document.getElementById('sidenav');
+    if (this.isnav) {
+      n.style.width = '10em';
+      this.isnav = false;
+      return;
+    } else {
+      this.isnav = true;
+      n.style.width = '4em';
+      return;
+    }
   }
 
 

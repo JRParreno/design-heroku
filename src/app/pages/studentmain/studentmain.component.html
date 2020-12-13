@@ -25,13 +25,20 @@
 
 <div class="page-outlet">
     <div id="sidenav" class="sidenav bg-light">
-        <a routerLink="/student/home"><span class="fas fa-home"></span></a>
-        <a routerLink="/student/home/profile"><span class="fas fa-user-circle"></span></a>
-        <a routerLink="/student/home/modules"><span class="fas fa-book-reader"></span></a>
-        <a routerLink="/student/home/activity"><span class="fas fa-clipboard"></span></a>
-        <a routerLink="/student/home/record"><span class="fas fa-chart-line"></span></a>
+        <a id="tognav" (click)="togglenav()"><span class="fas fa-list"></span><label *ngIf="!isnav"
+                class="lbl">Navigation</label></a>
+        <a routerLink="/student/home"><span class="fas fa-home"></span><label *ngIf="!isnav"
+                class="lbl">Home</label></a>
+        <a routerLink="/student/home/profile"><span class="fas fa-user-circle"></span><label *ngIf="!isnav"
+                class="lbl">Profile</label></a>
+        <a routerLink="/student/home/modules"><span class="fas fa-book-reader"></span><label *ngIf="!isnav"
+                class="lbl">Chapters</label></a>
+        <a routerLink="/student/home/activity"><span class="fas fa-clipboard"></span><label *ngIf="!isnav"
+                class="lbl">Activity</label></a>
+        <a routerLink="/student/home/record"><span class="fas fa-chart-line"></span><label *ngIf="!isnav"
+                class="lbl">Scores</label></a>
         <a data-toggle="modal" data-target="#modal-default" data-backdrop="static" data-keyboard="false"><span
-                class="fas fa-sign-out-alt"></span></a>
+                class="fas fa-sign-out-alt"></span><label *ngIf="!isnav" class="lbl">Sign out</label></a>
     </div>
     <div id="routing">
         <router-outlet></router-outlet>
