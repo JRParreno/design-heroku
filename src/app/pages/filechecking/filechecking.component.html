@@ -65,7 +65,7 @@
             <td>
                 <div *ngFor="let s of i.submitsummary">
                     <button class="btn btn-primary text-dark mr-2 mb-2" type="button" data-toggle="tooltip" data-placement="top" title="{{s.qestion_name}}">
-                        {{s.number}}</button>
+                        {{s.question}}</button>
                 </div>
             </td>
             <td>
@@ -76,7 +76,7 @@
             </td>
             <td>
                 <div *ngFor="let s of i.submitsummary">
-                    <input [disabled]="s.graded" type="number" class="form-control input" [(ngModel)]="s.grade" (change)="test(s)" min="1" max="s.max_points">
+                    <input [disabled]="s.graded" type="number" class="form-control input" [(ngModel)]="s.grade" (change)="test(s)" min="1" max="{{s.max_points}}">
                 </div>
             </td>
             <td>
